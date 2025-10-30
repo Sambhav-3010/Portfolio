@@ -14,19 +14,22 @@ import {
   FolderGit,
   type LucideIcon,
   Menu,
-  Building2
+  Building2,
+  SunIcon,
+  MoonIcon
 } from "lucide-react";
 import { Link } from "react-scroll";
 
-const Navbar = (mode: { mode: string }) => {
+const Navbar = ({mode, setMode} : {mode : string, setMode: React.Dispatch<React.SetStateAction<string>>}) => {
   const [isOpen, setIsOpen] = useState(false);
   const mouseX = useMotionValue(Infinity);
 
   const navItems = [
     { title: "Home", href: "home", icon: Home },
     { title: "Experties", href: "experties", icon: BookOpenCheck },
-    { title: "Experience", href: "experience", icon: Building2},
-    { title: "Profile", href: "profile", icon: FolderGit},
+    { title: "Experience", href: "experience", icon: Building2 },
+    { title: "Profile", href: "profile", icon: FolderGit },
+    { title: "Theme", href: "theme", icon: mode === "dark" ? SunIcon : MoonIcon, onClick: () => setMode(mode === "dark" ? "light" : "dark") },
   ];
 
   return (
@@ -47,7 +50,7 @@ const Navbar = (mode: { mode: string }) => {
     >
       <div
         className={`bg-${
-          mode.mode === "dark" ? "black" : "white"
+          mode === "dark" ? "black" : "white"
         } bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-full flex items-center`}
       >
         <nav
@@ -61,7 +64,7 @@ const Navbar = (mode: { mode: string }) => {
                 key={item.title}
                 mouseX={mouseX}
                 {...item}
-                mode={mode.mode}
+                mode={mode}
               />
             ))}
           </div>
@@ -90,6 +93,7 @@ const Navbar = (mode: { mode: string }) => {
                   smooth={true}
                   duration={500}
                   className="block py-2 px-4 text-white hover:bg-white hover:bg-opacity-20 rounded-lg transition-all duration-300 cursor-pointer"
+                  onClick={item.onClick}
                 >
                   <span className="flex items-center">
                     <item.icon className="h-6 w-6" />
@@ -111,9 +115,10 @@ interface NavItemProps {
   href: string;
   icon: LucideIcon;
   mode: string;
+  onClick?: () => void;
 }
 
-const NavItem = ({ mouseX, title, href, icon: Icon, mode }: NavItemProps) => {
+const NavItem = ({ mouseX, title, href, icon: Icon, mode, onClick }: NavItemProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -144,6 +149,7 @@ const NavItem = ({ mouseX, title, href, icon: Icon, mode }: NavItemProps) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="cursor-pointer"
+      onClick={onClick}
     >
       <motion.div
         ref={ref}
@@ -155,7 +161,9 @@ const NavItem = ({ mouseX, title, href, icon: Icon, mode }: NavItemProps) => {
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
         <motion.div
-          className="absolute inset-0 flex items-center justify-center text-white"
+          className={`absolute inset-0 flex items-center justify-center ${
+            mode === "dark" ? "text-white" : "text-black"
+          }`}
           initial={{ scale: 1.2 }}
           animate={{ scale: isHovered ? 1.5 : 1.2 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
