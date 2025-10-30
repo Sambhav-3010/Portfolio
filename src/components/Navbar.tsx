@@ -48,7 +48,7 @@ const Navbar = (mode: { mode: string }) => {
       <div
         className={`bg-${
           mode.mode === "dark" ? "black" : "white"
-        } bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-full`}
+        } bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-full flex items-center`}
       >
         <nav
           className={`container mx-auto flex justify-center items-center px-4 transition-all duration-300`}

@@ -6,7 +6,7 @@ import Sambhav from "../assets/images/sambhav.jpg";
 
 function Main({ mode }: { mode: string }) {
   return (
-    <div className="w-full flex flex-col items-center justify-center min-h-screen">
+    <div id="home" className="w-full flex flex-col items-center justify-center min-h-screen">
       <div
         className={`relative flex flex-col md:flex-row gap-8 justify-center items-center w-full px-4 md:px-[10%] min-h-[700px] bg-no-repeat bg-cover bg-fixed bg-center ${
           mode === "dark" ? "bg-black/50" : "bg-white/50"

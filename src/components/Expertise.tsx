@@ -1,5 +1,3 @@
-"use client";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faReact, faDocker } from "@fortawesome/free-brands-svg-icons";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -26,15 +24,25 @@ const labelsSecond = [
   "Data Structures & Algorithms",
 ];
 
-function Expertise({mode}: {mode: string}) {
-
+function Expertise({ mode }: { mode: string }) {
   return (
     <section
-      id="expertise"
-      className={`py-20 w-full flex flex-col items-center justify-center transition-colors duration-500 ${
-        mode === "dark" ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-900"
+      id="experties"
+      className={`py-20 w-full flex flex-col items-center justify-center relative overflow-hidden transition-colors duration-500 ${
+        mode === "dark"
+          ? "bg-gray-950 text-white"
+          : "bg-gradient-to-br from-blue-50 via-white to-cyan-50 text-gray-900"
       }`}
     >
+      {/* background glow (for both modes) */}
+      <div
+        className={`absolute inset-0 -z-10 ${
+          mode === "dark"
+            ? "bg-[radial-gradient(ellipse_at_center,_rgba(0,102,255,0.15),_transparent_70%)]"
+            : "bg-[radial-gradient(ellipse_at_center,_rgba(0,174,255,0.15),_transparent_70%)]"
+        }`}
+      ></div>
+
       <div className="container mx-auto px-6 md:px-10 lg:px-20">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -47,6 +55,7 @@ function Expertise({mode}: {mode: string}) {
         </motion.h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {/* Full Stack Card */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -57,10 +66,10 @@ function Expertise({mode}: {mode: string}) {
               className={`group relative overflow-hidden border-none shadow-lg rounded-2xl p-8 transition-all duration-300 hover:shadow-2xl ${
                 mode === "dark"
                   ? "bg-gray-900 hover:bg-gray-800 text-white"
-                  : "bg-white hover:bg-gray-100"
+                  : "bg-white/80 backdrop-blur-md hover:bg-white/90"
               }`}
             >
-              <div className="absolute inset-0 bg-linear-to-br from-blue-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
               <CardHeader className="flex flex-col items-center text-center">
                 <FontAwesomeIcon
@@ -78,8 +87,8 @@ function Expertise({mode}: {mode: string}) {
               <CardContent className="text-center">
                 <p className="text-base leading-relaxed mb-6 opacity-90">
                   I develop scalable web applications using modern frameworks
-                  like Next, React and Express. My experience spans the entire
-                  SDLC from planning to deployment ensuring efficient,
+                  like Next, React, and Express. My experience spans the entire
+                  SDLC from planning to deployment, ensuring efficient and
                   maintainable codebases.
                 </p>
 
@@ -109,10 +118,10 @@ function Expertise({mode}: {mode: string}) {
               className={`group relative overflow-hidden border-none shadow-lg rounded-2xl p-8 transition-all duration-300 hover:shadow-2xl ${
                 mode === "dark"
                   ? "bg-gray-900 hover:bg-gray-800 text-white"
-                  : "bg-white hover:bg-gray-100"
+                  : "bg-white/80 backdrop-blur-md hover:bg-white/90"
               }`}
             >
-              <div className="absolute inset-0 bg-linear-to-br from-cyan-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
               <CardHeader className="flex flex-col items-center text-center">
                 <FontAwesomeIcon
@@ -131,7 +140,8 @@ function Expertise({mode}: {mode: string}) {
                 <p className="text-base leading-relaxed mb-6 opacity-90">
                   I utilize modern development tools, CI/CD practices, and
                   version control systems to optimize collaboration and
-                  streamline development workflows. My expertise includes Docker, Git, and GitHub.
+                  streamline workflows. My expertise includes Docker, Git, and
+                  GitHub.
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-2">
