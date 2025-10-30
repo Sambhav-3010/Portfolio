@@ -1,14 +1,24 @@
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
 function Footer({mode}: {mode: string}) {
   return (
-    <footer className="text-center py-[50px]">
-      <div className="[&_svg]:w-[1.1em] [&_svg]:h-[1.1em] [&_svg]:mr-[10px]">
-        <a href="https://github.com/Sambhav-3010" target="_blank" rel="noreferrer"><GitHubIcon className={`${mode === 'dark' ? 'text-white' : 'text-[#0d1116]'}`}/></a>
-        <a href="https://www.linkedin.com/in/sambhav-mani-tripathi" target="_blank" rel="noreferrer"><LinkedInIcon className={`${mode === 'dark' ? 'text-white' : 'text-[#0d1116]'}`}/></a>
+    <footer className={`text-center py-8 ${mode === 'dark' ? 'bg-[#0d1116] text-gray-400' : 'bg-[#f8f9fa] text-gray-600'}`}>
+      <div className="flex justify-center space-x-6 mb-4">
+        <a href="https://github.com/Sambhav-3010" target="_blank" rel="noreferrer" className={`${mode === 'dark' ? 'text-white hover:text-gray-300' : 'text-gray-800 hover:text-gray-600'} transition-colors duration-300`}>
+          <FontAwesomeIcon icon={faGithub} className="text-3xl" />
+        </a>
+        <a href="https://www.linkedin.com/in/sambhav-mani-tripathi" target="_blank" rel="noreferrer" className={`${mode === 'dark' ? 'text-white hover:text-gray-300' : 'text-gray-800 hover:text-gray-600'} transition-colors duration-300`}>
+          <FontAwesomeIcon icon={faLinkedinIn} className="text-3xl" />
+        </a>
       </div>
-      <p className={`text-[0.8em] ${mode === 'dark' ? 'text-white' : 'text-[#0d1116]'}`}>A portfolio designed & built by <a href="https://github.com/Sambhav-3010/Portfolio" target="_blank" rel="noreferrer" className="hover:text-[#5000ca] transition-colors duration-150 ease-in-out">Sambhav Mani Tripathi</a> with 💜</p>
+      <p className="text-sm">
+        A portfolio designed & built by{' '}
+        <a href="https://github.com/Sambhav-3010/Portfolio" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition-colors duration-300">
+          Sambhav Mani Tripathi
+        </a>{' '}
+        with 💜
+      </p>
     </footer>
   );
 }
