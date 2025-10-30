@@ -1,7 +1,8 @@
 import '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReact, faDocker} from '@fortawesome/free-brands-svg-icons';
-import Chip from "../components/ui/Chip";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const labelsFirst = [
     "Java",
@@ -31,33 +32,41 @@ function Expertise({mode}: {mode: string}) {
           Expertise
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className={`flex flex-col items-center text-center p-6 rounded-lg shadow-lg ${mode === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`}>
-            <FontAwesomeIcon icon={faReact} size="3x" className={`mb-4 ${mode === 'dark' ? 'text-blue-400' : 'text-blue-600'}`} />
-            <h3 className="text-2xl font-bold mb-3">Full Stack Web Development</h3>
-            <p className="text-base mb-6">
-              I have built a diverse array of web applications from scratch using modern technologies such as React and Flask. I have a strong proficiency in the SDLC process and frontend + backend development.
-            </p>
-            <div className="flex flex-wrap justify-center gap-2">
-              <span className={`font-semibold ${mode === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>Tech stack:</span>
-              {labelsFirst.map((label, index) => (
-                <Chip key={index} label={label} variant={mode === 'dark' ? 'blue' : 'blue-light'} />
-              ))}
-            </div>
-          </div>
+          <Card className={`flex flex-col items-center text-center p-6 rounded-lg shadow-lg ${mode === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`}>
+            <CardHeader>
+              <FontAwesomeIcon icon={faReact} size="3x" className={`mb-4 ${mode === 'dark' ? 'text-blue-400' : 'text-blue-600'}`} />
+              <CardTitle className="text-2xl font-bold mb-3">Full Stack Web Development</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-base mb-6">
+                I have built a diverse array of web applications from scratch using modern technologies such as React and Flask. I have a strong proficiency in the SDLC process and frontend + backend development.
+              </p>
+              <div className="flex flex-wrap justify-center gap-2">
+                <span className={`font-semibold ${mode === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>Tech stack:</span>
+                {labelsFirst.map((label, index) => (
+                  <Badge key={index} variant="secondary" className="bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-700 dark:text-white dark:hover:bg-blue-600">{label}</Badge>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
 
-          <div className={`flex flex-col items-center text-center p-6 rounded-lg shadow-lg ${mode === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`}>
-            <FontAwesomeIcon icon={faDocker} size="3x" className={`mb-4 ${mode === 'dark' ? 'text-cyan-400' : 'text-cyan-600'}`} />
-            <h3 className="text-2xl font-bold mb-3">Tools & Methodologies</h3>
-            <p className="text-base mb-6">
-              I am proficient in various tools and methodologies that streamline development workflows and enhance collaboration, ensuring efficient project delivery.
-            </p>
-            <div className="flex flex-wrap justify-center gap-2">
-              <span className={`font-semibold ${mode === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>Skills:</span>
-              {labelsSecond.map((label, index) => (
-                <Chip key={index} label={label} variant={mode === 'dark' ? 'cyan' : 'cyan-light'} />
-              ))}
-            </div>
-          </div>
+          <Card className={`flex flex-col items-center text-center p-6 rounded-lg shadow-lg ${mode === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`}>
+            <CardHeader>
+              <FontAwesomeIcon icon={faDocker} size="3x" className={`mb-4 ${mode === 'dark' ? 'text-cyan-400' : 'text-cyan-600'}`} />
+              <CardTitle className="text-2xl font-bold mb-3">Tools & Methodologies</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-base mb-6">
+                I am proficient in various tools and methodologies that streamline development workflows and enhance collaboration, ensuring efficient project delivery.
+              </p>
+              <div className="flex flex-wrap justify-center gap-2">
+                <span className={`font-semibold ${mode === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>Skills:</span>
+                {labelsSecond.map((label, index) => (
+                  <Badge key={index} variant="secondary" className="bg-cyan-500 text-white hover:bg-cyan-600 dark:bg-cyan-700 dark:text-white dark:hover:bg-cyan-600">{label}</Badge>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>

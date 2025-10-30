@@ -1,8 +1,7 @@
 import '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBriefcase, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
-import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 function Timeline({mode}: {mode: string}) {
   return (
@@ -11,68 +10,102 @@ function Timeline({mode}: {mode: string}) {
         <h2 className={`text-4xl font-extrabold text-center mb-12 ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}>
           My Journey
         </h2>
-        <VerticalTimeline lineColor={mode === 'dark' ? '#4a5568' : '#cbd5e0'}>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--education"
-            contentStyle={{ background: mode === 'dark' ? '#2d3748' : '#ffffff', color: mode === 'dark' ? '#ffffff' : '#2d3748', boxShadow: '0 3px 0 rgba(0, 0, 0, 0.1)' }}
-            contentArrowStyle={{ borderRight: `7px solid ${mode === 'dark' ? '#2d3748' : '#ffffff'}` }}
-            dateClassName={`font-mono text-sm md:text-base ${mode === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}
-            date="2023 - 2027"
-            iconStyle={{ background: '#5000ca', color: '#ffffff' }}
-            icon={<FontAwesomeIcon icon={faGraduationCap} className="text-white" />}
-          >
-            <h3 className={`vertical-timeline-element-title text-xl font-bold ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}>K.J. Somaiya College of Engineering</h3>
-            <h4 className={`vertical-timeline-element-subtitle text-md font-medium ${mode === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>Mumbai, India</h4>
-            <p className={`text-base ${mode === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
-              B.Tech Computer Engineering, CGPA: 9.46
-            </p>
-          </VerticalTimelineElement>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{ background: mode === 'dark' ? '#2d3748' : '#ffffff', color: mode === 'dark' ? '#ffffff' : '#2d3748', boxShadow: '0 3px 0 rgba(0, 0, 0, 0.1)' }}
-            contentArrowStyle={{ borderRight: `7px solid ${mode === 'dark' ? '#2d3748' : '#ffffff'}` }}
-            dateClassName={`font-mono text-sm md:text-base ${mode === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}
-            date="July 2025 - Present"
-            iconStyle={{ background: '#5000ca', color: '#ffffff' }}
-            icon={<FontAwesomeIcon icon={faBriefcase} className="text-white" />}
-          >
-            <h3 className={`vertical-timeline-element-title text-xl font-bold ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}>Co Lead - KJSCE - Somaiya Machine Learning Research Association</h3>
-            <h4 className={`vertical-timeline-element-subtitle text-md font-medium ${mode === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>Mumbai, India</h4>
-            <p className={`text-base ${mode === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
-              Led a team of developers to build and maintain the council website and led the council events and workshops
-            </p>
-          </VerticalTimelineElement>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{ background: mode === 'dark' ? '#2d3748' : '#ffffff', color: mode === 'dark' ? '#ffffff' : '#2d3748', boxShadow: '0 3px 0 rgba(0, 0, 0, 0.1)' }}
-            contentArrowStyle={{ borderRight: `7px solid ${mode === 'dark' ? '#2d3748' : '#ffffff'}` }}
-            dateClassName={`font-mono text-sm md:text-base ${mode === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}
-            date="June 2025 - Present"
-            iconStyle={{ background: '#5000ca', color: '#ffffff' }}
-            icon={<FontAwesomeIcon icon={faBriefcase} className="text-white" />}
-          >
-            <h3 className={`vertical-timeline-element-title text-xl font-bold ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}>Full-stack Developer Intern - Naareecollections</h3>
-            <h4 className={`vertical-timeline-element-subtitle text-md font-medium ${mode === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>Delhi, India</h4>
-            <p className={`text-base ${mode === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
-              Building a comprehensive e-commerce website for a startup, including product listings, cart functionality, and order tracking. Deployed the entire website along with the dashboard on hostinger
-            </p>
-          </VerticalTimelineElement>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{ background: mode === 'dark' ? '#2d3748' : '#ffffff', color: mode === 'dark' ? '#ffffff' : '#2d3748', boxShadow: '0 3px 0 rgba(0, 0, 0, 0.1)' }}
-            contentArrowStyle={{ borderRight: `7px solid ${mode === 'dark' ? '#2d3748' : '#ffffff'}` }}
-            dateClassName={`font-mono text-sm md:text-base ${mode === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}
-            date="Nov 2024 - Jan 2025"
-            iconStyle={{ background: '#5000ca', color: '#ffffff' }}
-            icon={<FontAwesomeIcon icon={faBriefcase} className="text-white" />}
-          >
-            <h3 className={`vertical-timeline-element-title text-xl font-bold ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}>Full-stack Developer Intern - ZecBay</h3>
-            <h4 className={`vertical-timeline-element-subtitle text-md font-medium ${mode === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>Mumbai, India</h4>
-            <p className={`text-base ${mode === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
-              Built a fully functional prototype and developed and integrated a reverse auction system that supported concurrent bids, aligning with import logistics use cases.
-            </p>
-          </VerticalTimelineElement>
-        </VerticalTimeline>
+        <div className="relative">
+          {/* Vertical line */}
+          <div className="absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gray-300 dark:bg-gray-700"></div>
+
+          {/* Education Timeline Element */}
+          <div className="relative mb-8 last:mb-0 flex items-center justify-between">
+            <div className="w-1/2 pr-8 text-right">
+              <Card className={mode === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}>
+                <CardHeader>
+                  <CardTitle className="text-xl font-bold">K.J. Somaiya College of Engineering</CardTitle>
+                  <p className="text-md font-medium text-gray-300 dark:text-gray-700">Mumbai, India</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-base text-gray-400 dark:text-gray-600">
+                    B.Tech Computer Engineering, CGPA: 9.46
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+            <div className="absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center z-10">
+              <FontAwesomeIcon icon={faGraduationCap} className="text-white text-xl" />
+            </div>
+            <div className="w-1/2 pl-8">
+              <p className="font-mono text-sm md:text-base text-gray-300 dark:text-gray-700">2023 - 2027</p>
+            </div>
+          </div>
+
+          {/* Work Timeline Element 1 */}
+          <div className="relative mb-8 last:mb-0 flex items-center justify-between flex-row-reverse">
+            <div className="w-1/2 pl-8 text-left">
+              <Card className={mode === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}>
+                <CardHeader>
+                  <CardTitle className="text-xl font-bold">Co Lead - KJSCE - Somaiya Machine Learning Research Association</CardTitle>
+                  <p className="text-md font-medium text-gray-300 dark:text-gray-700">Mumbai, India</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-base text-gray-400 dark:text-gray-600">
+                    Led a team of developers to build and maintain the council website and led the council events and workshops
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+            <div className="absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center z-10">
+              <FontAwesomeIcon icon={faBriefcase} className="text-white text-xl" />
+            </div>
+            <div className="w-1/2 pr-8">
+              <p className="font-mono text-sm md:text-base text-gray-300 dark:text-gray-700 text-right">July 2025 - Present</p>
+            </div>
+          </div>
+
+          {/* Work Timeline Element 2 */}
+          <div className="relative mb-8 last:mb-0 flex items-center justify-between">
+            <div className="w-1/2 pr-8 text-right">
+              <Card className={mode === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}>
+                <CardHeader>
+                  <CardTitle className="text-xl font-bold">Full-stack Developer Intern - Naareecollections</CardTitle>
+                  <p className="text-md font-medium text-gray-300 dark:text-gray-700">Delhi, India</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-base text-gray-400 dark:text-gray-600">
+                    Building a comprehensive e-commerce website for a startup, including product listings, cart functionality, and order tracking. Deployed the entire website along with the dashboard on hostinger
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+            <div className="absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center z-10">
+              <FontAwesomeIcon icon={faBriefcase} className="text-white text-xl" />
+            </div>
+            <div className="w-1/2 pl-8">
+              <p className="font-mono text-sm md:text-base text-gray-300 dark:text-gray-700">June 2025 - Present</p>
+            </div>
+          </div>
+
+          {/* Work Timeline Element 3 */}
+          <div className="relative mb-8 last:mb-0 flex items-center justify-between flex-row-reverse">
+            <div className="w-1/2 pl-8 text-left">
+              <Card className={mode === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}>
+                <CardHeader>
+                  <CardTitle className="text-xl font-bold">Full-stack Developer Intern - ZecBay</CardTitle>
+                  <p className="text-md font-medium text-gray-300 dark:text-gray-700">Mumbai, India</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-base text-gray-400 dark:text-gray-600">
+                    Built a fully functional prototype and developed and integrated a reverse auction system that supported concurrent bids, aligning with import logistics use cases.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+            <div className="absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center z-10">
+              <FontAwesomeIcon icon={faBriefcase} className="text-white text-xl" />
+            </div>
+            <div className="w-1/2 pr-8">
+              <p className="font-mono text-sm md:text-base text-gray-300 dark:text-gray-700 text-right">Nov 2024 - Jan 2025</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
