@@ -29,11 +29,11 @@ function Timeline({ mode }: { mode: string }) {
 
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gray-300 dark:bg-gray-700"></div>
+          <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 w-1 h-full bg-gray-300 dark:bg-gray-700"></div>
 
           {/* Work 1 */}
-          <div className="relative mb-8 last:mb-0 flex items-center justify-between">
-            <div className="w-1/2 pr-8 text-right">
+          <div className="relative mb-8 last:mb-0 flex flex-col md:flex-row items-center md:justify-between">
+            <div className="w-full md:w-1/2 pr-0 md:pr-8 text-left md:text-right mb-4 md:mb-0">
               <Card
                 className={`${
                   mode === "dark"
@@ -58,10 +58,10 @@ function Timeline({ mode }: { mode: string }) {
                 </CardContent>
               </Card>
             </div>
-            <div className="absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center z-10 shadow-md">
+            <div className="absolute left-0 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center z-10 shadow-md">
               <FontAwesomeIcon icon={faBriefcase} className="text-white text-xl" />
             </div>
-            <div className="w-1/2 pl-8">
+            <div className="w-full md:w-1/2 pl-0 md:pl-8 text-left mt-2 md:mt-0">
               <p className="font-mono text-sm md:text-base text-gray-500 dark:text-gray-400">
                 October 2025 - Present
               </p>
@@ -69,8 +69,8 @@ function Timeline({ mode }: { mode: string }) {
           </div>
 
           {/* Work 2 */}
-          <div className="relative mb-8 last:mb-0 flex items-center justify-between flex-row-reverse">
-            <div className="w-1/2 pl-8 text-left">
+          <div className="relative mb-8 last:mb-0 flex flex-col md:flex-row-reverse items-center md:justify-between">
+            <div className="w-full md:w-1/2 pl-0 md:pl-8 text-left mb-4 md:mb-0">
               <Card
                 className={`${
                   mode === "dark"
@@ -94,10 +94,10 @@ function Timeline({ mode }: { mode: string }) {
                 </CardContent>
               </Card>
             </div>
-            <div className="absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center z-10 shadow-md">
+            <div className="absolute left-0 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center z-10 shadow-md">
               <FontAwesomeIcon icon={faBriefcase} className="text-white text-xl" />
             </div>
-            <div className="w-1/2 pr-8">
+            <div className="w-full md:w-1/2 pr-0 md:pr-8 text-left md:text-right mt-2 md:mt-0">
               <p className="font-mono text-sm md:text-base text-gray-500 dark:text-gray-400 text-right">
                 July 2025 - Present
               </p>
@@ -105,8 +105,8 @@ function Timeline({ mode }: { mode: string }) {
           </div>
 
           {/* Work 3 */}
-          <div className="relative mb-8 last:mb-0 flex items-center justify-between">
-            <div className="w-1/2 pr-8 text-right">
+          <div className="relative mb-8 last:mb-0 flex flex-col md:flex-row items-center md:justify-between">
+            <div className="w-full md:w-1/2 pr-0 md:pr-8 text-left md:text-right mb-4 md:mb-0">
               <Card
                 className={`${
                   mode === "dark"
@@ -131,10 +131,10 @@ function Timeline({ mode }: { mode: string }) {
                 </CardContent>
               </Card>
             </div>
-            <div className="absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center z-10 shadow-md">
+            <div className="absolute left-0 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center z-10 shadow-md">
               <FontAwesomeIcon icon={faBriefcase} className="text-white text-xl" />
             </div>
-            <div className="w-1/2 pl-8">
+            <div className="w-full md:w-1/2 pl-0 md:pl-8 text-left mt-2 md:mt-0">
               <p className="font-mono text-sm md:text-base text-gray-500 dark:text-gray-400">
                 June 2025 - August 2025
               </p>
@@ -142,8 +142,8 @@ function Timeline({ mode }: { mode: string }) {
           </div>
 
           {/* Work 4 */}
-          <div className="relative mb-8 last:mb-0 flex items-center justify-between flex-row-reverse">
-            <div className="w-1/2 pl-8 text-left">
+          <div className="relative mb-8 last:mb-0 flex flex-col md:flex-row-reverse items-center md:justify-between">
+            <div className="w-full md:w-1/2 pl-0 md:pl-8 text-left mb-4 md:mb-0">
               <Card
                 className={`${
                   mode === "dark"
@@ -167,10 +167,10 @@ function Timeline({ mode }: { mode: string }) {
                 </CardContent>
               </Card>
             </div>
-            <div className="absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center z-10 shadow-md">
+            <div className="absolute left-0 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center z-10 shadow-md">
               <FontAwesomeIcon icon={faBriefcase} className="text-white text-xl" />
             </div>
-            <div className="w-1/2 pr-8">
+            <div className="w-full md:w-1/2 pr-0 md:pr-8 text-left md:text-right mt-2 md:mt-0">
               <p className="font-mono text-sm md:text-base text-gray-500 dark:text-gray-400 text-right">
                 Nov 2024 - Jan 2025
               </p>

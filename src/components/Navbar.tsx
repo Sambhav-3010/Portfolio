@@ -68,43 +68,69 @@ const Navbar = ({mode, setMode} : {mode : string, setMode: React.Dispatch<React.
               />
             ))}
           </div>
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
+              className={`${mode === "dark" ? "text-white" : "text-gray-800"}`}
             >
-              <Menu className="h-6 w-6 text-white" />
+              <Menu className="h-6 w-6" />
             </Button>
           </div>
         </nav>
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden mt-2 px-4 pb-4"
-            >
+      </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            className={`fixed top-0 left-0 h-full w-64 ${
+              mode === "dark" ? "bg-gray-900" : "bg-white"
+            } shadow-lg p-5 md:hidden z-50`}
+          >
+            <div className="flex justify-end mb-4">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsOpen(false)}
+                className={`${mode === "dark" ? "text-white" : "text-gray-800"}`}
+              >
+                <Menu className="h-6 w-6 rotate-90" /> {/* Close icon, or just Menu rotated */}
+              </Button>
+            </div>
+            <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <Link
                   key={item.title}
                   to={item.href}
                   smooth={true}
                   duration={500}
-                  className="block py-2 px-4 text-white hover:bg-white hover:bg-opacity-20 rounded-lg transition-all duration-300 cursor-pointer"
-                  onClick={item.onClick}
+                  className={`block py-2 px-4 ${
+                    mode === "dark"
+                      ? "text-white hover:bg-gray-700"
+                      : "text-gray-800 hover:bg-gray-200"
+                  } rounded-lg transition-all duration-300 cursor-pointer`}
+                  onClick={() => {
+                    if (item.onClick) {
+                      item.onClick();
+                    }
+                    setIsOpen(false); // Close sidebar on item click
+                  }}
                 >
                   <span className="flex items-center">
                     <item.icon className="h-6 w-6" />
-                    <span className="ml-2">{item.title}</span>
+                    <span className="ml-3 text-lg font-medium">{item.title}</span>
                   </span>
                 </Link>
               ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };
