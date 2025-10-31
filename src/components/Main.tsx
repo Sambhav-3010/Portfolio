@@ -3,6 +3,8 @@ import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/ui/button";
 import Sambhav from "../assets/images/sambhav.jpg";
+import dark from "../assets/images/bg-dark.png";
+import light from "../assets/images/bg-light.png";
 
 function Main({ mode }: { mode: string }) {
   return (
@@ -14,8 +16,8 @@ function Main({ mode }: { mode: string }) {
         style={{
           backgroundImage: `url(${
             mode === "dark"
-              ? "/src/assets/images/bg-dark.png"
-              : "/src/assets/images/bg-light.png"
+              ? dark
+              : light
           })`,
         }}
       >
