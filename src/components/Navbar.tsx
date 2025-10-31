@@ -7,7 +7,7 @@ import {
   AnimatePresence,
   MotionValue,
 } from "framer-motion";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Home,
   BookOpenCheck,
@@ -16,7 +16,8 @@ import {
   Menu,
   Building2,
   SunIcon,
-  MoonIcon
+  MoonIcon,
+  X
 } from "lucide-react";
 import { Link } from "react-scroll";
 
@@ -33,105 +34,126 @@ const Navbar = ({mode, setMode} : {mode : string, setMode: React.Dispatch<React.
   ];
 
   return (
-    <motion.div
-      className="fixed z-50"
-      initial={{ top: 80, left: "50%", x: "-50%" }}
-      animate={{
-        top: 20,
-        left: "50%",
-        x: "-50%",
-      }}
-      transition={{
-        type: "spring",
-        stiffness: 100,
-        damping: 20,
-        mass: 1,
-      }}
-    >
-      <div
-        className={`bg-${
-          mode === "dark" ? "black" : "white"
-        } bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-full flex items-center`}
+    <>
+      <motion.div
+        className="fixed z-50 w-full md:w-auto px-4 md:px-0"
+        initial={{ top: 80, left: "50%", x: "-50%" }}
+        animate={{
+          top: 20,
+          left: "50%",
+          x: "-50%",
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 20,
+          mass: 1,
+        }}
       >
-        <nav
-          className={`container mx-auto flex justify-center items-center px-4 transition-all duration-300`}
-          onMouseMove={(e) => mouseX.set(e.pageX)}
-          onMouseLeave={() => mouseX.set(Infinity)}
+        <div
+          className={`${
+            mode === "dark" 
+              ? "bg-black/10 border-white/10" 
+              : "bg-white/10 border-gray-200/20"
+          } backdrop-blur-lg rounded-xl md:rounded-full border mx-auto w-full md:w-auto`}
         >
-          <div className={`hidden md:flex space-x-8 items-end pb-3`}>
-            {navItems.map((item) => (
-              <NavItem
-                key={item.title}
-                mouseX={mouseX}
-                {...item}
-                mode={mode}
-              />
-            ))}
-          </div>
-          <div className="md:hidden flex items-center">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(!isOpen)}
-              className={`${mode === "dark" ? "text-white" : "text-gray-800"}`}
-            >
-              <Menu className="h-6 w-6" />
-            </Button>
-          </div>
-        </nav>
-      </div>
-
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className={`fixed top-0 left-0 h-full w-64 ${
-              mode === "dark" ? "bg-gray-900" : "bg-white"
-            } shadow-lg p-5 md:hidden z-50`}
+          <nav
+            className="flex justify-between md:justify-center items-center px-4 md:px-6 py-3"
+            onMouseMove={(e) => mouseX.set(e.pageX)}
+            onMouseLeave={() => mouseX.set(Infinity)}
           >
-            <div className="flex justify-end mb-4">
+            <div className="hidden md:flex space-x-8 items-center">
+              {navItems.map((item) => (
+                <NavItem
+                  key={item.title}
+                  mouseX={mouseX}
+                  {...item}
+                  mode={mode}
+                />
+              ))}
+            </div>
+            
+            <div className="md:hidden flex items-center justify-between w-full">
+              <span className={`text-lg font-semibold ${mode === "dark" ? "text-white" : "text-gray-800"}`}>
+                Menu
+              </span>
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => setIsOpen(false)}
-                className={`${mode === "dark" ? "text-white" : "text-gray-800"}`}
+                onClick={() => setIsOpen(!isOpen)}
+                className={`${mode === "dark" ? "text-white hover:bg-white/10" : "text-gray-800 hover:bg-gray-200/50"}`}
               >
-                <Menu className="h-6 w-6 rotate-90" /> {/* Close icon, or just Menu rotated */}
+                <Menu className="h-6 w-6" />
               </Button>
             </div>
-            <nav className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.title}
-                  to={item.href}
-                  smooth={true}
-                  duration={500}
-                  className={`block py-2 px-4 ${
-                    mode === "dark"
-                      ? "text-white hover:bg-gray-700"
-                      : "text-gray-800 hover:bg-gray-200"
-                  } rounded-lg transition-all duration-300 cursor-pointer`}
-                  onClick={() => {
-                    if (item.onClick) {
-                      item.onClick();
-                    }
-                    setIsOpen(false); // Close sidebar on item click
-                  }}
+          </nav>
+        </div>
+      </motion.div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
+              onClick={() => setIsOpen(false)}
+            />
+            
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className={`fixed top-0 left-0 h-full w-72 ${
+                mode === "dark" ? "bg-gray-900" : "bg-white"
+              } shadow-2xl z-50 md:hidden`}
+            >
+              <div className={`flex justify-between items-center p-6 border-b ${mode === "dark" ? "border-gray-800" : "border-gray-200"}`}>
+                <span className={`text-xl font-bold ${mode === "dark" ? "text-white" : "text-gray-800"}`}>
+                  Navigation
+                </span>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setIsOpen(false)}
+                  className={`${mode === "dark" ? "text-white hover:bg-gray-800" : "text-gray-800 hover:bg-gray-100"}`}
                 >
-                  <span className="flex items-center">
-                    <item.icon className="h-6 w-6" />
-                    <span className="ml-3 text-lg font-medium">{item.title}</span>
-                  </span>
-                </Link>
-              ))}
-            </nav>
-          </motion.div>
+                  <X className="h-6 w-6" />
+                </Button>
+              </div>
+              
+              <nav className="flex flex-col p-4 space-y-2">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.title}
+                    to={item.href}
+                    smooth={true}
+                    duration={500}
+                    className={`flex items-center py-3 px-4 ${
+                      mode === "dark"
+                        ? "text-white hover:bg-gray-800"
+                        : "text-gray-800 hover:bg-gray-100"
+                    } rounded-xl transition-all duration-300 cursor-pointer group`}
+                    onClick={() => {
+                      if (item.onClick) {
+                        item.onClick();
+                      }
+                      setIsOpen(false);
+                    }}
+                  >
+                    <item.icon className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                    <span className="ml-3 text-base font-medium">{item.title}</span>
+                  </Link>
+                ))}
+              </nav>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
-    </motion.div>
+    </>
   );
 };
 
@@ -167,6 +189,12 @@ const NavItem = ({ mouseX, title, href, icon: Icon, mode, onClick }: NavItemProp
     damping: 12,
   });
 
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+    }
+  };
+
   return (
     <Link
       to={href}
@@ -175,14 +203,14 @@ const NavItem = ({ mouseX, title, href, icon: Icon, mode, onClick }: NavItemProp
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="cursor-pointer"
-      onClick={onClick}
+      onClick={handleClick}
     >
       <motion.div
         ref={ref}
         style={{ width, height }}
-        className={`bg-${
-          mode === "dark" ? "neutral-800" : "white"
-        } bg-opacity-10 backdrop-filter backdrop-blur-lg relative flex items-center justify-center rounded-full`}
+        className={`${
+          mode === "dark" ? "bg-neutral-800/50" : "bg-white/50"
+        } backdrop-blur-lg relative flex items-center justify-center rounded-full`}
         whileHover={{ y: -10 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
@@ -202,7 +230,9 @@ const NavItem = ({ mouseX, title, href, icon: Icon, mode, onClick }: NavItemProp
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 2 }}
-              className="absolute -left-24 top-1/2 transform -translate-y-1/2 px-2 py-1 bg-black text-white text-xs rounded whitespace-nowrap"
+              className={`absolute -left-24 top-1/2 transform -translate-y-1/2 px-3 py-1.5 ${
+                mode === "dark" ? "bg-gray-900" : "bg-black"
+              } text-white text-xs rounded-lg whitespace-nowrap shadow-lg`}
             >
               {title}
             </motion.div>
@@ -213,4 +243,4 @@ const NavItem = ({ mouseX, title, href, icon: Icon, mode, onClick }: NavItemProp
   );
 };
 
-export default Navbar;
+export default Navbar
