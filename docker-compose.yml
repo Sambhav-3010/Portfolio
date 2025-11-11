@@ -1,0 +1,8 @@
+services:
+  portfolio-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4173:4173"
+    container_name: portfolio-frontend-app
