@@ -1,4 +1,4 @@
-FROM node:20-alpine
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
@@ -9,4 +9,12 @@ COPY . .
 
 RUN npm run build
 
-CMD ["npm", "run", "preview", "--", "--host"]
+FROM caddy:2-alpine
+
+WORKDIR /srv
+
+COPY --from=builder /app/dist .
+
+COPY Caddyfile /etc/caddy/Caddyfile
+
+EXPOSE 80
