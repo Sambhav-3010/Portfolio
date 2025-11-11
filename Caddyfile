@@ -1,5 +1,10 @@
-sambhav-mani-tripathi.dev {
+sambhav-mani-tripathi.dev, www.sambhav-mani-tripathi.dev {
 	root * /srv
-	file_server
+	
 	try_files {path} {path}/ /index.html
+	
+	file_server
+	
+	@www host www.sambhav-mani-tripathi.dev
+	redir @www https://sambhav-mani-tripathi.dev{uri}
 }
