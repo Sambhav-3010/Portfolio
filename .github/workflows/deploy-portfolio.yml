@@ -1,4 +1,4 @@
-name: deploy portfolio to docker hub
+name: Deploy Portfolio to Docker Hub & Server
 
 on:
   push:
@@ -6,11 +6,11 @@ on:
       - main
 
 jobs:
-  build-and-push:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Log in to Docker Hub
@@ -30,4 +30,15 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/portfolio:latest
-            ${{ secrets.DOCKER_USERNAME }}/portfolio:${{ github.sha }}
+
+      - name: SSH into server & deploy new container
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /root/portfolio
+            docker compose pull
+            docker compose up -d --remove-orphans
+            docker system prune -f
