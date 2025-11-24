@@ -37,7 +37,7 @@ function Main({ mode }: { mode: string }) {
                 mode === "dark" ? "text-white" : "text-gray-900"
               } mb-2`}
             >
-              Sambhav Mani Tripathi
+              Mani Tripathi
             </h1>
             <p
               className={`text-xl md:text-2xl font-medium ${
