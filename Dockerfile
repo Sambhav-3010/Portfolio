@@ -2,19 +2,22 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+COPY package*.json ./
 RUN npm install
 
 COPY . .
-
 RUN npm run build
 
-FROM caddy:2-alpine
 
-WORKDIR /srv
+# Serve build using "serve"
+FROM node:20-alpine
 
-COPY --from=builder /app/dist .
+WORKDIR /app
 
-COPY Caddyfile /etc/caddy/Caddyfile
+RUN npm install -g serve
 
-EXPOSE 80
+COPY --from=builder /app/dist ./dist
+
+EXPOSE 4173
+
+CMD ["serve", "-s", "dist", "-l", "4173"]
