@@ -37,7 +37,7 @@ function Main({ mode }: { mode: string }) {
                 mode === "dark" ? "text-white" : "text-gray-900"
               } mb-2`}
             >
-              Mani Tripathi
+              Sambhav Mani Tripathi
             </h1>
             <p
               className={`text-xl md:text-2xl font-medium ${
@@ -85,7 +85,7 @@ function Main({ mode }: { mode: string }) {
               </Button>
               <Button variant="ghost" size="icon" asChild>
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+917007231054"
                   className={`${
                     mode === "dark"
                       ? "text-white hover:text-gray-300"
