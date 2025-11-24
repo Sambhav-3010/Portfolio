@@ -1,8 +1,6 @@
 services:
   portfolio:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: sambhav30/portfolio:latest
     container_name: portfolio
     restart: always
     ports:
