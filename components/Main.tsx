@@ -15,8 +15,8 @@ function Main({ mode }: { mode: string }) {
           } transition-colors duration-500`}
         style={{
           backgroundImage: `url(${mode === "dark"
-            ? dark
-            : light
+            ? dark.src
+            : light.src
             })`,
         }}
       >
