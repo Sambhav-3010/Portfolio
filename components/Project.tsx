@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import mock01 from "../assets/images/mock01.png";
@@ -32,14 +34,11 @@ const projects = [
   },
 ];
 
-export default function Project({ mode }: { mode: string }) {
+export default function Project() {
   return (
     <section
       id="profile"
-      className={`relative py-24 w-full overflow-hidden transition-colors duration-500 ${mode === "dark"
-        ? "bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white"
-        : "bg-gradient-to-b from-gray-50 via-white to-gray-50 text-gray-900"
-        }`}
+      className="relative py-24 w-full overflow-hidden transition-colors duration-500 bg-gradient-to-b from-gray-50 via-white to-gray-50 text-gray-900 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 dark:text-white"
     >
       {/* Subtle gradient background overlays */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.08),transparent_60%)]"></div>
@@ -66,10 +65,7 @@ export default function Project({ mode }: { mode: string }) {
               viewport={{ once: true }}
             >
               <Card
-                className={`group relative overflow-hidden border-none shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl ${mode === "dark"
-                  ? "bg-gray-900 hover:bg-gray-800 text-white"
-                  : "bg-white hover:bg-gray-100"
-                  }`}
+                className="group relative overflow-hidden border-none shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl bg-white hover:bg-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white"
               >
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-100 transition-opacity duration-700`}
@@ -98,15 +94,13 @@ export default function Project({ mode }: { mode: string }) {
                     className="inline-block mb-3"
                   >
                     <CardTitle
-                      className={`text-xl font-bold transition-colors duration-300 hover:text-blue-500 ${mode === "dark" ? "text-white" : "text-gray-900"
-                        }`}
+                      className="text-xl font-bold transition-colors duration-300 hover:text-blue-500 text-gray-900 dark:text-white"
                     >
                       {project.title}
                     </CardTitle>
                   </a>
                   <p
-                    className={`text-base leading-relaxed ${mode === "dark" ? "text-gray-300" : "text-gray-700"
-                      }`}
+                    className="text-base leading-relaxed text-gray-700 dark:text-gray-300"
                   >
                     {project.description}
                   </p>

@@ -5,24 +5,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-function Timeline({ mode }: { mode: string }) {
+function Timeline() {
   return (
     <section
       id="experience"
-      className={`py-20 w-full flex flex-col items-center justify-center transition-colors duration-500 ${
-        mode === "dark"
-          ? "bg-gray-950 text-white"
-          : "bg-gray-50 text-gray-900"
-      } relative overflow-hidden`}
+      className="py-20 w-full flex flex-col items-center justify-center transition-colors duration-500 bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-white relative overflow-hidden"
     >
       {/* Gradient background overlay */}
       <div className="absolute inset-0 bg-linear-to-br from-purple-500/10 via-transparent to-transparent pointer-events-none"></div>
 
       <div className="container mx-auto px-6 md:px-10 lg:px-20 relative z-10">
         <h2
-          className={`text-4xl font-extrabold text-center mb-14 tracking-tight ${
-            mode === "dark" ? "text-white" : "text-gray-900"
-          }`}
+          className="text-4xl font-extrabold text-center mb-14 tracking-tight text-gray-900 dark:text-white"
         >
           My Experience
         </h2>
@@ -35,11 +29,7 @@ function Timeline({ mode }: { mode: string }) {
           <div className="relative mb-8 last:mb-0 flex flex-col md:flex-row items-center md:justify-between">
             <div className="w-full md:w-1/2 pr-0 md:pr-8 text-left md:text-right mb-4 md:mb-0">
               <Card
-                className={`${
-                  mode === "dark"
-                    ? "bg-gray-900 hover:bg-gray-800 text-white"
-                    : "bg-white hover:bg-gray-100 text-gray-900"
-                } border-none shadow-lg rounded-2xl transition-all duration-300`}
+                className="bg-white hover:bg-gray-100 text-gray-900 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white border-none shadow-lg rounded-2xl transition-all duration-300"
               >
                 <CardHeader>
                   <CardTitle className="text-xl font-bold">
@@ -72,11 +62,7 @@ function Timeline({ mode }: { mode: string }) {
           <div className="relative mb-8 last:mb-0 flex flex-col md:flex-row-reverse items-center md:justify-between">
             <div className="w-full md:w-1/2 pl-0 md:pl-8 text-left mb-4 md:mb-0">
               <Card
-                className={`${
-                  mode === "dark"
-                    ? "bg-gray-900 hover:bg-gray-800 text-white"
-                    : "bg-white hover:bg-gray-100 text-gray-900"
-                } border-none shadow-lg rounded-2xl transition-all duration-300`}
+                className="bg-white hover:bg-gray-100 text-gray-900 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white border-none shadow-lg rounded-2xl transition-all duration-300"
               >
                 <CardHeader>
                   <CardTitle className="text-xl font-bold">
@@ -108,11 +94,7 @@ function Timeline({ mode }: { mode: string }) {
           <div className="relative mb-8 last:mb-0 flex flex-col md:flex-row items-center md:justify-between">
             <div className="w-full md:w-1/2 pr-0 md:pr-8 text-left md:text-right mb-4 md:mb-0">
               <Card
-                className={`${
-                  mode === "dark"
-                    ? "bg-gray-900 hover:bg-gray-800 text-white"
-                    : "bg-white hover:bg-gray-100 text-gray-900"
-                } border-none shadow-lg rounded-2xl transition-all duration-300`}
+                className="bg-white hover:bg-gray-100 text-gray-900 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white border-none shadow-lg rounded-2xl transition-all duration-300"
               >
                 <CardHeader>
                   <CardTitle className="text-xl font-bold">
@@ -145,11 +127,7 @@ function Timeline({ mode }: { mode: string }) {
           <div className="relative mb-8 last:mb-0 flex flex-col md:flex-row-reverse items-center md:justify-between">
             <div className="w-full md:w-1/2 pl-0 md:pl-8 text-left mb-4 md:mb-0">
               <Card
-                className={`${
-                  mode === "dark"
-                    ? "bg-gray-900 hover:bg-gray-800 text-white"
-                    : "bg-white hover:bg-gray-100 text-gray-900"
-                } border-none shadow-lg rounded-2xl transition-all duration-300`}
+                className="bg-white hover:bg-gray-100 text-gray-900 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white border-none shadow-lg rounded-2xl transition-all duration-300"
               >
                 <CardHeader>
                   <CardTitle className="text-xl font-bold">

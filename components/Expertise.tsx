@@ -1,3 +1,5 @@
+"use client";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faReact, faDocker } from "@fortawesome/free-brands-svg-icons";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -24,23 +26,15 @@ const labelsSecond = [
   "Data Structures & Algorithms",
 ];
 
-function Expertise({ mode }: { mode: string }) {
+function Expertise() {
   return (
     <section
-      id="experties"
-      className={`py-20 w-full flex flex-col items-center justify-center relative overflow-hidden transition-colors duration-500 ${
-        mode === "dark"
-          ? "bg-gray-950 text-white"
-          : "bg-gradient-to-br from-blue-50 via-white to-cyan-50 text-gray-900"
-      }`}
+      id="expertise"
+      className="py-20 w-full flex flex-col items-center justify-center relative overflow-hidden transition-colors duration-500 bg-gradient-to-br from-blue-50 via-white to-cyan-50 text-gray-900 dark:bg-none dark:bg-gray-950 dark:text-white"
     >
       {/* background glow (for both modes) */}
       <div
-        className={`absolute inset-0 -z-10 ${
-          mode === "dark"
-            ? "bg-[radial-gradient(ellipse_at_center,_rgba(0,102,255,0.15),_transparent_70%)]"
-            : "bg-[radial-gradient(ellipse_at_center,_rgba(0,174,255,0.15),_transparent_70%)]"
-        }`}
+        className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,_rgba(0,174,255,0.15),_transparent_70%)] dark:bg-[radial-gradient(ellipse_at_center,_rgba(0,102,255,0.15),_transparent_70%)]"
       ></div>
 
       <div className="container mx-auto px-6 md:px-10 lg:px-20">
@@ -63,11 +57,7 @@ function Expertise({ mode }: { mode: string }) {
             viewport={{ once: true }}
           >
             <Card
-              className={`group relative overflow-hidden border-none shadow-lg rounded-2xl p-8 transition-all duration-300 hover:shadow-2xl ${
-                mode === "dark"
-                  ? "bg-gray-900 hover:bg-gray-800 text-white"
-                  : "bg-white/80 backdrop-blur-md hover:bg-white/90"
-              }`}
+              className="group relative overflow-hidden border-none shadow-lg rounded-2xl p-8 transition-all duration-300 hover:shadow-2xl bg-white/80 backdrop-blur-md hover:bg-white/90 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -75,9 +65,7 @@ function Expertise({ mode }: { mode: string }) {
                 <FontAwesomeIcon
                   icon={faReact}
                   size="3x"
-                  className={`mb-4 transition-transform duration-500 group-hover:scale-110 ${
-                    mode === "dark" ? "text-blue-400" : "text-blue-600"
-                  }`}
+                  className="mb-4 transition-transform duration-500 group-hover:scale-110 text-blue-600 dark:text-blue-400"
                 />
                 <CardTitle className="text-2xl font-bold mb-3">
                   Full Stack Web Development
@@ -115,11 +103,7 @@ function Expertise({ mode }: { mode: string }) {
             viewport={{ once: true }}
           >
             <Card
-              className={`group relative overflow-hidden border-none shadow-lg rounded-2xl p-8 transition-all duration-300 hover:shadow-2xl ${
-                mode === "dark"
-                  ? "bg-gray-900 hover:bg-gray-800 text-white"
-                  : "bg-white/80 backdrop-blur-md hover:bg-white/90"
-              }`}
+              className="group relative overflow-hidden border-none shadow-lg rounded-2xl p-8 transition-all duration-300 hover:shadow-2xl bg-white/80 backdrop-blur-md hover:bg-white/90 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -127,9 +111,7 @@ function Expertise({ mode }: { mode: string }) {
                 <FontAwesomeIcon
                   icon={faDocker}
                   size="3x"
-                  className={`mb-4 transition-transform duration-500 group-hover:scale-110 ${
-                    mode === "dark" ? "text-cyan-400" : "text-cyan-600"
-                  }`}
+                  className="mb-4 transition-transform duration-500 group-hover:scale-110 text-cyan-600 dark:text-cyan-400"
                 />
                 <CardTitle className="text-2xl font-bold mb-3">
                   Tools & Methodologies
