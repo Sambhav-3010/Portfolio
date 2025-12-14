@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import mock01 from "../assets/images/mock01.png";
 import mock02 from "../assets/images/mock02.png";
 import mock03 from "../assets/images/mock03.png";
+import Image from "next/image";
 
 const projects = [
   {
@@ -35,11 +36,10 @@ export default function Project({ mode }: { mode: string }) {
   return (
     <section
       id="profile"
-      className={`relative py-24 w-full overflow-hidden transition-colors duration-500 ${
-        mode === "dark"
-          ? "bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white"
-          : "bg-gradient-to-b from-gray-50 via-white to-gray-50 text-gray-900"
-      }`}
+      className={`relative py-24 w-full overflow-hidden transition-colors duration-500 ${mode === "dark"
+        ? "bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white"
+        : "bg-gradient-to-b from-gray-50 via-white to-gray-50 text-gray-900"
+        }`}
     >
       {/* Subtle gradient background overlays */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.08),transparent_60%)]"></div>
@@ -66,11 +66,10 @@ export default function Project({ mode }: { mode: string }) {
               viewport={{ once: true }}
             >
               <Card
-                className={`group relative overflow-hidden border-none shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl ${
-                  mode === "dark"
-                    ? "bg-gray-900 hover:bg-gray-800 text-white"
-                    : "bg-white hover:bg-gray-100"
-                }`}
+                className={`group relative overflow-hidden border-none shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl ${mode === "dark"
+                  ? "bg-gray-900 hover:bg-gray-800 text-white"
+                  : "bg-white hover:bg-gray-100"
+                  }`}
               >
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-100 transition-opacity duration-700`}
@@ -83,9 +82,7 @@ export default function Project({ mode }: { mode: string }) {
                     rel="noreferrer"
                     className="block overflow-hidden rounded-lg"
                   >
-                    <motion.img
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.4 }}
+                    <Image
                       src={project.image}
                       alt={project.title}
                       className="w-full h-48 object-cover rounded-lg shadow-md"
@@ -101,17 +98,15 @@ export default function Project({ mode }: { mode: string }) {
                     className="inline-block mb-3"
                   >
                     <CardTitle
-                      className={`text-xl font-bold transition-colors duration-300 hover:text-blue-500 ${
-                        mode === "dark" ? "text-white" : "text-gray-900"
-                      }`}
+                      className={`text-xl font-bold transition-colors duration-300 hover:text-blue-500 ${mode === "dark" ? "text-white" : "text-gray-900"
+                        }`}
                     >
                       {project.title}
                     </CardTitle>
                   </a>
                   <p
-                    className={`text-base leading-relaxed ${
-                      mode === "dark" ? "text-gray-300" : "text-gray-700"
-                    }`}
+                    className={`text-base leading-relaxed ${mode === "dark" ? "text-gray-300" : "text-gray-700"
+                      }`}
                   >
                     {project.description}
                   </p>
