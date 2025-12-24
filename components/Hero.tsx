@@ -13,7 +13,7 @@ export function Hero() {
             alt="Sambhav Mani Tripathi"
             width={320}
             height={320}
-            loading="lazy"
+            priority
             className="relative rounded-full w-80 h-80 object-cover shadow-2xl border-4 border-emerald-500/50 transition-all duration-500"
           />
         </div>
