@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/favicon.png",
+        url: "/favicon_portfolio.png",
         type: "image/svg+xml",
       },
     ],

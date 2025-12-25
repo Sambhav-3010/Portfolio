@@ -35,24 +35,24 @@ export function TechStack() {
   return (
     <div className="w-full max-w-6xl mx-auto px-4 py-16">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold mb-3 text-white">
+        <h2 className="text-4xl font-bold mb-3 text-foreground">
           Tech Stack
         </h2>
-        <p className="text-gray-400">
+        <p className="text-muted-foreground">
           Technologies and tools I use to bring ideas to life
         </p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <Card className="bg-[#1a1a1a] border-[#2a2a2a] hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 group">
+        <Card className="bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group">
           <CardHeader>
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2 bg-emerald-500/10 rounded-lg group-hover:scale-110 transition-transform">
-                <Code2 className="w-6 h-6 text-emerald-500" />
+              <div className="p-2 bg-primary/10 rounded-lg group-hover:scale-110 transition-transform">
+                <Code2 className="w-6 h-6 text-primary" />
               </div>
-              <CardTitle className="text-xl text-white">Frontend</CardTitle>
+              <CardTitle className="text-xl text-card-foreground">Frontend</CardTitle>
             </div>
-            <CardDescription className="text-gray-400">
+            <CardDescription className="text-muted-foreground">
               Building responsive and interactive user interfaces
             </CardDescription>
           </CardHeader>
@@ -61,9 +61,9 @@ export function TechStack() {
               {techStack.frontend.map((tech) => (
                 <div
                   key={tech.name}
-                  className="px-4 py-2 bg-[#0f0f0f] border border-[#2a2a2a] hover:border-emerald-500/50 rounded-lg text-sm font-medium hover:scale-105 transition-all cursor-default flex items-center gap-2 text-gray-300 hover:text-emerald-400"
+                  className="px-4 py-2 bg-muted border border-border hover:border-primary/50 rounded-lg text-sm font-medium hover:scale-105 transition-all cursor-default flex items-center gap-2 text-muted-foreground hover:text-primary"
                 >
-                  <span className="text-emerald-500">{tech.icon}</span>
+                  <span className="text-primary">{tech.icon}</span>
                   <span>{tech.name}</span>
                 </div>
               ))}
@@ -71,15 +71,15 @@ export function TechStack() {
           </CardContent>
         </Card>
 
-        <Card className="bg-[#1a1a1a] border-[#2a2a2a] hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 group">
+        <Card className="bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group">
           <CardHeader>
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2 bg-emerald-500/10 rounded-lg group-hover:scale-110 transition-transform">
-                <Server className="w-6 h-6 text-emerald-500" />
+              <div className="p-2 bg-primary/10 rounded-lg group-hover:scale-110 transition-transform">
+                <Server className="w-6 h-6 text-primary" />
               </div>
-              <CardTitle className="text-xl text-white">Backend</CardTitle>
+              <CardTitle className="text-xl text-card-foreground">Backend</CardTitle>
             </div>
-            <CardDescription className="text-gray-400">
+            <CardDescription className="text-muted-foreground">
               Creating scalable and secure server-side solutions
             </CardDescription>
           </CardHeader>
@@ -88,9 +88,9 @@ export function TechStack() {
               {techStack.backend.map((tech) => (
                 <div
                   key={tech.name}
-                  className="px-4 py-2 bg-[#0f0f0f] border border-[#2a2a2a] hover:border-emerald-500/50 rounded-lg text-sm font-medium hover:scale-105 transition-all cursor-default flex items-center gap-2 text-gray-300 hover:text-emerald-400"
+                  className="px-4 py-2 bg-muted border border-border hover:border-primary/50 rounded-lg text-sm font-medium hover:scale-105 transition-all cursor-default flex items-center gap-2 text-muted-foreground hover:text-primary"
                 >
-                  <span className="text-emerald-500">{tech.icon}</span>
+                  <span className="text-primary">{tech.icon}</span>
                   <span>{tech.name}</span>
                 </div>
               ))}
@@ -98,15 +98,15 @@ export function TechStack() {
           </CardContent>
         </Card>
 
-        <Card className="bg-[#1a1a1a] border-[#2a2a2a] hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 group md:col-span-2 lg:col-span-1">
+        <Card className="bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group md:col-span-2 lg:col-span-1">
           <CardHeader>
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2 bg-emerald-500/10 rounded-lg group-hover:scale-110 transition-transform">
-                <Wrench className="w-6 h-6 text-emerald-500" />
+              <div className="p-2 bg-primary/10 rounded-lg group-hover:scale-110 transition-transform">
+                <Wrench className="w-6 h-6 text-primary" />
               </div>
-              <CardTitle className="text-xl text-white">Tools & Others</CardTitle>
+              <CardTitle className="text-xl text-card-foreground">Tools & Others</CardTitle>
             </div>
-            <CardDescription className="text-gray-400">
+            <CardDescription className="text-muted-foreground">
               Development tools and deployment platforms
             </CardDescription>
           </CardHeader>
@@ -115,9 +115,9 @@ export function TechStack() {
               {techStack.tools.map((tech) => (
                 <div
                   key={tech.name}
-                  className="px-4 py-2 bg-[#0f0f0f] border border-[#2a2a2a] hover:border-emerald-500/50 rounded-lg text-sm font-medium hover:scale-105 transition-all cursor-default flex items-center gap-2 text-gray-300 hover:text-emerald-400"
+                  className="px-4 py-2 bg-muted border border-border hover:border-primary/50 rounded-lg text-sm font-medium hover:scale-105 transition-all cursor-default flex items-center gap-2 text-muted-foreground hover:text-primary"
                 >
-                  <span className="text-emerald-500">{tech.icon}</span>
+                  <span className="text-primary">{tech.icon}</span>
                   <span>{tech.name}</span>
                 </div>
               ))}

@@ -52,10 +52,10 @@ export function Projects() {
     <section id="projects" className="px-6 py-24">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             Selected Projects
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className="text-muted-foreground text-lg">
             A collection of my recent work and side projects
           </p>
         </div>
@@ -64,9 +64,9 @@ export function Projects() {
           {projects.map((project, index) => (
             <Card 
               key={index} 
-              className="group overflow-hidden bg-[#1a1a1a] border-[#2a2a2a] hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col"
+              className="group overflow-hidden bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 flex flex-col"
             >
-              <div className="relative overflow-hidden aspect-video bg-[#0f0f0f] border-b border-[#2a2a2a]">
+              <div className="relative overflow-hidden aspect-video bg-muted border-b border-border">
                 {project.images.map((image) => (
                   <Image
                     key={image}
@@ -77,14 +77,14 @@ export function Projects() {
                   />
                 ))}
                 
-                <div className="absolute inset-0 bg-linear-to-t from-[#1a1a1a] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-linear-to-t from-card via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
               <CardHeader className="space-y-3">
-                <CardTitle className="text-2xl text-white group-hover:text-emerald-400 transition-colors">
+                <CardTitle className="text-2xl text-card-foreground group-hover:text-primary transition-colors">
                   {project.title}
                 </CardTitle>
-                <CardDescription className="leading-relaxed text-gray-400 text-base">
+                <CardDescription className="leading-relaxed text-muted-foreground text-base">
                   {project.description}
                 </CardDescription>
               </CardHeader>
@@ -95,7 +95,7 @@ export function Projects() {
                     <Badge 
                       key={tag} 
                       variant="outline"
-                      className="bg-emerald-500/10 border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 transition-colors"
+                      className="bg-primary/10 border-primary/30 text-primary hover:bg-primary/20 transition-colors"
                     >
                       {tag}
                     </Badge>
@@ -107,7 +107,7 @@ export function Projects() {
                     variant="outline" 
                     size="sm" 
                     asChild
-                    className="bg-transparent border-[#2a2a2a] text-gray-300 hover:bg-[#2a2a2a] hover:text-white hover:border-emerald-500/50 transition-all"
+                    className="bg-transparent border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-primary/50 transition-all"
                   >
                     <a
                       href={project.github}
@@ -123,7 +123,7 @@ export function Projects() {
                   <Button 
                     size="sm" 
                     asChild
-                    className="bg-emerald-500 hover:bg-emerald-600 text-black font-medium transition-all"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium transition-all"
                   >
                     <a
                       href={project.demo}
@@ -141,7 +141,7 @@ export function Projects() {
                       variant="ghost" 
                       size="sm" 
                       asChild 
-                      className="text-gray-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-all"
+                      className="text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
                     >
                       <a
                         href={project.video}
