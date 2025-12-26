@@ -34,13 +34,13 @@ export default function AnimatedBackground() {
       <div className="fixed inset-0 -z-10 overflow-hidden bg-background">
       
         <div 
-          className="absolute top-[10%] left-[10%] w-[500px] h-[500px] bg-primary/8 rounded-full blur-[100px] pointer-events-none"
+          className="absolute top-[10%] left-[10%] w-[500px] h-[500px] bg-primary/11 rounded-full blur-[100px] pointer-events-none"
         ></div>
         <div 
-          className="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] bg-primary/8 rounded-full blur-[120px] pointer-events-none"
+          className="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] bg-primary/11 rounded-full blur-[120px] pointer-events-none"
         ></div>
         <div 
-          className="absolute top-[40%] left-[30%] w-[400px] h-[400px] bg-primary/8 rounded-full blur-[80px] pointer-events-none"
+          className="absolute top-[40%] left-[30%] w-[400px] h-[400px] bg-primary/11 rounded-full blur-[80px] pointer-events-none"
         ></div>
 
         {particleCrowd.map((p, i) => (
@@ -55,7 +55,7 @@ export default function AnimatedBackground() {
           ></div>
         ))}
 
-        <svg className="absolute inset-0 h-full w-full opacity-40" xmlns="http://www.w3.org/2000/svg">
+        <svg className="absolute inset-0 h-full w-full opacity-35" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
               <path d="M 40 0 L 0 0 0 40" fill="none" className="stroke-primary/50" strokeWidth="1" />

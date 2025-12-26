@@ -33,17 +33,17 @@ export function Hero() {
             solutions that blend design and engineering.
           </p>
           <div className="flex flex-wrap gap-4 pt-4">
-            <Button 
-              variant="default" 
-              size="lg" 
+            <Button
+              variant="default"
+              size="lg"
               asChild
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold transition-all hover:scale-105"
             >
               <a href="#projects">View Projects</a>
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
+            <Button
+              variant="outline"
+              size="lg"
               asChild
               className="bg-transparent border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-primary/50 transition-all"
             >
