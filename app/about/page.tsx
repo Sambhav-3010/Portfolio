@@ -5,7 +5,7 @@ import { profile } from "@/data/about"
 
 export default function AboutPage() {
     return (
-        <div className="min-h-screen pt-10 px-6">
+        <div className="min-h-screen pt-10 pb-10 px-4 md:px-6">
             <div className="max-w-6xl mx-auto">
                 <Link
                     href="/"
@@ -31,8 +31,8 @@ export default function AboutPage() {
                                     />
                                 </div>
 
-                                <h1 className="text-2xl font-bold text-foreground mb-1">{profile.name}</h1>
-                                <p className="text-primary font-semibold mb-4">{profile.role}</p>
+                                <h1 className="text-xl md:text-2xl font-bold text-foreground mb-1">{profile.name}</h1>
+                                <p className="text-primary font-semibold text-sm md:text-base mb-4">{profile.role}</p>
 
                                 <div className="flex items-center gap-2 px-3 py-1.5 bg-green-500/10 border border-green-500/30 rounded-full mb-6">
                                     <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
@@ -97,8 +97,8 @@ export default function AboutPage() {
                         </div>
                     </div>
                     <div className="lg:col-span-2 space-y-6">
-                        <div className="flex items-center gap-3 mb-10">
-                            <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+                        <div className="flex items-center gap-3 mb-6 md:mb-10">
+                            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
                                 About Me
                             </h1>
                         </div>

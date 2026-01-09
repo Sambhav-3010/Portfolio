@@ -48,7 +48,7 @@ const techCategories = [
 
 export default function TechStackPage() {
     return (
-        <div className="min-h-screen pt-10 pb-10 px-6">
+        <div className="min-h-screen pt-10 pb-10 px-4 md:px-6">
             <div className="max-w-6xl mx-auto">
                 <Link
                     href="/"
@@ -60,7 +60,7 @@ export default function TechStackPage() {
 
                 <div className="mb-12">
                     <div className="flex items-center gap-3 mb-4">
-                        <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
                             Tech Stack
                         </h1>
                     </div>
@@ -75,8 +75,8 @@ export default function TechStackPage() {
                             key={catIndex}
                             className="p-6 rounded-2xl bg-card/60 backdrop-blur-sm border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10"
                         >
-                            <h3 className="text-xl font-bold text-foreground mb-6">{category.title}</h3>
-                            <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
+                            <h3 className="text-lg md:text-xl font-bold text-foreground mb-4 md:mb-6">{category.title}</h3>
+                            <div className="grid grid-cols-3 gap-2 md:gap-4">
                                 {category.items.map((item, itemIndex) => (
                                     <div
                                         key={itemIndex}

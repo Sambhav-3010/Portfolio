@@ -5,7 +5,7 @@ import { Contributions } from "@/components/Contributions";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen pt-32">
+    <div className="relative min-h-screen pt-16 md:pt-24">
       <main className="relative z-10 min-h-screen">
         <CompactHeader />
         <BentoSections />

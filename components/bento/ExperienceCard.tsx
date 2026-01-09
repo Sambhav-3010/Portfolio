@@ -35,15 +35,15 @@ export function ExperienceCard() {
                             <Image className="w-full h-full object-cover" src={exp.image} alt={exp.company} width={40} height={40} />
                         </div>
                         <div className="flex-1 min-w-0">
-                            <div className="flex items-center justify-between gap-2">
-                                <h4 className="text-base font-semibold text-foreground truncate">
+                            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-0.5 md:gap-2">
+                                <h4 className="text-sm md:text-base font-semibold text-foreground">
                                     {exp.company}
                                 </h4>
-                                <span className="text-sm text-muted-foreground whitespace-nowrap">
+                                <span className="text-xs md:text-sm text-muted-foreground whitespace-nowrap">
                                     {exp.roles[0].period}
                                 </span>
                             </div>
-                            <p className="text-sm text-muted-foreground mt-0.5">{exp.roles[0].title}</p>
+                            <p className="text-xs md:text-sm text-muted-foreground mt-0.5">{exp.roles[0].title}</p>
                         </div>
                     </div>
                 ))}

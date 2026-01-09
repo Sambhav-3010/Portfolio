@@ -10,7 +10,7 @@ export default function ProjectsPage() {
     const router = useRouter()
 
     return (
-        <div className="min-h-screen pt-10 pb-10 px-6">
+        <div className="min-h-screen pt-10 pb-10 px-4 md:px-6">
             <div className="max-w-6xl mx-auto">
                 <Link
                     href="/"
@@ -21,9 +21,9 @@ export default function ProjectsPage() {
                 </Link>
 
                 <div className="mb-12">
-                    <div className="flex items-center gap-3 mb-4">
-                        <Code2 className="w-8 h-8 text-primary" />
-                        <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+                    <div className="flex items-center gap-2 md:gap-3 mb-4">
+                        <Code2 className="w-6 h-6 md:w-8 md:h-8 text-primary" />
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
                             All Projects
                         </h1>
                     </div>
@@ -78,7 +78,7 @@ export default function ProjectsPage() {
                             </div>
 
                             <div className="p-6">
-                                <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors mb-2">
+                                <h3 className="text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors mb-2">
                                     {project.title}
                                 </h3>
 

@@ -28,7 +28,7 @@ export function ProjectsCarouselCard() {
     return (
         <div
             onClick={handleCardClick}
-            className="h-full min-h-[320px] md:min-h-[300px] p-6 rounded-2xl bg-card/60 backdrop-blur-sm border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 flex flex-col cursor-pointer group"
+            className="h-full min-h-[380px] md:min-h-[300px] p-6 rounded-2xl bg-card/60 backdrop-blur-sm border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 flex flex-col cursor-pointer group"
         >
             <div className="flex items-center justify-between mb-5">
                 <div className="flex items-center gap-2">
@@ -59,9 +59,9 @@ export function ProjectsCarouselCard() {
                     </motion.div>
                 </AnimatePresence>
 
-                <div className="absolute inset-0 bg-linear-to-t from-card via-card/60 to-transparent z-10" />
+                <div className="absolute inset-0 bg-linear-to-t from-card via-card/80 to-transparent z-10" />
 
-                <div className="absolute bottom-0 left-0 right-0 p-5 z-20">
+                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 z-20">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={currentIndex}
@@ -70,17 +70,17 @@ export function ProjectsCarouselCard() {
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.4, ease: "easeOut" }}
                         >
-                            <h3 className="text-xl font-bold text-foreground mb-2">
+                            <h3 className="text-lg md:text-xl font-bold text-foreground mb-1 md:mb-2">
                                 {currentProject.title}
                             </h3>
-                            <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
+                            <p className="text-xs md:text-sm text-muted-foreground line-clamp-1 md:line-clamp-2 mb-2 md:mb-3">
                                 {currentProject.description}
                             </p>
-                            <div className="flex flex-wrap gap-1.5">
+                            <div className="flex flex-wrap gap-1 md:gap-1.5">
                                 {currentProject.tags.slice(0, 4).map((tag) => (
                                     <span
                                         key={tag}
-                                        className="px-2 py-0.5 text-xs font-medium rounded bg-primary/10 text-primary border border-primary/20"
+                                        className="px-1.5 md:px-2 py-0.5 text-[10px] md:text-xs font-medium rounded bg-primary/10 text-primary border border-primary/20"
                                     >
                                         {tag}
                                     </span>

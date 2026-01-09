@@ -28,8 +28,8 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
     }
 
     return (
-        <div className="min-h-screen pt-24 pb-16 px-6">
-            <div className="max-w-5xl mx-auto space-y-16">
+        <div className="min-h-screen md:pt-10 pb-10 px-4 md:px-6">
+            <div className="max-w-5xl mx-auto space-y-8 md:space-y-16">
                 <div className="space-y-8">
                     <Link
                         href="/"
@@ -40,15 +40,15 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
                     </Link>
 
                     <div className="space-y-6">
-                        <h1 className="text-4xl md:text-6xl font-bold text-foreground">
+                        <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-foreground">
                             {project.title}
                         </h1>
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-1.5 md:gap-2">
                             {project.tags.map((tag) => (
                                 <Badge
                                     key={tag}
                                     variant="secondary"
-                                    className="bg-primary/10 text-primary border-primary/20 text-base py-1 px-3"
+                                    className="bg-primary/10 text-primary border-primary/20 text-xs md:text-base py-0.5 md:py-1 px-2 md:px-3"
                                 >
                                     {tag.replace(/\s+/g, '')}
                                 </Badge>
@@ -90,70 +90,64 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
                 </div>
 
                 {project.codeSnippet && project.codeSnippetPosition === 'top' && (
-                    <section className="space-y-4 w-full">
-                        <h2 className="text-2xl font-bold text-foreground">Core Logic</h2>
+                    <section className="space-y-3 md:space-y-4 w-full">
+                        <h2 className="text-xl md:text-2xl font-bold text-foreground">Core Logic</h2>
                         <div className="rounded-xl overflow-hidden border border-border/50 shadow-lg w-full">
-                            <div className="overflow-x-auto">
-                                <SyntaxHighlighter
-                                    language="javascript"
-                                    style={vscDarkPlus}
-                                    customStyle={{
-                                        margin: 0,
-                                        padding: '1.5rem',
-                                        fontSize: '0.9rem',
-                                        minWidth: 'fit-content'
-                                    }}
-                                    wrapLongLines={false}
-                                >
-                                    {project.codeSnippet}
-                                </SyntaxHighlighter>
-                            </div>
+                            <SyntaxHighlighter
+                                language="javascript"
+                                style={vscDarkPlus}
+                                customStyle={{
+                                    margin: 0,
+                                    padding: '1rem',
+                                    fontSize: '0.75rem',
+                                }}
+                                wrapLongLines={true}
+                            >
+                                {project.codeSnippet}
+                            </SyntaxHighlighter>
                         </div>
                     </section>
                 )}
 
                 <div className="w-full space-y-12">
-                    <section className="space-y-4">
-                        <h2 className="text-2xl font-bold text-foreground">The Story</h2>
-                        <p className="text-muted-foreground text-lg leading-loose max-w-none">
+                    <section className="space-y-3 md:space-y-4">
+                        <h2 className="text-xl md:text-2xl font-bold text-foreground">The Story</h2>
+                        <p className="text-muted-foreground text-base md:text-lg leading-relaxed md:leading-loose max-w-none">
                             {project.longDescription.story}
                         </p>
                     </section>
 
-                    <section className="space-y-4">
-                        <h2 className="text-2xl font-bold text-foreground">How It Works</h2>
-                        <p className="text-muted-foreground text-lg leading-loose max-w-none">
+                    <section className="space-y-3 md:space-y-4">
+                        <h2 className="text-xl md:text-2xl font-bold text-foreground">How It Works</h2>
+                        <p className="text-muted-foreground text-base md:text-lg leading-relaxed md:leading-loose max-w-none">
                             {project.longDescription.howItWorks}
                         </p>
                     </section>
 
-                    <section className="space-y-4">
-                        <h2 className="text-2xl font-bold text-foreground">The Vision</h2>
-                        <p className="text-muted-foreground text-lg leading-loose max-w-none">
+                    <section className="space-y-3 md:space-y-4">
+                        <h2 className="text-xl md:text-2xl font-bold text-foreground">The Vision</h2>
+                        <p className="text-muted-foreground text-base md:text-lg leading-relaxed md:leading-loose max-w-none">
                             {project.longDescription.vision}
                         </p>
                     </section>
                 </div>
 
                 {project.codeSnippet && (!project.codeSnippetPosition || project.codeSnippetPosition === 'bottom') && (
-                    <section className="space-y-4 w-full">
-                        <h2 className="text-2xl font-bold text-foreground">Core Logic</h2>
+                    <section className="space-y-3 md:space-y-4 w-full">
+                        <h2 className="text-xl md:text-2xl font-bold text-foreground">Core Logic</h2>
                         <div className="rounded-xl overflow-hidden border border-border/50 shadow-lg w-full">
-                            <div className="overflow-x-auto">
-                                <SyntaxHighlighter
-                                    language="javascript"
-                                    style={vscDarkPlus}
-                                    customStyle={{
-                                        margin: 0,
-                                        padding: '1.5rem',
-                                        fontSize: '0.9rem',
-                                        minWidth: 'fit-content'
-                                    }}
-                                    wrapLongLines={false}
-                                >
-                                    {project.codeSnippet}
-                                </SyntaxHighlighter>
-                            </div>
+                            <SyntaxHighlighter
+                                language="javascript"
+                                style={vscDarkPlus}
+                                customStyle={{
+                                    margin: 0,
+                                    padding: '1rem',
+                                    fontSize: '0.75rem',
+                                }}
+                                wrapLongLines={true}
+                            >
+                                {project.codeSnippet}
+                            </SyntaxHighlighter>
                         </div>
                     </section>
                 )}
@@ -184,7 +178,7 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
 
                 <div className="space-y-8">
                     <div>
-                        <h1 className="text-3xl font-medium mb-5 text-foreground">Project Links</h1>
+                        <h1 className="text-xl md:text-3xl font-medium mb-4 md:mb-5 text-foreground">Project Links</h1>
                         <div className="flex flex-wrap gap-2">
                             {project.demo && (
                                 <a

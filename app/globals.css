@@ -184,7 +184,6 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
@@ -216,8 +215,14 @@
 
   .no-scrollbar {
     -ms-overflow-style: none;
-    /* IE and Edge */
     scrollbar-width: none;
-    /* Firefox */
   }
+}
+
+pre,
+code {
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
 }
