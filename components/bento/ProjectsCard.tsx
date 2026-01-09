@@ -10,7 +10,7 @@ export function ProjectsCard() {
 
     return (
         <Link href={`/projects/${featuredProject.slug}`} className="block group h-full">
-            <div className="h-full min-h-[280px] p-6 rounded-2xl bg-card/60 backdrop-blur-sm border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 flex flex-col">
+            <div className="h-full min-h-[200px] p-6 rounded-2xl bg-card/60 backdrop-blur-sm border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 flex flex-col">
                 <div className="flex items-center gap-2 mb-5">
                     <Code2 className="w-5 h-5 text-primary" />
                     <span className="text-base font-semibold text-muted-foreground">Projects</span>
@@ -23,7 +23,7 @@ export function ProjectsCard() {
                         fill
                         className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-card via-card/50 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4">
                         <p className="text-base font-semibold text-foreground">{featuredProject.title}</p>
                         <p className="text-sm text-muted-foreground mt-1 line-clamp-1">{featuredProject.description}</p>

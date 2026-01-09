@@ -30,14 +30,13 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
     return (
         <div className="min-h-screen pt-24 pb-16 px-6">
             <div className="max-w-5xl mx-auto space-y-16">
-                {/* Header Section */}
                 <div className="space-y-8">
                     <Link
                         href="/"
                         className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
                     >
                         <ArrowLeft className="w-4 h-4" />
-                        Back to Home
+                        Back
                     </Link>
 
                     <div className="space-y-6">
@@ -58,7 +57,6 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
                     </div>
                 </div>
 
-                {/* Carousel Section */}
                 <div className="relative w-full aspect-video bg-black/90 rounded-2xl overflow-hidden border border-border/50 shadow-2xl">
                     <Carousel
                         className="w-full h-full"
@@ -91,7 +89,6 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
                     </Carousel>
                 </div>
 
-                {/* Code Snippet - Top Position */}
                 {project.codeSnippet && project.codeSnippetPosition === 'top' && (
                     <section className="space-y-4 w-full">
                         <h2 className="text-2xl font-bold text-foreground">Core Logic</h2>
@@ -115,9 +112,7 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
                     </section>
                 )}
 
-                {/* Content Section - Full Width */}
                 <div className="w-full space-y-12">
-                    {/* Story */}
                     <section className="space-y-4">
                         <h2 className="text-2xl font-bold text-foreground">The Story</h2>
                         <p className="text-muted-foreground text-lg leading-loose max-w-none">
@@ -125,7 +120,6 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
                         </p>
                     </section>
 
-                    {/* How It Works */}
                     <section className="space-y-4">
                         <h2 className="text-2xl font-bold text-foreground">How It Works</h2>
                         <p className="text-muted-foreground text-lg leading-loose max-w-none">
@@ -133,7 +127,6 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
                         </p>
                     </section>
 
-                    {/* Vision */}
                     <section className="space-y-4">
                         <h2 className="text-2xl font-bold text-foreground">The Vision</h2>
                         <p className="text-muted-foreground text-lg leading-loose max-w-none">
@@ -142,7 +135,6 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
                     </section>
                 </div>
 
-                {/* Code Snippet - Bottom Position (default) */}
                 {project.codeSnippet && (!project.codeSnippetPosition || project.codeSnippetPosition === 'bottom') && (
                     <section className="space-y-4 w-full">
                         <h2 className="text-2xl font-bold text-foreground">Core Logic</h2>
@@ -166,7 +158,6 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
                     </section>
                 )}
 
-                {/* Video Section */}
                 {project.videoId && (
                     <section className="space-y-4 w-full">
                         <h2 className="text-2xl font-bold text-foreground">Demo Video</h2>
@@ -184,7 +175,6 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
                             />
                             <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors flex items-center justify-center">
                                 <div className="w-16 h-16 rounded-full bg-primary/90 text-primary-foreground flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                                    {/* Play Icon */}
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1"><polygon points="5 3 19 12 5 21 5 3" /></svg>
                                 </div>
                             </div>

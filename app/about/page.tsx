@@ -7,19 +7,17 @@ export default function AboutPage() {
     return (
         <div className="min-h-screen pt-24 pb-16 px-6">
             <div className="max-w-4xl mx-auto space-y-12">
-                {/* Back Navigation */}
                 <Link
                     href="/"
                     className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
                 >
                     <ArrowLeft className="w-4 h-4" />
-                    Back to Home
+                    Back
                 </Link>
 
-                {/* Profile Section */}
                 <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
                     <div className="relative group shrink-0">
-                        <div className="absolute -inset-1 bg-gradient-to-r from-primary to-primary/50 rounded-full blur opacity-50 group-hover:opacity-75 transition duration-500"></div>
+                        <div className="absolute -inset-1 bg-linear-to-r from-primary to-primary/50 rounded-full blur opacity-50 group-hover:opacity-75 transition duration-500"></div>
                         <Image
                             src={profile.avatarUrl}
                             alt={profile.name}
@@ -39,7 +37,6 @@ export default function AboutPage() {
                     </div>
                 </div>
 
-                {/* About Content */}
                 <div className="space-y-8">
                     <section className="space-y-4">
                         <h2 className="text-2xl font-bold text-foreground">About Me</h2>

@@ -28,7 +28,7 @@ export function Contributions() {
     }, [])
 
     return (
-        <div className="w-full max-w-7xl mx-auto p-3 sm:p-6">
+        <div className="hidden md:block w-full max-w-6xl mx-auto p-3 sm:p-6">
             <div className="mb-4 sm:mb-8 text-center md:text-left">
                 <h1 className="text-3xl sm:text-4xl font-bold mb-2">Contributions</h1>
                 <p className="text-sm sm:text-base text-muted-foreground">My github activity over the last year</p>
