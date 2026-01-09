@@ -30,6 +30,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={`${inter.className} antialiased`}>
         <AnimatedBackground />
+        <div className="fixed inset-0 bg-white/3 pointer-events-none z-1" />
         {children}
       </body>
     </html>

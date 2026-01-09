@@ -1,20 +1,17 @@
-import { Hero } from "../components/Hero";
-import { Experience } from "../components/Experience";
-import { Leadership } from "@/components/Leadership";
-import { Projects } from "../components/Projects";
-import { TechStack } from "../components/TechStack";
-import { Contributions } from "../components/Contributions";
-import { Footer } from "../components/Footer";
+import { CompactHeader } from "@/components/CompactHeader";
+import { BentoSections } from "@/components/BentoSections";
+import { Footer } from "@/components/Footer";
+import { Contributions } from "@/components/Contributions";
+
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <Hero />
-      <Experience />
-      <Leadership />
-      <Projects />
-      <TechStack />
-      <Contributions />
-      <Footer />
-    </main>
+    <div className="relative min-h-screen">
+      <main className="relative z-10 min-h-screen">
+        <CompactHeader />
+        <BentoSections />
+        <Contributions />
+        <Footer />
+      </main>
+    </div>
   );
 }
