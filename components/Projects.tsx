@@ -2,8 +2,48 @@
 
 import { ExternalLink, Github } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
-import { projects } from "@/data/projects"
+
+const projects = [
+  {
+    title: "GhumoFiro",
+    description:
+      "A travel itinerary web app featuring both manual and AI-powered trip planning, integrating SerpAI to fetch real flights, attractions, and activities for personalized travel recommendations.",
+    images: ["/assets/projects/GhumoFiro/1.png"],
+    video: "",
+    tags: ["Next.js", "Express", "Node", "MongoDB", "Firebase"],
+    github: "https://github.com/Sambhav-3010/GhumoFiro",
+    demo: "https://ghumofiro.vercel.app",
+  },
+  {
+    title: "PropChain",
+    description:
+      "A decentralized land registry platform using smart contracts for secure property transactions. Integrated Web3 with Next for blockchain-based ownership verification and transfers.",
+    images: ["/assets/projects/PropChain/1.png"],
+    video: "",
+    tags: ["Next.js", "Express", "MongoDB", "Firebase", "Ethereum", "Solidity"],
+    github: "https://github.com/Sambhav-3010/PropChain",
+    demo: "https://nfc-prop-chain.vercel.app",
+  },
+  {
+    title: "SettleMate",
+    description:
+      "Expense splitting application with a visual analytics dashboard and QR-based UPI payments, enabling users to track expenses, analyze spending patterns, and settle dues instantly via scannable payment codes.",
+    images: ["/assets/projects/SettleMate/1.png"],
+    video: "",
+    tags: ["Next.js", "Express", "Socket.io", "PrismaDB", "NeonDB"],
+    github: "https://github.com/Sambhav-3010/SettleMate",
+    demo: "https://settle-mates.vercel.app",
+  },
+  {
+    title: "QuickWeb.ai",
+    description: "An AI powered website generator using Qwen and Gemini 2.5 to transform simple prompts into fully structured, production-ready websites within seconds.",
+    images: ["/assets/projects/QuickWeb.ai/1.png"],
+    video: "",
+    tags: ["Next.js", "Express", "Node", "TypeScript"],
+    github: "https://github.com/Sambhav-3010/QuickWeb.ai",
+    demo: "https://quickwebai.vercel.app",
+  },
+]
 
 export function Projects() {
   return (
@@ -69,25 +109,11 @@ export function Projects() {
                         className="p-1.5 rounded bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
                         title="View Code"
                       >
-                        <Github className="w-5 h-5" />
+                        <Play className="h-4 w-4" />
+                        Demo Video (Comming Soon)
                       </a>
-                    )}
-                  </div>
-                </div>
-
-                <p className="text-muted-foreground text-md line-clamp-3 mb-3">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-1">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 text-[13px] font-medium rounded bg-primary/10 text-primary border border-primary/20"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>
