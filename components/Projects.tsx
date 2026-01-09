@@ -9,7 +9,7 @@ const projects = [
     description:
       "A travel itinerary web app featuring both manual and AI-powered trip planning, integrating SerpAI to fetch real flights, attractions, and activities for personalized travel recommendations.",
     images: ["/assets/projects/GhumoFiro/1.png"],
-    video: "",
+    video: "#",
     tags: ["Next.js", "Express", "Node", "MongoDB", "Firebase"],
     github: "https://github.com/Sambhav-3010/GhumoFiro",
     demo: "https://ghumofiro.vercel.app",
@@ -19,7 +19,7 @@ const projects = [
     description:
       "A decentralized land registry platform using smart contracts for secure property transactions. Integrated Web3 with Next for blockchain-based ownership verification and transfers.",
     images: ["/assets/projects/PropChain/1.png"],
-    video: "",
+    video: "#",
     tags: ["Next.js", "Express", "MongoDB", "Firebase", "Ethereum", "Solidity"],
     github: "https://github.com/Sambhav-3010/PropChain",
     demo: "https://nfc-prop-chain.vercel.app",
@@ -29,7 +29,7 @@ const projects = [
     description:
       "Expense splitting application with a visual analytics dashboard and QR-based UPI payments, enabling users to track expenses, analyze spending patterns, and settle dues instantly via scannable payment codes.",
     images: ["/assets/projects/SettleMate/1.png"],
-    video: "",
+    video: "#",
     tags: ["Next.js", "Express", "Socket.io", "PrismaDB", "NeonDB"],
     github: "https://github.com/Sambhav-3010/SettleMate",
     demo: "https://settle-mates.vercel.app",
@@ -38,7 +38,7 @@ const projects = [
     title: "QuickWeb.ai",
     description: "An AI powered website generator using Qwen and Gemini 2.5 to transform simple prompts into fully structured, production-ready websites within seconds.",
     images: ["/assets/projects/QuickWeb.ai/1.png"],
-    video: "",
+    video: "#",
     tags: ["Next.js", "Express", "Node", "TypeScript"],
     github: "https://github.com/Sambhav-3010/QuickWeb.ai",
     demo: "https://quickwebai.vercel.app",
