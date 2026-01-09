@@ -12,8 +12,10 @@ export const experiences = [
                     "Developed full-stack Shopify applications using Shopify Remix in React with the Polaris component library for embedded admin interfaces.",
                 ],
                 skills: ["Shopify", "Slack", "Trello", "Shopify Remix", "Polaris", "Atlassian Marketplace"],
+
             },
         ],
+        image: "/assets/company/explified.png",
     },
     {
         company: "Naareecollections",
@@ -39,6 +41,7 @@ export const experiences = [
                 skills: ["MERN Stack", "E-commerce", "Deployment", "Git & GitHub"],
             },
         ],
+        image: "/assets/company/naareecollections.png",
     },
     {
         company: "ZecBay",
@@ -55,5 +58,6 @@ export const experiences = [
                 skills: ["React.js", "Node.js", "Express.js", "MongoDB", "Full Stack Development"],
             },
         ],
+        image: "",
     },
 ]

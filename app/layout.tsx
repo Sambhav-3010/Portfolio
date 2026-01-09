@@ -14,10 +14,17 @@ export const metadata: Metadata = {
     icon: [
       {
         url: "/favicon_portfolio.png",
-        type: "image/svg+xml",
+        type: "image/png",
       },
     ],
-    apple: "/favicon.png",
+    apple: "/favicon_portfolio.png",
+    shortcut: "/favicon_portfolio.png",
+    other: [
+      {
+        url: "/favicon_portfolio.png",
+        type: "image/png",
+      },
+    ],
   },
 };
 
@@ -30,7 +37,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={`${inter.className} antialiased`}>
         <AnimatedBackground />
-        <div className="fixed inset-0 bg-white/3 pointer-events-none z-1" />
+        <div className="fixed inset-0 bg-white/5 pointer-events-none z-1" />
         {children}
       </body>
     </html>

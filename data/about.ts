@@ -2,13 +2,14 @@ export const profile = {
     name: "Sambhav Mani Tripathi",
     role: "Full Stack Developer",
     location: "India",
-    bio: "I build accessible, pixel-perfect digital experiences for the web. Passionate about crafting thoughtful solutions that blend design and engineering.",
+    bio: `Coding enthusiast building web applications. Working with Java, JavaScript, MERN, and Next.js. Always learning and exploring new tools.`,
     bioPoints: [
-        "Full stack dev, Web3, Finance, AI/ML, and DSA - I do it all.",
-        "I build, learn, and keep it moving.",
+        "CS student exploring full-stack development.",
+        "Learning by building."
     ],
-    tagline: "The party never ends - 999",
-    availability: "Available for new projects",
+    tagline: "Learning, building, improving.",
+    availability: "Looking for new opportunities",
+    interest: "Full Stack Web Development",
     email: "sambhavmani.tripathi@gmail.com",
     phone: "+917007231054",
     socials: {
@@ -19,4 +20,10 @@ export const profile = {
     },
     resumeUrl: "/assets/resume.pdf",
     avatarUrl: "/sambhav_portfolio.jpg",
+    education: {
+        college: "KJ Somaiya College of Engineering",
+        degree: "B.Tech, Computer Engineering",
+        duration: "Jul 2023 - Jul 2027",
+        grade: "9.48 CGPA",
+    },
 }

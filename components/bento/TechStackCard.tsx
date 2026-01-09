@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Cpu } from "lucide-react"
+import { ArrowRight, Cpu } from "lucide-react"
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiJavascript, SiNodedotjs, SiMongodb, SiFirebase, SiGit, SiGithub, SiExpress, SiPrisma } from "react-icons/si"
 
 const techIcons = [
@@ -23,9 +23,14 @@ export function TechStackCard() {
     return (
         <Link href="/tech-stack" className="block group h-full">
             <div className="h-full p-5 rounded-2xl bg-card/60 backdrop-blur-sm border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 flex flex-col">
-                <div className="flex items-center gap-2 mb-3">
-                    <Cpu className="w-5 h-5 text-primary" />
-                    <span className="text-base font-semibold text-muted-foreground">Tech Stack</span>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="text-base font-semibold text-muted-foreground flex items-center gap-2">
+                        <Cpu className="w-5 h-5 text-primary" />
+                        Tech Stack
+                    </span>
+                    <span className="flex items-center gap-1 text-sm text-primary group-hover:text-primary/80 transition-colors font-medium">
+                        Read More <ArrowRight className="w-4 h-4" />
+                    </span>
                 </div>
 
                 <h3 className="text-base font-semibold text-foreground mb-3">

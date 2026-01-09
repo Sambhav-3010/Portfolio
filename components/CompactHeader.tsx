@@ -4,13 +4,13 @@ import { Github, Linkedin, Mail, Phone, Twitter, FileText } from "lucide-react"
 import Image from "next/image"
 import { profile } from "@/data/about"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export function CompactHeader() {
     return (
         <section className="w-full max-w-6xl mx-auto px-6 pt-20 pb-12">
             <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
                 <div className="flex-1 space-y-6 text-center md:text-left order-2 md:order-1">
-                    {/* Name & Role */}
                     <div className="space-y-2">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
                             {profile.name}
@@ -19,19 +19,21 @@ export function CompactHeader() {
                             {profile.role}
                         </p>
                     </div>
-
-                    {/* Availability Badge */}
-                    <div className="flex items-center justify-center md:justify-start gap-2 px-3 py-1.5 bg-green-500/10 border border-green-500/30 rounded-full w-fit mx-auto md:mx-0">
-                        <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                        <span className="text-green-500 text-sm font-medium">{profile.availability}</span>
+                    <div className="flex items-center justify-center md:justify-start gap-2 rounded-full w-fit mx-auto md:mx-0">
+                        <div className="flex items-center justify-center md:justify-start gap-2 px-3 py-1.5 bg-purple-500/10 border border-purple-500/30 rounded-full w-fit mx-auto md:mx-0">
+                            <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></span>
+                            <span className="text-purple-500 text-sm font-medium">{profile.interest}</span>
+                        </div>
+                        <div className="flex items-center justify-center md:justify-start gap-2 px-3 py-1.5 bg-green-500/10 border border-green-500/30 rounded-full w-fit mx-auto md:mx-0">
+                            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                            <span className="text-green-500 text-sm font-medium">{profile.availability}</span>
+                        </div>
                     </div>
 
-                    {/* Bio */}
                     <p className="text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
                         {profile.bio}
                     </p>
 
-                    {/* Action Buttons */}
                     <div className="flex flex-wrap gap-3 justify-center md:justify-start">
                         <Button
                             variant="default"
@@ -39,7 +41,7 @@ export function CompactHeader() {
                             asChild
                             className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold transition-all hover:scale-105"
                         >
-                            <a href="#bento">View Work</a>
+                            <Link href="/projects">View Work</Link>
                         </Button>
                         <Button
                             variant="outline"
@@ -51,7 +53,6 @@ export function CompactHeader() {
                         </Button>
                     </div>
 
-                    {/* Social Links */}
                     <div className="flex gap-5 pt-4 border-t border-border justify-center md:justify-start">
                         {profile.socials.github && (
                             <a
@@ -108,10 +109,9 @@ export function CompactHeader() {
                     </div>
                 </div>
 
-                {/* Right Side: Profile Photo */}
                 <div className="shrink-0 order-1 md:order-2">
                     <div className="relative group">
-                        <div className="absolute -inset-2 bg-gradient-to-r from-primary to-primary/50 rounded-full blur-lg opacity-40 group-hover:opacity-60 transition duration-500"></div>
+                        <div className="absolute -inset-2 bg-linear-to-r from-primary to-primary/50 rounded-full blur-lg opacity-40 group-hover:opacity-60 transition duration-500"></div>
                         <Image
                             src={profile.avatarUrl}
                             alt={profile.name}
