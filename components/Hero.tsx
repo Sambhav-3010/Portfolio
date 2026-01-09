@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export function Hero() {
   return (
-    <section className="min-h-screen flex flex-col md:gap-20 lg:gap-32 gap-8 items-center justify-center md:flex-row-reverse px-6 py-20">
+    <section className="min-h-screen flex flex-col md:gap-20 lg:gap-32 gap-8 items-center justify-center md:flex-row-reverse px-6 py-20 md:ml-16 md:mr-16 lg:ml-24 lg:mr-24">
       <div className="shrink-0 mb-8">
         <div className="relative group">
           <div className="absolute -inset-1 bg-linear-to-r from-primary to-primary/80 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
@@ -47,7 +47,7 @@ export function Hero() {
               asChild
               className="bg-transparent border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-primary/50 transition-all"
             >
-              <a href="#contact">Get in Touch</a>
+              <a href="mailto:sambhavmani.tripathi@gmail.com">Get in Touch</a>
             </Button>
           </div>
           <div className="flex gap-5 pt-8 border-t border-border">
