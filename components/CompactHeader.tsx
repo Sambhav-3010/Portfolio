@@ -8,7 +8,7 @@ import Link from "next/link"
 
 export function CompactHeader() {
     return (
-        <section className="w-full max-w-6xl mx-auto px-6 pt-20 pb-12">
+        <section className="w-full max-w-6xl mx-auto px-6 pt-10 pb-10">
             <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
                 <div className="flex-1 space-y-6 text-center md:text-left order-2 md:order-1">
                     <div className="space-y-2">
@@ -59,9 +59,12 @@ export function CompactHeader() {
                                 href={profile.socials.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-muted-foreground hover:text-primary transition-all hover:scale-110"
+                                className="text-muted-foreground hover:text-primary transition-all hover:scale-110 relative group"
                             >
                                 <Github className="h-5 w-5" />
+                                <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-card text-card-foreground text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-border">
+                                    GitHub
+                                </span>
                             </a>
                         )}
                         {profile.socials.linkedin && (
@@ -69,9 +72,12 @@ export function CompactHeader() {
                                 href={profile.socials.linkedin}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-muted-foreground hover:text-primary transition-all hover:scale-110"
+                                className="text-muted-foreground hover:text-primary transition-all hover:scale-110 relative group"
                             >
                                 <Linkedin className="h-5 w-5" />
+                                <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-card text-card-foreground text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-border">
+                                    LinkedIn
+                                </span>
                             </a>
                         )}
                         {profile.socials.twitter && (
@@ -79,22 +85,31 @@ export function CompactHeader() {
                                 href={profile.socials.twitter}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-muted-foreground hover:text-primary transition-all hover:scale-110"
+                                className="text-muted-foreground hover:text-primary transition-all hover:scale-110 relative group"
                             >
                                 <Twitter className="h-5 w-5" />
+                                <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-card text-card-foreground text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-border">
+                                    Twitter
+                                </span>
                             </a>
                         )}
                         <a
                             href={`mailto:${profile.email}`}
-                            className="text-muted-foreground hover:text-primary transition-all hover:scale-110"
+                            className="text-muted-foreground hover:text-primary transition-all hover:scale-110 relative group"
                         >
                             <Mail className="h-5 w-5" />
+                            <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-card text-card-foreground text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-border">
+                                Email
+                            </span>
                         </a>
                         <a
                             href={`tel:${profile.phone}`}
-                            className="text-muted-foreground hover:text-primary transition-all hover:scale-110"
+                            className="text-muted-foreground hover:text-primary transition-all hover:scale-110 relative group"
                         >
                             <Phone className="h-5 w-5" />
+                            <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-card text-card-foreground text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-border">
+                                Call
+                            </span>
                         </a>
                         <a
                             href={profile.resumeUrl}

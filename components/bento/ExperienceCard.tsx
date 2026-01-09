@@ -21,7 +21,7 @@ export function ExperienceCard() {
             <div className="flex items-center justify-between gap-2 mb-5">
                 <span className="text-base font-semibold text-muted-foreground flex items-center gap-2">
                     <Briefcase className="w-5 h-5 text-primary" />
-                    Experience
+                    Experience & Leadership
                 </span>
                 <span className="flex items-center gap-1 text-sm text-primary group-hover:text-primary/80 transition-colors font-medium">
                     View All <ArrowRight className="w-4 h-4" />
@@ -31,8 +31,8 @@ export function ExperienceCard() {
             <div className="space-y-4 flex-1">
                 {displayExperiences.map((exp, index) => (
                     <div key={index} className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
-                            <Image className="text-primary text-sm font-bold" src={exp.image} alt={exp.company} width={40} height={40} />
+                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 overflow-hidden">
+                            <Image className="w-full h-full object-cover" src={exp.image} alt={exp.company} width={40} height={40} />
                         </div>
                         <div className="flex-1 min-w-0">
                             <div className="flex items-center justify-between gap-2">

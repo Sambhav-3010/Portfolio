@@ -2,7 +2,7 @@ export const experiences = [
     {
         company: "Explified",
         location: "Remote",
-        logoUrl: "",
+        type: "experience",
         roles: [
             {
                 period: "October 2025 - Present",
@@ -12,7 +12,6 @@ export const experiences = [
                     "Developed full-stack Shopify applications using Shopify Remix in React with the Polaris component library for embedded admin interfaces.",
                 ],
                 skills: ["Shopify", "Slack", "Trello", "Shopify Remix", "Polaris", "Atlassian Marketplace"],
-
             },
         ],
         image: "/assets/company/explified.png",
@@ -20,7 +19,7 @@ export const experiences = [
     {
         company: "Naareecollections",
         location: "Delhi, India (Remote)",
-        logoUrl: "",
+        type: "experience",
         roles: [
             {
                 period: "September 2025 - December 2025",
@@ -46,7 +45,7 @@ export const experiences = [
     {
         company: "ZecBay",
         location: "Mumbai, India (On-Site)",
-        logoUrl: "",
+        type: "experience",
         roles: [
             {
                 period: "October 2024 - January 2025",
@@ -58,6 +57,50 @@ export const experiences = [
                 skills: ["React.js", "Node.js", "Express.js", "MongoDB", "Full Stack Development"],
             },
         ],
-        image: "",
+        image: "/assets/company/zecbay.png",
+    },
+    {
+        company: "Somaiya Machine Learning Research Association",
+        location: "Mumbai, India (On-Site)",
+        type: "leadership",
+        roles: [
+            {
+                period: "July 2025 - Present",
+                title: "Co Lead",
+                description: [
+                    "Organized and managed council events, representing the council through public speaking and coordination.",
+                    "Head of the Tech Team, leading development and maintenance of the council website.",
+                ],
+                skills: ["Leadership", "MERN Stack", "Web Development", "Git & GitHub", "Next.js", "Docker", "CI/CD"],
+            },
+            {
+                period: "August 2024 - July 2025",
+                title: "Associate Mentor",
+                description: [
+                    "Delivered lectures during symposium events on Machine Learning concepts.",
+                    "Conducted sessions on Git, GitHub, and Web Development.",
+                ],
+                skills: ["Mentoring", "Machine Learning", "Public Speaking"],
+            },
+        ],
+        image: "/assets/company/smlra.png",
+    },
+    {
+        company: "Crowdsource by Google India",
+        location: "Mumbai, Maharashtra, India (Remote)",
+        type: "leadership",
+        roles: [
+            {
+                period: "Aug 2025 - Oct 2025",
+                title: "Crowdsource Learning Community Influencer",
+                description: [
+                    "Conducted student led Google Crowdsource Seminars, helping students understand the importance of crowdsourcing in inclusive training of AI models.",
+                    "Made over 50+ contributions for the Crowdsource programme in the STEM domain, contributing my part in training of Google's upcoming AI models.",
+                ],
+                skills: ["Public Speaking", "Community Building", "AI/ML Awareness"],
+            },
+        ],
+        image: "/assets/company/crowdsource.png",
     },
 ]
+
