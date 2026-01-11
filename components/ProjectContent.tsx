@@ -1,5 +1,7 @@
 "use client"
 
+import { useState, useEffect } from "react"
+
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Github, ArrowLeft } from "lucide-react"
 import Image from "next/image"
@@ -12,6 +14,7 @@ import {
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
+    type CarouselApi,
 } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
 
@@ -30,12 +33,36 @@ interface Project {
     demo?: string
     codeSnippet?: string
     codeSnippetPosition?: 'top' | 'bottom'
+    codeSnippets?: {
+        title: string
+        language: string
+        explanation: string
+        code: string
+    }[]
+    conclusion: string
     videoId?: string
 }
 
 export function ProjectContent({ project }: { project: Project }) {
+    const [api, setApi] = useState<CarouselApi>()
+    const [current, setCurrent] = useState(0)
+    const [count, setCount] = useState(0)
+
+    useEffect(() => {
+        if (!api) {
+            return
+        }
+
+        setCount(api.scrollSnapList().length)
+        setCurrent(api.selectedScrollSnap() + 1)
+
+        api.on("select", () => {
+            setCurrent(api.selectedScrollSnap() + 1)
+        })
+    }, [api])
+
     return (
-        <div className="min-h-screen pt-10 md:pt-24 pb-10 md:pb-16 px-4 md:px-6">
+        <div className="min-h-screen pt-10 pb-10 px-4 md:px-6">
             <div className="max-w-5xl mx-auto space-y-8 md:space-y-16">
                 <div className="space-y-8">
                     <Link
@@ -66,10 +93,13 @@ export function ProjectContent({ project }: { project: Project }) {
 
                 <div className="relative w-full aspect-video bg-black/90 rounded-2xl overflow-hidden border border-border/50 shadow-2xl">
                     <Carousel
+                        setApi={setApi}
                         className="w-full h-full"
                         plugins={[
                             Autoplay({
-                                delay: 4000,
+                                delay: 5000,
+                                stopOnMouseEnter: true,
+                                stopOnInteraction: true,
                             }),
                         ]}
                         opts={{
@@ -93,8 +123,49 @@ export function ProjectContent({ project }: { project: Project }) {
                         </CarouselContent>
                         <CarouselPrevious className="left-4" />
                         <CarouselNext className="right-4" />
+                        <div className="absolute bottom-4 right-4 z-20 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-white text-sm font-medium border border-white/10">
+                            {current} / {count}
+                        </div>
                     </Carousel>
                 </div>
+
+                {project.videoId && project.videoId !== "#" && project.videoId !== "" ? (
+                    <a
+                        href={`https://www.youtube.com/watch?v=${project.videoId}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center gap-4 p-4 md:p-5 rounded-2xl bg-linear-to-r from-primary/10 via-primary/5 to-transparent border border-primary/30 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
+                    >
+                        <div className="relative shrink-0 w-20 h-14 md:w-28 md:h-16 rounded-xl overflow-hidden bg-black/50 border border-border/50">
+                            <Image
+                                src={`https://img.youtube.com/vi/${project.videoId}/mqdefault.jpg`}
+                                alt="Demo Video Thumbnail"
+                                fill
+                                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                            <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
+                                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/90 text-primary-foreground flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-0.5"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <h3 className="text-base md:text-lg font-semibold text-foreground group-hover:text-primary transition-colors">Watch Demo Video</h3>
+                            <p className="text-sm text-muted-foreground truncate">See {project.title} in action on YouTube</p>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-muted-foreground group-hover:text-primary transition-colors group-hover:translate-x-1 duration-300"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                    </a>
+                ) : (
+                    <div className="flex items-center gap-4 p-4 md:p-5 rounded-2xl bg-muted/30 border border-border/50">
+                        <div className="relative shrink-0 w-20 h-14 md:w-28 md:h-16 rounded-xl overflow-hidden bg-muted/50 border border-border/50 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground/50"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <h3 className="text-base md:text-lg font-semibold text-muted-foreground">Demo Video Coming Soon</h3>
+                            <p className="text-sm text-muted-foreground/70 truncate">Stay tuned for the {project.title} demo</p>
+                        </div>
+                    </div>
+                )}
 
                 {project.codeSnippet && project.codeSnippetPosition === 'top' && (
                     <section className="space-y-3 md:space-y-4 w-full">
@@ -137,6 +208,8 @@ export function ProjectContent({ project }: { project: Project }) {
                             {project.longDescription.vision}
                         </p>
                     </section>
+
+
                 </div>
 
                 {project.codeSnippet && (!project.codeSnippetPosition || project.codeSnippetPosition === 'bottom') && (
@@ -159,29 +232,41 @@ export function ProjectContent({ project }: { project: Project }) {
                     </section>
                 )}
 
-                {project.videoId && (
-                    <section className="space-y-4 w-full">
-                        <h2 className="text-2xl font-bold text-foreground">Demo Video</h2>
-                        <a
-                            href={`https://www.youtube.com/watch?v=${project.videoId}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block group relative rounded-xl overflow-hidden aspect-video max-w-3xl border border-border hover:border-primary/50 transition-all shadow-lg"
-                        >
-                            <Image
-                                src={`https://img.youtube.com/vi/${project.videoId}/maxresdefault.jpg`}
-                                alt="Video Thumbnail"
-                                fill
-                                className="object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
-                            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors flex items-center justify-center">
-                                <div className="w-16 h-16 rounded-full bg-primary/90 text-primary-foreground flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+                {project.codeSnippets && project.codeSnippets.length > 0 && (
+                    <div className="space-y-8 md:space-y-12 w-full">
+                        {project.codeSnippets.map((snippet, index) => (
+                            <section key={index} className="space-y-3 md:space-y-4 w-full">
+                                <h2 className="text-xl md:text-2xl font-bold text-foreground">{snippet.title}</h2>
+                                <p className="text-muted-foreground text-base md:text-lg leading-relaxed md:leading-loose max-w-none">
+                                    {snippet.explanation}
+                                </p>
+                                <div className="rounded-xl overflow-hidden border border-border/50 shadow-lg w-full">
+                                    <SyntaxHighlighter
+                                        language={snippet.language}
+                                        style={vscDarkPlus}
+                                        customStyle={{
+                                            margin: 0,
+                                            padding: '1rem',
+                                            fontSize: '0.75rem',
+                                        }}
+                                        wrapLongLines={true}
+                                    >
+                                        {snippet.code}
+                                    </SyntaxHighlighter>
                                 </div>
-                            </div>
-                        </a>
-                    </section>
+                            </section>
+                        ))}
+                    </div>
                 )}
+
+
+
+                <section className="space-y-3 md:space-y-4 w-full">
+                    <h2 className="text-xl md:text-2xl font-bold text-foreground">Conclusion</h2>
+                    <p className="text-muted-foreground text-base md:text-lg leading-relaxed md:leading-loose max-w-none">
+                        {project.conclusion}
+                    </p>
+                </section>
 
                 <div className="space-y-8">
                     <div>
