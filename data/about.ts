@@ -9,7 +9,7 @@ export const profile = {
     ],
     tagline: "Learning, building, improving.",
     availability: "Looking for new opportunities",
-    interest: "Full Stack Web Development",
+    interest: "Crafting web products with modern tech",
     email: "sambhavmani.tripathi@gmail.com",
     phone: "+917007231054",
     socials: {

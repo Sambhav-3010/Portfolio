@@ -183,15 +183,6 @@
 }
 
 @layer base {
-  html {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  html::-webkit-scrollbar {
-    display: none;
-  }
-
   * {
     @apply border-border outline-ring/50;
   }
@@ -199,12 +190,32 @@
   body {
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
-    -ms-overflow-style: none;
-    scrollbar-width: none;
   }
 
-  body::-webkit-scrollbar {
-    display: none;
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1e293b;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #3b82f6, #06b6d4);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #2563eb, #0891b2);
+  }
+
+  pre,
+  code {
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
   }
 }
 
@@ -217,12 +228,4 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-}
-
-pre,
-code {
-  white-space: pre-wrap !important;
-  word-wrap: break-word !important;
-  word-break: break-word !important;
-  overflow-wrap: break-word !important;
 }
