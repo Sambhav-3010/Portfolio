@@ -5,6 +5,8 @@ export interface CodeSnippet {
   code: string;
 }
 
+export type ProjectStatus = 'stable' | 'warning' | 'issues';
+
 export interface Project {
   slug: string;
   title: string;
@@ -23,6 +25,8 @@ export interface Project {
   codeSnippetPosition?: 'top' | 'bottom';
   codeSnippets?: CodeSnippet[];
   conclusion: string;
+  status?: ProjectStatus;
+  statusMessage?: string;
 }
 
 export const projects: Project[] = [
@@ -144,6 +148,8 @@ return res.status(200).json(itineraryJson);`
     tags: ["Next.js", "Express", "MongoDB", "Firebase", "Ethereum", "Solidity"],
     github: "https://github.com/Sambhav-3010/PropChain",
     demo: "https://nfc-prop-chain.vercel.app",
+    status: "issues",
+    statusMessage: "Deployment has some issues - may not work properly or crash at runtime. Fix in progress.",
     codeSnippet: `contract LandRegistry {
     struct Property {
         uint256 id;
@@ -181,6 +187,8 @@ return res.status(200).json(itineraryJson);`
     tags: ["Next.js", "Express", "Socket.io", "PrismaDB", "NeonDB"],
     github: "https://github.com/Sambhav-3010/SettleMate",
     demo: "https://settle-mates.vercel.app",
+    status: "issues",
+    statusMessage: "Deployment has some issues - may not work properly or crash at runtime. Fix in progress.",
     codeSnippet: `io.on('connection', (socket) => {
   socket.on('join-room', (roomId) => {
     socket.join(roomId);
@@ -219,5 +227,33 @@ return res.status(200).json(itineraryJson);`
   const parsed = JSON.parse(llmResponse);
   return await deployToVercel(parsed);
 }`,
+  },
+  {
+    slug: "taskify",
+    title: "Taskify",
+    description:
+      "A full-featured task management system with project grouping, allowing users to organize multiple tasks under different projects for better productivity and workflow management.",
+    longDescription: {
+      story: "Managing tasks across multiple projects can quickly become overwhelming. Taskify was built to bring clarity and structure to task management by allowing users to group related tasks under projects, making it easier to track progress and stay organized.",
+      howItWorks: "Users can create projects and add multiple tasks within each project. Each task can be marked complete, edited, or deleted. The clean UI built with ShadcnUI components provides an intuitive experience, while the Express backend handles data persistence and API operations.",
+      vision: "To be a simple yet powerful productivity tool that helps individuals and teams manage their work efficiently without the complexity of enterprise solutions."
+    },
+    conclusion: "Taskify demonstrates the power of combining modern frontend frameworks with a robust backend. The project showcases clean architecture patterns, reusable UI components with ShadcnUI, and efficient state management for a seamless task management experience.",
+    images: [
+      "/assets/projects/Taskify/1.png",
+      "/assets/projects/Taskify/1.png",
+      "/assets/projects/Taskify/1.png",
+    ],
+    videoId: "",
+    tags: ["Next.js", "Express", "TypeScript", "ShadcnUI", "TailwindCSS"],
+    github: "https://github.com/Sambhav-3010/Taskify",
+    demo: "https://taskify-event.vercel.app",
+    codeSnippet: `// Project-based task grouping
+const createTask = async (projectId: string, task: Task) => {
+  const project = await Project.findById(projectId);
+  project.tasks.push(task);
+  await project.save();
+  return project;
+};`,
   },
 ]

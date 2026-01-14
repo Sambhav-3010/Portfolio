@@ -5,6 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { projects } from "@/data/projects"
+import { ProjectStatusBadge } from "@/components/ProjectStatusBadge"
 
 export default function ProjectsPage() {
     const router = useRouter()
@@ -47,6 +48,17 @@ export default function ProjectsPage() {
                                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                                 />
                                 <div className="absolute inset-0 bg-linear-to-t from-card via-card/50 to-transparent" />
+
+                                {/* Status Badge - Positioned in top left */}
+                                {(project.status === 'warning' || project.status === 'issues') && (
+                                    <div className="absolute top-4 left-4 z-10">
+                                        <ProjectStatusBadge
+                                            status={project.status}
+                                            statusMessage={project.statusMessage}
+                                            size="sm"
+                                        />
+                                    </div>
+                                )}
 
                                 {/* Action Icons - Positioned in top right */}
                                 <div className="absolute top-4 right-4 flex gap-2">

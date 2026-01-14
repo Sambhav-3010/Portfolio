@@ -7,6 +7,7 @@ import { projects } from "@/data/projects"
 import { useState, useEffect } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { useRouter } from "next/navigation"
+import { ProjectStatusBadge } from "@/components/ProjectStatusBadge"
 
 export function ProjectsCarouselCard() {
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -72,6 +73,16 @@ export function ProjectsCarouselCard() {
                         >
                             <h3 className="text-lg md:text-xl font-bold text-foreground mb-1 md:mb-2">
                                 {currentProject.title}
+                                {(currentProject.status === 'warning' || currentProject.status === 'issues') && (
+                                    <span className="ml-2 inline-flex align-middle">
+                                        <ProjectStatusBadge
+                                            status={currentProject.status}
+                                            statusMessage={currentProject.statusMessage}
+                                            size="sm"
+                                            showLabel={false}
+                                        />
+                                    </span>
+                                )}
                             </h3>
                             <p className="text-xs md:text-sm text-muted-foreground line-clamp-1 md:line-clamp-2 mb-2 md:mb-3">
                                 {currentProject.description}

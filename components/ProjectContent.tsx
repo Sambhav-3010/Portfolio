@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Github, ArrowLeft } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { ProjectStatusBadge } from "@/components/ProjectStatusBadge"
+import { ProjectStatus } from "@/data/projects"
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import {
@@ -41,6 +43,8 @@ interface Project {
     }[]
     conclusion: string
     videoId?: string
+    status?: ProjectStatus
+    statusMessage?: string
 }
 
 export function ProjectContent({ project }: { project: Project }) {
@@ -77,6 +81,59 @@ export function ProjectContent({ project }: { project: Project }) {
                         <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-foreground">
                             {project.title}
                         </h1>
+                        {(project.status === 'warning' || project.status === 'issues') && (
+                            <div className={`
+                                w-full p-4 md:p-5 rounded-xl border-2
+                                ${project.status === 'issues'
+                                    ? 'bg-red-500/10 border-red-500/40 text-red-400'
+                                    : 'bg-amber-500/10 border-amber-500/40 text-amber-400'
+                                }
+                            `}>
+                                <div className="flex items-start gap-3 md:gap-4">
+                                    <div className={`
+                                        shrink-0 p-2 rounded-lg
+                                        ${project.status === 'issues'
+                                            ? 'bg-red-500/20'
+                                            : 'bg-amber-500/20'
+                                        }
+                                    `}>
+                                        {project.status === 'issues' ? (
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                <circle cx="12" cy="12" r="10" />
+                                                <line x1="12" y1="8" x2="12" y2="12" />
+                                                <line x1="12" y1="16" x2="12.01" y2="16" />
+                                            </svg>
+                                        ) : (
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+                                                <line x1="12" y1="9" x2="12" y2="13" />
+                                                <line x1="12" y1="17" x2="12.01" y2="17" />
+                                            </svg>
+                                        )}
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                        <h3 className={`
+                                            text-lg md:text-xl font-bold mb-2
+                                            ${project.status === 'issues' ? 'text-red-400' : 'text-amber-400'}
+                                        `}>
+                                            {project.status === 'issues' ? '⚠️ Deployment Issues' : '⚡ Minor Issues'}
+                                        </h3>
+                                        <p className={`
+                                            text-sm md:text-base leading-relaxed
+                                            ${project.status === 'issues' ? 'text-red-300/90' : 'text-amber-300/90'}
+                                        `}>
+                                            {project.statusMessage || 'This project is currently experiencing some issues.'}
+                                        </p>
+                                        <p className={`
+                                            text-xs md:text-sm mt-2 opacity-70
+                                            ${project.status === 'issues' ? 'text-red-300' : 'text-amber-300'}
+                                        `}>
+                                            🔧 Currently being resolved. Please check back later.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                         <div className="flex flex-wrap gap-1.5 md:gap-2">
                             {project.tags.map((tag) => (
                                 <Badge
