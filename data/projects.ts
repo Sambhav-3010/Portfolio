@@ -5,7 +5,7 @@ export interface CodeSnippet {
   code: string;
 }
 
-export type ProjectStatus = 'stable' | 'warning' | 'issues';
+export type ProjectStatus = "stable" | "warning" | "issues" | "update";
 
 export interface Project {
   slug: string;
@@ -22,7 +22,7 @@ export interface Project {
   github: string;
   demo: string;
   codeSnippet?: string;
-  codeSnippetPosition?: 'top' | 'bottom';
+  codeSnippetPosition?: "top" | "bottom";
   codeSnippets?: CodeSnippet[];
   conclusion: string;
   status?: ProjectStatus;
@@ -36,11 +36,15 @@ export const projects: Project[] = [
     description:
       "A travel itinerary web app featuring both manual and AI-powered trip planning, integrating SerpAI to fetch real flights, attractions, and activities for personalized travel recommendations.",
     longDescription: {
-      story: "The idea stemmed from the frustration of scattered travel planning. Flight details on one site, hotels on another, and itinerary notes in a messy notepad. GhumoFiro solves this by unifying the entire experience into a cohesive, intelligent platform.",
-      howItWorks: "GhumoFiro employs a hybrid approach. Users can request a complete itinerary from our Gemini-powered AI agent, which generates a structured JSON plan including flights, hotels, and activities. This plan is then hydrated with real-time data from SerpAPI. Alternatively, users can manually build their trip using the drag-and-drop builder, with the ML engine suggesting destinations based on collaborative filtering of other users' trips.",
-      vision: "To become the ultimate travel companion that doesn't just plan trips but adapts to them in real-time, learning from your preferences to offer hyper-personalized experiences."
+      story:
+        "The idea stemmed from the frustration of scattered travel planning. Flight details on one site, hotels on another, and itinerary notes in a messy notepad. GhumoFiro solves this by unifying the entire experience into a cohesive, intelligent platform.",
+      howItWorks:
+        "GhumoFiro employs a hybrid approach. Users can request a complete itinerary from our Gemini-powered AI agent, which generates a structured JSON plan including flights, hotels, and activities. This plan is then hydrated with real-time data from SerpAPI. Alternatively, users can manually build their trip using the drag-and-drop builder, with the ML engine suggesting destinations based on collaborative filtering of other users' trips.",
+      vision:
+        "To become the ultimate travel companion that doesn't just plan trips but adapts to them in real-time, learning from your preferences to offer hyper-personalized experiences.",
     },
-    conclusion: "GhumoFiro stands as a testament to the power of integrating Generative AI with real-world data APIs. By bridging the gap between inspiration and execution, it transforms the daunting task of travel planning into a seamless, enjoyable experience. This project highlights the potential of hybrid AI systems to solve complex, multi-step user problems.",
+    conclusion:
+      "GhumoFiro stands as a testament to the power of integrating Generative AI with real-world data APIs. By bridging the gap between inspiration and execution, it transforms the daunting task of travel planning into a seamless, enjoyable experience. This project highlights the potential of hybrid AI systems to solve complex, multi-step user problems.",
     images: [
       "/assets/projects/GhumoFiro/1.png",
       "/assets/projects/GhumoFiro/2.png",
@@ -60,14 +64,23 @@ export const projects: Project[] = [
       "/assets/projects/GhumoFiro/16.png",
     ],
     videoId: "",
-    tags: ["Next.js", "Express", "Python", "MongoDB", "Firebase", "Gemini AI", "SerpAPI"],
+    tags: [
+      "Next.js",
+      "Express",
+      "Python",
+      "MongoDB",
+      "Firebase",
+      "Gemini AI",
+      "SerpAPI",
+    ],
     github: "https://github.com/Sambhav-3010/GhumoFiro",
     demo: "https://ghumofiro.vercel.app",
     codeSnippets: [
       {
         title: "ML Recommendation Logic",
         language: "python",
-        explanation: "This function implements a collaborative filtering algorithm to suggest travel destinations. It aggregates places visited by a group of similar users, filters out places the target user has already visited, and calculates a score for each potential destination. The score is boosted by the recency of the visits, ensuring that trending or seasonally relevant destinations are prioritized. Finally, it sorts the places by score and returns the top N recommendations.",
+        explanation:
+          "This function implements a collaborative filtering algorithm to suggest travel destinations. It aggregates places visited by a group of similar users, filters out places the target user has already visited, and calculates a score for each potential destination. The score is boosted by the recency of the visits, ensuring that trending or seasonally relevant destinations are prioritized. Finally, it sorts the places by score and returns the top N recommendations.",
         code: `for _, row in group_trips.iterrows():
     place = row["place_norm"]
     # Score = Base + Recency Boost (newer trips matter more)
@@ -76,12 +89,13 @@ export const projects: Project[] = [
 
 # Return top N recommendations sorted by score
 ranked_places = sorted(place_scores.items(), key=lambda x: x[1], reverse=True)
-return [place for place, score in ranked_places[:top_n] if place]`
+return [place for place, score in ranked_places[:top_n] if place]`,
       },
       {
         title: "AI Itinerary Generation",
         language: "javascript",
-        explanation: "This snippet demonstrates the backend logic for generating travel itineraries using Google's Gemini AI. It initializes the generative model with a specific JSON schema to enforce structured output and constructs a prompt with the user's input to generate a detailed day-by-day plan.",
+        explanation:
+          "This snippet demonstrates the backend logic for generating travel itineraries using Google's Gemini AI. It initializes the generative model with a specific JSON schema to enforce structured output and constructs a prompt with the user's input to generate a detailed day-by-day plan.",
         code: `// Initialize Gemini with strict JSON schema for itineraries
 const model = genAI.getGenerativeModel({
   model: "gemini-2.5-flash",
@@ -91,12 +105,13 @@ const model = genAI.getGenerativeModel({
 // Generate structured itinerary based on user prompt
 const result = await model.generateContent(\`Create a detailed itinerary for: "\${userInput}"\`);
 const itineraryJson = JSON.parse(result.response.text());
-return res.status(200).json(itineraryJson);`
+return res.status(200).json(itineraryJson);`,
       },
       {
         title: "Manual Itinerary & Real-time Booking",
         language: "typescript",
-        explanation: "This snippet enables the 'See More' functionality for manually added travel items. When a user wants to book a flight, hotel, or activity found via SerpAPI, this function constructs the appropriate external URL (e.g., Google Flights, Booking.com) based on the item's metadata and redirects the user to a pre-filled search page for seamless booking.",
+        explanation:
+          "This snippet enables the 'See More' functionality for manually added travel items. When a user wants to book a flight, hotel, or activity found via SerpAPI, this function constructs the appropriate external URL (e.g., Google Flights, Booking.com) based on the item's metadata and redirects the user to a pre-filled search page for seamless booking.",
         code: `const handleSeeMore = (item: TravelItem) => {
   let redirectUrl = "";
   if (item.type === "flight") {
@@ -106,12 +121,13 @@ return res.status(200).json(itineraryJson);`
   }
   
   if (redirectUrl) window.open(redirectUrl, "_blank");
-};`
+};`,
       },
       {
         title: "Frontend State Management",
         language: "typescript",
-        explanation: "This snippet shows the core Reducer structure for adjusting the itinerary state. It specifically highlights how adding travel items updates the state and how the total cost is instantly recalculated after every action to provide real-time budget feedback.",
+        explanation:
+          "This snippet shows the core Reducer structure for adjusting the itinerary state. It specifically highlights how adding travel items updates the state and how the total cost is instantly recalculated after every action to provide real-time budget feedback.",
         code: `const itineraryReducer = (state: ItineraryState, action: ItineraryAction): ItineraryState => {
   switch (action.type) {
     case "ADD_TRAVEL":
@@ -124,9 +140,10 @@ return res.status(200).json(itineraryJson);`
 
     default: return state;
   }
-}`
-      }
-    ]
+}`,
+      },
+    ],
+    status: "stable",
   },
   {
     slug: "propchain",
@@ -134,11 +151,15 @@ return res.status(200).json(itineraryJson);`
     description:
       "A decentralized land registry platform using smart contracts for secure property transactions. Integrated Web3 with Next for blockchain-based ownership verification and transfers.",
     longDescription: {
-      story: "Property fraud and opaque transactions are major issues in real estate. PropChain was built to bring transparency and trust back into the system using the immutability of blockchain.",
-      howItWorks: "Properties are tokenized as NFTs. Smart contracts handle the transfer of ownership, ensuring that funds are only released when the title is successfully transferred.",
-      vision: "A world where property ownership is as seamless and secure as sending an email."
+      story:
+        "Property fraud and opaque transactions are major issues in real estate. PropChain was built to bring transparency and trust back into the system using the immutability of blockchain.",
+      howItWorks:
+        "Properties are tokenized as NFTs. Smart contracts handle the transfer of ownership, ensuring that funds are only released when the title is successfully transferred.",
+      vision:
+        "A world where property ownership is as seamless and secure as sending an email.",
     },
-    conclusion: "PropChain addresses one of the most persistent problems in asset management—trust. By successfully implementing a decentralized land registry, this project demonstrates the practical utility of blockchain beyond currency. It provides a blueprint for how smart contracts can automate and secure high-value legal transactions.",
+    conclusion:
+      "PropChain addresses one of the most persistent problems in asset management—trust. By successfully implementing a decentralized land registry, this project demonstrates the practical utility of blockchain beyond currency. It provides a blueprint for how smart contracts can automate and secure high-value legal transactions.",
     images: [
       "/assets/projects/PropChain/1.png",
       "/assets/projects/PropChain/1.png",
@@ -149,7 +170,8 @@ return res.status(200).json(itineraryJson);`
     github: "https://github.com/Sambhav-3010/PropChain",
     demo: "https://nfc-prop-chain.vercel.app",
     status: "issues",
-    statusMessage: "Deployment has some issues - may not work properly or crash at runtime. Fix in progress.",
+    statusMessage:
+      "Deployment has some issues - may not work properly or crash at runtime. Fix in progress.",
     codeSnippet: `contract LandRegistry {
     struct Property {
         uint256 id;
@@ -173,11 +195,14 @@ return res.status(200).json(itineraryJson);`
     description:
       "Expense splitting application with a visual analytics dashboard and QR-based UPI payments, enabling users to track expenses, analyze spending patterns, and settle dues instantly via scannable payment codes.",
     longDescription: {
-      story: "Splitting bills with roomates should not be a math homework. SettleMate makes it instant, visual, and fair.",
-      howItWorks: "Groups are created, expenses are added, and the optimal settlement strategy is calculated to minimize the number of transactions required.",
-      vision: "Frictionless financial interactions between friends."
+      story:
+        "Splitting bills with roomates should not be a math homework. SettleMate makes it instant, visual, and fair.",
+      howItWorks:
+        "Groups are created, expenses are added, and the optimal settlement strategy is calculated to minimize the number of transactions required.",
+      vision: "Frictionless financial interactions between friends.",
     },
-    conclusion: "SettleMate turns the complex social friction of money management into a simple, visual interaction. By focusing on algorithmic efficiency for debt simplification and user-friendly payment integration, it shows how thoughtful software design can solve everyday interpersonal challenges.",
+    conclusion:
+      "SettleMate turns the complex social friction of money management into a simple, visual interaction. By focusing on algorithmic efficiency for debt simplification and user-friendly payment integration, it shows how thoughtful software design can solve everyday interpersonal challenges.",
     images: [
       "/assets/projects/SettleMate/1.png",
       "/assets/projects/SettleMate/1.png",
@@ -187,8 +212,9 @@ return res.status(200).json(itineraryJson);`
     tags: ["Next.js", "Express", "Socket.io", "PrismaDB", "NeonDB"],
     github: "https://github.com/Sambhav-3010/SettleMate",
     demo: "https://settle-mates.vercel.app",
-    status: "issues",
-    statusMessage: "Deployment has some issues - may not work properly or crash at runtime. Fix in progress.",
+    status: "warning",
+    statusMessage:
+      "Deployment has some issues - may not work properly or crash at runtime. Fix in progress.",
     codeSnippet: `io.on('connection', (socket) => {
   socket.on('join-room', (roomId) => {
     socket.join(roomId);
@@ -203,13 +229,17 @@ return res.status(200).json(itineraryJson);`
   {
     slug: "quickweb-ai",
     title: "QuickWeb.ai",
-    description: "An AI powered website generator using Qwen and Gemini 2.5 to transform simple prompts into fully structured, production-ready websites within seconds.",
+    description:
+      "An AI powered website generator using Qwen and Gemini 2.5 to transform simple prompts into fully structured, production-ready websites within seconds.",
     longDescription: {
-      story: "Prototyping takes too long. QuickWeb.ai was created to go from idea to deployed website in seconds.",
-      howItWorks: "An LLM chain analyzes the user prompt, generates the HTML/CSS/JS structure, and a secondary agent deploys it to a sandbox environment.",
-      vision: "Democratizing web development for everyone."
+      story:
+        "Prototyping takes too long. QuickWeb.ai was created to go from idea to deployed website in seconds.",
+      howItWorks:
+        "An LLM chain analyzes the user prompt, generates the HTML/CSS/JS structure, and a secondary agent deploys it to a sandbox environment.",
+      vision: "Democratizing web development for everyone.",
     },
-    conclusion: "QuickWeb.ai lowers the barrier to entry for web creation, proving that natural language is the ultimate programming interface. It showcases the capability of modern LLMs to understand design intent and produce functional, deployed code in near real-time, accelerating the prototyping loop significantly.",
+    conclusion:
+      "QuickWeb.ai lowers the barrier to entry for web creation, proving that natural language is the ultimate programming interface. It showcases the capability of modern LLMs to understand design intent and produce functional, deployed code in near real-time, accelerating the prototyping loop significantly.",
     images: [
       "/assets/projects/QuickWeb.ai/1.png",
       "/assets/projects/QuickWeb.ai/1.png",
@@ -227,6 +257,7 @@ return res.status(200).json(itineraryJson);`
   const parsed = JSON.parse(llmResponse);
   return await deployToVercel(parsed);
 }`,
+    status: "stable",
   },
   {
     slug: "taskify",
@@ -234,11 +265,15 @@ return res.status(200).json(itineraryJson);`
     description:
       "A full-featured task management system with project grouping, allowing users to organize multiple tasks under different projects for better productivity and workflow management.",
     longDescription: {
-      story: "Managing tasks across multiple projects can quickly become overwhelming. Taskify was built to bring clarity and structure to task management by allowing users to group related tasks under projects, making it easier to track progress and stay organized.",
-      howItWorks: "Users can create projects and add multiple tasks within each project. Each task can be marked complete, edited, or deleted. The clean UI built with ShadcnUI components provides an intuitive experience, while the Express backend handles data persistence and API operations.",
-      vision: "To be a simple yet powerful productivity tool that helps individuals and teams manage their work efficiently without the complexity of enterprise solutions."
+      story:
+        "Managing tasks across multiple projects can quickly become overwhelming. Taskify was built to bring clarity and structure to task management by allowing users to group related tasks under projects, making it easier to track progress and stay organized.",
+      howItWorks:
+        "Users can create projects and add multiple tasks within each project. Each task can be marked complete, edited, or deleted. The clean UI built with ShadcnUI components provides an intuitive experience, while the Express backend handles data persistence and API operations.",
+      vision:
+        "To be a simple yet powerful productivity tool that helps individuals and teams manage their work efficiently without the complexity of enterprise solutions.",
     },
-    conclusion: "Taskify demonstrates the power of combining modern frontend frameworks with a robust backend. The project showcases clean architecture patterns, reusable UI components with ShadcnUI, and efficient state management for a seamless task management experience.",
+    conclusion:
+      "Taskify demonstrates the power of combining modern frontend frameworks with a robust backend. The project showcases clean architecture patterns, reusable UI components with ShadcnUI, and efficient state management for a seamless task management experience.",
     images: [
       "/assets/projects/Taskify/1.png",
       "/assets/projects/Taskify/1.png",
@@ -255,5 +290,8 @@ const createTask = async (projectId: string, task: Task) => {
   await project.save();
   return project;
 };`,
+    status: "update",
+    statusMessage:
+      "New updates dropping soon! Stay tuned for exciting features and improvements.",
   },
-]
+];

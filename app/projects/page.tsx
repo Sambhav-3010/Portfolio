@@ -49,8 +49,7 @@ export default function ProjectsPage() {
                                 />
                                 <div className="absolute inset-0 bg-linear-to-t from-card via-card/50 to-transparent" />
 
-                                {/* Status Badge - Positioned in top left */}
-                                {(project.status === 'warning' || project.status === 'issues') && (
+                                {(project.status === 'warning' || project.status === 'issues' || project.status === 'stable' || project.status === 'update') && (
                                     <div className="absolute top-4 left-4 z-10">
                                         <ProjectStatusBadge
                                             status={project.status}
@@ -59,8 +58,7 @@ export default function ProjectsPage() {
                                         />
                                     </div>
                                 )}
-
-                                {/* Action Icons - Positioned in top right */}
+                                
                                 <div className="absolute top-4 right-4 flex gap-2">
                                     {project.demo && (
                                         <a

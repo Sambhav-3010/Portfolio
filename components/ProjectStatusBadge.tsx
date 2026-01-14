@@ -1,6 +1,6 @@
 "use client"
 
-import { CheckCircle, AlertTriangle, XCircle } from "lucide-react"
+import { CheckCircle, AlertTriangle, XCircle, AlertOctagon, LoaderCircle } from "lucide-react"
 import { ProjectStatus } from "@/data/projects"
 
 interface ProjectStatusBadgeProps {
@@ -11,31 +11,36 @@ interface ProjectStatusBadgeProps {
 }
 
 const statusConfig = {
-    stable: {
-        icon: CheckCircle,
-        label: "Stable",
-        bgClass: "bg-emerald-500/20",
-        textClass: "text-emerald-400",
-        borderClass: "border-emerald-500/30",
-        pulseClass: ""
-    },
-    warning: {
-        icon: AlertTriangle,
-        label: "Minor Issues",
-        bgClass: "bg-amber-500/20",
-        textClass: "text-amber-400",
-        borderClass: "border-amber-500/30",
-        pulseClass: ""
-    },
-    issues: {
-        icon: XCircle,
-        label: "Issues",
-        bgClass: "bg-red-500/20",
-        textClass: "text-red-400",
-        borderClass: "border-red-500/30",
-        pulseClass: "animate-pulse"
-    }
-}
+  stable: {
+    icon: CheckCircle,
+    label: "Stable",
+    bgClass: "bg-emerald-500/20",
+    textClass: "text-emerald-400",
+    borderClass: "border-emerald-500/30",
+  },
+  warning: {
+    icon: AlertTriangle,
+    label: "Minor Issues",
+    bgClass: "bg-amber-500/20",
+    textClass: "text-amber-400",
+    borderClass: "border-amber-500/30",
+  },
+  issues: {
+    icon: AlertOctagon,
+    label: "Deployment Issues",
+    bgClass: "bg-red-500/20",
+    textClass: "text-red-400",
+    borderClass: "border-red-500/30",
+  },
+  update: {
+    icon: LoaderCircle,
+    label: "Update Ongoing",
+    bgClass: "bg-blue-500/20",
+    textClass: "text-blue-400",
+    borderClass: "border-blue-500/30",
+  },
+};
+
 
 export function ProjectStatusBadge({
     status = 'stable',
@@ -59,7 +64,6 @@ export function ProjectStatusBadge({
                     inline-flex items-center font-medium rounded-full 
                     ${sizeClasses} ${config.bgClass} ${config.textClass} 
                     ${config.borderClass} border backdrop-blur-sm
-                    ${config.pulseClass}
                 `}
             >
                 <Icon className={iconSize} />

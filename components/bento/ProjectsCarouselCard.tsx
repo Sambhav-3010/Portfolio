@@ -73,7 +73,7 @@ export function ProjectsCarouselCard() {
                         >
                             <h3 className="text-lg md:text-xl font-bold text-foreground mb-1 md:mb-2">
                                 {currentProject.title}
-                                {(currentProject.status === 'warning' || currentProject.status === 'issues') && (
+                                {(currentProject.status === 'warning' || currentProject.status === 'issues' || currentProject.status === 'stable' || currentProject.status === 'update') && (
                                     <span className="ml-2 inline-flex align-middle">
                                         <ProjectStatusBadge
                                             status={currentProject.status}
