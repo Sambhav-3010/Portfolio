@@ -1,6 +1,6 @@
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
-import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiJavascript, SiNodedotjs, SiMongodb, SiFirebase, SiGit, SiGithub, SiExpress, SiPrisma, SiDocker, SiPostgresql, SiGraphql, SiVercel, SiBootstrap, SiRender, SiRailway, SiSupabase } from "react-icons/si"
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiJavascript, SiNodedotjs, SiMongodb, SiFirebase, SiGit, SiGithub, SiExpress, SiPrisma, SiDocker, SiPostgresql, SiGraphql, SiVercel, SiBootstrap, SiRender, SiRailway, SiSupabase, SiRedis, SiApachekafka } from "react-icons/si"
 import { FaJava } from "react-icons/fa"
 
 const techCategories = [
@@ -31,6 +31,8 @@ const techCategories = [
             { icon: <SiNodedotjs className="w-8 h-8" />, name: "Node.js", color: "text-green-500" },
             { icon: <SiExpress className="w-8 h-8" />, name: "Express", color: "text-foreground" },
             { icon: <SiGraphql className="w-8 h-8" />, name: "GraphQL", color: "text-pink-500" },
+            { icon: <SiRedis className="w-8 h-8" />, name: "Redis", color: "text-red-500" },
+            { icon: <SiApachekafka className="w-8 h-8" />, name: "Apache Kafka", color: "text-red-500" },
         ]
     },
     {
