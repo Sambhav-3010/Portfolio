@@ -263,35 +263,68 @@ return res.status(200).json(itineraryJson);`,
     slug: "taskify",
     title: "Taskify",
     description:
-      "A full-featured task management system with project grouping, allowing users to organize multiple tasks under different projects for better productivity and workflow management.",
+        "A full-featured task management system with project grouping, allowing users to organize multiple tasks under different projects for better productivity and workflow management.",
     longDescription: {
-      story:
-        "Managing tasks across multiple projects can quickly become overwhelming. Taskify was built to bring clarity and structure to task management by allowing users to group related tasks under projects, making it easier to track progress and stay organized.",
-      howItWorks:
-        "Users can create projects and add multiple tasks within each project. Each task can be marked complete, edited, or deleted. The clean UI built with ShadcnUI components provides an intuitive experience, while the Express backend handles data persistence and API operations.",
-      vision:
-        "To be a simple yet powerful productivity tool that helps individuals and teams manage their work efficiently without the complexity of enterprise solutions.",
+        story:
+            "Managing tasks across multiple projects can quickly become overwhelming. Taskify was built to bring clarity and structure to task management by allowing users to group related tasks under projects, making it easier to track progress and stay organized.",
+        howItWorks:
+            "Users can create projects and add multiple tasks within each project. Each task can be marked complete, edited, or deleted. The clean UI built with ShadcnUI components provides an intuitive experience, while the Express backend handles data persistence and API operations.",
+        vision:
+            "To be a simple yet powerful productivity tool that helps individuals and teams manage their work efficiently without the complexity of enterprise solutions.",
     },
     conclusion:
-      "Taskify demonstrates the power of combining modern frontend frameworks with a robust backend. The project showcases clean architecture patterns, reusable UI components with ShadcnUI, and efficient state management for a seamless task management experience.",
+        "Taskify demonstrates the power of combining modern frontend frameworks with a robust backend. The project showcases clean architecture patterns, reusable UI components with ShadcnUI, and efficient state management for a seamless task management experience.",
     images: [
-      "/assets/projects/Taskify/1.png",
-      "/assets/projects/Taskify/1.png",
-      "/assets/projects/Taskify/1.png",
+        "/assets/projects/Taskify/1.png",
+        "/assets/projects/Taskify/1.png",
+        "/assets/projects/Taskify/1.png",
     ],
     videoId: "",
-    tags: ["Next.js", "Express", "TypeScript", "ShadcnUI", "TailwindCSS"],
-    github: "https://github.com/Sambhav-3010/Taskify",
-    demo: "https://taskify-event.vercel.app",
-    codeSnippet: `// Project-based task grouping
-const createTask = async (projectId: string, task: Task) => {
+    tags: ["Next.js", "Express", "TypeScript", "ShadcnUI", "TailwindCSS", "GraphQL", "MongoDB"],
+    github: "https://github.com/Sambhav-3010/Project-Management-System",
+    demo: "https://taskify-demo.vercel.app",
+    codeSnippets: [
+        {
+            title: "Project-Based Task Grouping",
+            language: "typescript",
+            explanation: "This backend service function demonstrates how tasks are dynamically associated with projects using Mongoose relationships. It ensures that when a task is created, it's correctly linked to its parent project context.",
+            code: `// Create a task and link it to a project
+export const createTask = async (projectId: string, taskInput: TaskInput) => {
   const project = await Project.findById(projectId);
-  project.tasks.push(task);
+  if (!project) throw new Error("Project not found");
+  
+  const newTask = new Task({ ...taskInput, project: projectId });
+  await newTask.save();
+  
+  project.tasks.push(newTask._id);
   await project.save();
-  return project;
-};`,
+  return newTask;
+};`
+        },
+        {
+            title: "Polymorphic Note System",
+            language: "typescript",
+            explanation: "This GraphQL resolver handles the creation of different note types (Text, Code, Drawing) using a single flexible schema. It demonstrates how to handle optional fields to support rich content types within a unified data model.",
+            code: `// Upsert a note with varying content types
+upsertNote: async (_, { input }, context) => {
+    if (!context.user) throw new Error('Not authenticated');
+    
+    // Determine note type and populate relevant fields
+    const noteData = {
+        userId: context.user.id,
+        title: input.title,
+        type: input.type, // 'text' | 'code' | 'drawing'
+        textContent: input.type === 'text' ? input.textContent : undefined,
+        codeBlocks: input.type === 'code' ? input.codeBlocks : undefined,
+        drawingData: input.type === 'drawing' ? input.drawingData : undefined
+    };
+
+    return await NoteService.upsertNote(input.id, noteData);
+},`
+        }
+    ],
     status: "update",
     statusMessage:
-      "New updates dropping soon! Stay tuned for exciting features and improvements.",
-  },
+        "New updates dropping soon! Stay tuned for exciting features and improvements.",
+}
 ];
