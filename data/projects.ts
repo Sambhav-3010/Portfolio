@@ -282,7 +282,7 @@ return res.status(200).json(itineraryJson);`,
     videoId: "",
     tags: ["Next.js", "Express", "TypeScript", "ShadcnUI", "TailwindCSS", "GraphQL", "MongoDB"],
     github: "https://github.com/Sambhav-3010/Project-Management-System",
-    demo: "https://taskify-demo.vercel.app",
+    demo: "https://taskify-event.vercel.app",
     codeSnippets: [
         {
             title: "Project-Based Task Grouping",
