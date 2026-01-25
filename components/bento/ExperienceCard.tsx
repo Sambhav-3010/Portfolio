@@ -53,7 +53,7 @@ export function ExperienceCard() {
                 href="/assets/resume.pdf"
                 download="resume.pdf"
                 onClick={(e) => e.stopPropagation()}
-                className="flex items-center justify-center gap-2 mt-4 py-2.5 px-5 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary text-base font-medium transition-colors border border-primary/20"
+                className="btn-neumorphic-outline flex items-center justify-center gap-2 mt-4 py-2.5 px-5 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary text-base font-medium transition-colors border border-primary/20"
             >
                 <Download className="w-4 h-4" />
                 Download CV

@@ -8,15 +8,11 @@ import {
   Github,
   ArrowLeft,
   RocketIcon,
-  AlertTriangle,
-  AlertOctagon,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ProjectStatusBadge } from "@/components/ProjectStatusBadge";
 import { ProjectStatus } from "@/data/projects";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import {
   Carousel,
   CarouselContent,
@@ -85,97 +81,93 @@ export function ProjectContent({ project }: { project: Project }) {
               )) ||
               ((project.status === "warning" ||
                 project.status === "issues") && (
-                <div
-                  className={`w-full p-4 md:p-5 rounded-xl border-2 ${
-                    project.status === "issues"
-                      ? "bg-red-500/10 border-red-500/40 text-red-400"
-                      : "bg-amber-500/10 border-amber-500/40 text-amber-400"
-                  }`}
-                >
-                  <div className="flex items-start gap-3 md:gap-4">
-                    <div
-                      className={`
-                                        shrink-0 p-2 rounded-lg
-                                        ${
-                                          project.status === "issues"
-                                            ? "bg-red-500/20"
-                                            : "bg-amber-500/20"
-                                        }
-                                    `}
-                    >
-                      {project.status === "issues" ? (
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <line x1="12" y1="8" x2="12" y2="12" />
-                          <line x1="12" y1="16" x2="12.01" y2="16" />
-                        </svg>
-                      ) : (
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
-                          <line x1="12" y1="9" x2="12" y2="13" />
-                          <line x1="12" y1="17" x2="12.01" y2="17" />
-                        </svg>
-                      )}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3
+                  <div
+                    className={`w-full p-4 md:p-5 rounded-xl border-2 ${project.status === "issues"
+                        ? "bg-red-500/10 border-red-500/40 text-red-400"
+                        : "bg-amber-500/10 border-amber-500/40 text-amber-400"
+                      }`}
+                  >
+                    <div className="flex items-start gap-3 md:gap-4">
+                      <div
                         className={`
-                                            text-lg md:text-xl font-bold mb-2
-                                            ${
-                                              project.status === "issues"
-                                                ? "text-red-400"
-                                                : "text-amber-400"
-                                            }
-                                        `}
+                                        shrink-0 p-2 rounded-lg
+                                        ${project.status === "issues"
+                            ? "bg-red-500/20"
+                            : "bg-amber-500/20"
+                          }
+                                    `}
                       >
                         {project.status === "issues" ? (
-                          <span>Deployment Issues</span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                          </svg>
                         ) : (
-                          <span>Minor Issues</span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                          </svg>
                         )}
-                      </h3>
-                      <p
-                        className={`text-sm md:text-base leading-relaxed ${project.status === "issues" ? "text-red-300/90": "text-amber-300/90"}`}
-                      >
-                        {project.statusMessage ||
-                          "This project is currently experiencing some issues."}
-                      </p>
-                      <p
-                        className={`
-                                            text-xs md:text-sm mt-2 opacity-70
-                                            ${
-                                              project.status === "issues"
-                                                ? "text-red-300"
-                                                : "text-amber-300"
-                                            }
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3
+                          className={`
+                                            text-lg md:text-xl font-bold mb-2
+                                            ${project.status === "issues"
+                              ? "text-red-400"
+                              : "text-amber-400"
+                            }
                                         `}
-                      >
-                        Currently being resolved. Please check back later.
-                      </p>
+                        >
+                          {project.status === "issues" ? (
+                            <span>Deployment Issues</span>
+                          ) : (
+                            <span>Minor Issues</span>
+                          )}
+                        </h3>
+                        <p
+                          className={`text-sm md:text-base leading-relaxed ${project.status === "issues" ? "text-red-300/90" : "text-amber-300/90"}`}
+                        >
+                          {project.statusMessage ||
+                            "This project is currently experiencing some issues."}
+                        </p>
+                        <p
+                          className={`
+                                            text-xs md:text-sm mt-2 opacity-70
+                                            ${project.status === "issues"
+                              ? "text-red-300"
+                              : "text-amber-300"
+                            }
+                                        `}
+                        >
+                          Currently being resolved. Please check back later.
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
             <div className="flex flex-wrap gap-1.5 md:gap-2">
               {project.tags.map((tag) => (
                 <Badge
@@ -232,8 +224,8 @@ export function ProjectContent({ project }: { project: Project }) {
         </div>
 
         {project.videoId &&
-        project.videoId !== "#" &&
-        project.videoId !== "" ? (
+          project.videoId !== "#" &&
+          project.videoId !== "" ? (
           <a
             href={`https://www.youtube.com/watch?v=${project.videoId}`}
             target="_blank"
@@ -320,28 +312,6 @@ export function ProjectContent({ project }: { project: Project }) {
           </div>
         )}
 
-        {project.codeSnippet && project.codeSnippetPosition === "top" && (
-          <section className="space-y-3 md:space-y-4 w-full">
-            <h2 className="text-xl md:text-2xl font-bold text-foreground">
-              Core Logic
-            </h2>
-            <div className="rounded-xl overflow-hidden border border-border/50 shadow-lg w-full">
-              <SyntaxHighlighter
-                language="javascript"
-                style={vscDarkPlus}
-                customStyle={{
-                  margin: 0,
-                  padding: "1rem",
-                  fontSize: "0.75rem",
-                }}
-                wrapLongLines={true}
-              >
-                {project.codeSnippet}
-              </SyntaxHighlighter>
-            </div>
-          </section>
-        )}
-
         <div className="w-full space-y-12">
           <section className="space-y-3 md:space-y-4">
             <h2 className="text-xl md:text-2xl font-bold text-foreground">
@@ -371,59 +341,6 @@ export function ProjectContent({ project }: { project: Project }) {
           </section>
         </div>
 
-        {project.codeSnippet &&
-          (!project.codeSnippetPosition ||
-            project.codeSnippetPosition === "bottom") && (
-            <section className="space-y-3 md:space-y-4 w-full">
-              <h2 className="text-xl md:text-2xl font-bold text-foreground">
-                Core Logic
-              </h2>
-              <div className="rounded-xl overflow-hidden border border-border/50 shadow-lg w-full">
-                <SyntaxHighlighter
-                  language="javascript"
-                  style={vscDarkPlus}
-                  customStyle={{
-                    margin: 0,
-                    padding: "1rem",
-                    fontSize: "0.75rem",
-                  }}
-                  wrapLongLines={true}
-                >
-                  {project.codeSnippet}
-                </SyntaxHighlighter>
-              </div>
-            </section>
-          )}
-
-        {project.codeSnippets && project.codeSnippets.length > 0 && (
-          <div className="space-y-8 md:space-y-12 w-full">
-            {project.codeSnippets.map((snippet, index) => (
-              <section key={index} className="space-y-3 md:space-y-4 w-full">
-                <h2 className="text-xl md:text-2xl font-bold text-foreground">
-                  {snippet.title}
-                </h2>
-                <p className="text-muted-foreground text-base md:text-lg leading-relaxed md:leading-loose max-w-none">
-                  {snippet.explanation}
-                </p>
-                <div className="rounded-xl overflow-hidden border border-border/50 shadow-lg w-full">
-                  <SyntaxHighlighter
-                    language={snippet.language}
-                    style={vscDarkPlus}
-                    customStyle={{
-                      margin: 0,
-                      padding: "1rem",
-                      fontSize: "0.75rem",
-                    }}
-                    wrapLongLines={true}
-                  >
-                    {snippet.code}
-                  </SyntaxHighlighter>
-                </div>
-              </section>
-            ))}
-          </div>
-        )}
-
         <section className="space-y-3 md:space-y-4 w-full">
           <h2 className="text-xl md:text-2xl font-bold text-foreground">
             Conclusion
@@ -444,7 +361,7 @@ export function ProjectContent({ project }: { project: Project }) {
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 text-md font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+                  className="btn-neumorphic inline-flex items-center gap-1.5 px-4 py-2 text-md font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
                 >
                   <ExternalLink className="w-5 h-5" />
                   Live Demo
@@ -455,7 +372,7 @@ export function ProjectContent({ project }: { project: Project }) {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 text-md font-medium rounded-md border border-primary/30 text-primary hover:bg-primary/10 transition-colors"
+                  className="btn-neumorphic-outline inline-flex items-center gap-1.5 px-4 py-2 text-md font-medium rounded-md border border-primary/30 text-primary hover:bg-primary/10 transition-colors"
                 >
                   <Github className="w-5 h-5" />
                   View Code
@@ -468,3 +385,4 @@ export function ProjectContent({ project }: { project: Project }) {
     </div>
   );
 }
+

@@ -39,7 +39,7 @@ export function CompactHeader() {
                             variant="default"
                             size="lg"
                             asChild
-                            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold transition-all hover:scale-105"
+                            className="btn-neumorphic bg-primary hover:bg-primary/90 text-primary-foreground font-semibold transition-all"
                         >
                             <Link href="/projects">View Work</Link>
                         </Button>
@@ -47,7 +47,7 @@ export function CompactHeader() {
                             variant="outline"
                             size="lg"
                             asChild
-                            className="bg-transparent border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-primary/50 transition-all"
+                            className="btn-neumorphic-outline bg-transparent border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-primary/50 transition-all"
                         >
                             <a href={`mailto:${profile.email}`}>Get in Touch</a>
                         </Button>

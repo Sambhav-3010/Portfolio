@@ -58,7 +58,7 @@ export default function ProjectsPage() {
                                         />
                                     </div>
                                 )}
-                                
+
                                 <div className="absolute top-4 right-4 flex gap-2">
                                     {project.demo && (
                                         <a
@@ -66,7 +66,7 @@ export default function ProjectsPage() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             onClick={(e) => e.stopPropagation()}
-                                            className="p-2.5 rounded-xl bg-card/80 backdrop-blur-sm text-primary hover:bg-primary hover:text-primary-foreground transition-all border border-border/50"
+                                            className="btn-neumorphic p-2.5 rounded-xl bg-primary/80 backdrop-blur-sm text-primary-foreground hover:bg-primary transition-all border border-primary/50"
                                             title="Live Demo"
                                         >
                                             <ExternalLink className="w-4 h-4" />
@@ -78,7 +78,7 @@ export default function ProjectsPage() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             onClick={(e) => e.stopPropagation()}
-                                            className="p-2.5 rounded-xl bg-card/80 backdrop-blur-sm text-primary hover:bg-primary hover:text-primary-foreground transition-all border border-border/50"
+                                            className="btn-neumorphic-outline p-2.5 rounded-xl bg-card/80 backdrop-blur-sm text-primary hover:bg-primary hover:text-primary-foreground transition-all border border-border/50"
                                             title="View Code"
                                         >
                                             <Github className="w-4 h-4" />

@@ -18,14 +18,14 @@ export function ContactCard() {
             <div className="flex flex-col gap-2">
                 <a
                     href={`mailto:${profile.email}`}
-                    className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-primary text-primary-foreground text-sm font-medium transition-all hover:bg-primary/90 hover:scale-[1.02]"
+                    className="btn-neumorphic flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-primary text-primary-foreground text-sm font-medium transition-all hover:bg-primary/90"
                 >
                     <Mail className="w-4 h-4" />
                     Email
                 </a>
                 <a
                     href={`tel:${profile.phone}`}
-                    className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-card border border-border hover:border-primary/50 text-foreground text-sm font-medium transition-all hover:bg-primary/10"
+                    className="btn-neumorphic-outline flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-card border border-border hover:border-primary/50 text-foreground text-sm font-medium transition-all hover:bg-primary/10"
                 >
                     <Phone className="w-4 h-4" />
                     Call
