@@ -165,13 +165,13 @@ export const projects: Project[] = [
     conclusion:
       "Taskify demonstrates the power of combining modern frontend frameworks with a robust backend architecture to create tools that genuinely enhance human productivity. The project showcases clean architectural patterns including separation of concerns, reusable component design with ShadcnUI, and efficient state management for a seamless user experience. Beyond the technical implementation, Taskify embodies a design philosophy that prioritizes user experience over feature count — proving that the best software often isn't about having the most features, but about doing essential things exceptionally well. The positive feedback from users who have adopted Taskify for their daily workflows validates the approach of thoughtful simplicity combined with genuine utility.",
     images: [
-      "/assets/projects/Taskify/1.png",
-      "/assets/projects/Taskify/1.png",
-      "/assets/projects/Taskify/1.png",
+        "/assets/projects/Taskify/1.png",
+        "/assets/projects/Taskify/1.png",
+        "/assets/projects/Taskify/1.png",
     ],
     videoId: "",
-    tags: ["Next.js", "Express", "TypeScript", "ShadcnUI", "TailwindCSS"],
-    github: "https://github.com/Sambhav-3010/Taskify",
+    tags: ["Next.js", "Express", "TypeScript", "ShadcnUI", "TailwindCSS", "GraphQL", "MongoDB"],
+    github: "https://github.com/Sambhav-3010/Project-Management-System",
     demo: "https://taskify-event.vercel.app",
     status: "stable",
     statusMessage: "Project is stable, deployed and working.",
