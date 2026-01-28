@@ -21,12 +21,12 @@ export function CompactHeader() {
                     </div>
                     <div className="flex items-center justify-center md:justify-start gap-2 rounded-full w-fit mx-auto md:mx-0">
                         <div className="flex items-center justify-center md:justify-start gap-2 px-3 py-1.5 bg-purple-500/10 border border-purple-500/30 rounded-full w-fit mx-auto md:mx-0">
-                            <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></span>
+                            <span className="w-1 h-1 md:w-2 md:h-2  bg-purple-500 rounded-full animate-pulse"></span>
                             <span className="text-purple-500 text-sm font-medium">{profile.interest}</span>
                         </div>
-                        <div className="flex items-center justify-center md:justify-start gap-2 px-3 py-1.5 bg-green-500/10 border border-green-500/30 rounded-full w-fit mx-auto md:mx-0">
-                            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                            <span className="text-green-500 text-sm font-medium">{profile.availability}</span>
+                        <div className="flex items-center justify-center md:justify-start gap-2 px-3 py-1.5 bg-red-500/10 border border-red-500/30 rounded-full w-fit mx-auto md:mx-0">
+                            <span className="w-1 h-1 md:w-2 md:h-2 bg-red-500 rounded-full animate-pulse"></span>
+                            <span className="text-red-500 text-sm font-medium">{profile.availability}</span>
                         </div>
                     </div>
 
