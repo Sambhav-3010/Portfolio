@@ -11,34 +11,34 @@ interface ProjectStatusBadgeProps {
 }
 
 const statusConfig = {
-  stable: {
-    icon: CheckCircle,
-    label: "Stable",
-    bgClass: "bg-emerald-500/20",
-    textClass: "text-emerald-400",
-    borderClass: "border-emerald-500/30",
-  },
-  warning: {
-    icon: AlertTriangle,
-    label: "Minor Issues",
-    bgClass: "bg-amber-500/20",
-    textClass: "text-amber-400",
-    borderClass: "border-amber-500/30",
-  },
-  issues: {
-    icon: AlertOctagon,
-    label: "Deployment Issues",
-    bgClass: "bg-red-500/20",
-    textClass: "text-red-400",
-    borderClass: "border-red-500/30",
-  },
-  update: {
-    icon: LoaderCircle,
-    label: "Update Ongoing",
-    bgClass: "bg-blue-500/20",
-    textClass: "text-blue-400",
-    borderClass: "border-blue-500/30",
-  },
+    stable: {
+        icon: CheckCircle,
+        label: "Stable",
+        bgClass: "bg-emerald-500/20",
+        textClass: "text-emerald-400",
+        borderClass: "border-emerald-500/30",
+    },
+    warning: {
+        icon: AlertTriangle,
+        label: "Minor Issues",
+        bgClass: "bg-amber-500/20",
+        textClass: "text-amber-400",
+        borderClass: "border-amber-500/30",
+    },
+    issues: {
+        icon: AlertOctagon,
+        label: "Deployment Issues",
+        bgClass: "bg-red-500/20",
+        textClass: "text-red-400",
+        borderClass: "border-red-500/30",
+    },
+    update: {
+        icon: LoaderCircle,
+        label: "Update Ongoing",
+        bgClass: "bg-primary/10",
+        textClass: "text-primary",
+        borderClass: "border-primary/30",
+    },
 };
 
 

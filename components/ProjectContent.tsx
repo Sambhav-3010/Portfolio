@@ -58,7 +58,7 @@ export function ProjectContent({ project }: { project: Project }) {
               {project.title}
             </h1>
             {(project.status === "update" && (
-              <div className="flex items-center flex-row gap-3 bg-blue-500/10 border-blue-500/40 p-4 md:p-5 rounded-xl">
+              <div className="flex items-center flex-row gap-3 bg-primary/10 border-primary/40 p-4 md:p-5 rounded-xl">
                 <ProjectStatusBadge status={project.status as ProjectStatus} />
                 <span className="text-sm md:text-base text-muted-foreground flex">
                   <RocketIcon />
@@ -83,8 +83,8 @@ export function ProjectContent({ project }: { project: Project }) {
                 project.status === "issues") && (
                   <div
                     className={`w-full p-4 md:p-5 rounded-xl border-2 ${project.status === "issues"
-                        ? "bg-red-500/10 border-red-500/40 text-red-400"
-                        : "bg-amber-500/10 border-amber-500/40 text-amber-400"
+                      ? "bg-red-500/10 border-red-500/40 text-red-400"
+                      : "bg-amber-500/10 border-amber-500/40 text-amber-400"
                       }`}
                   >
                     <div className="flex items-start gap-3 md:gap-4">
