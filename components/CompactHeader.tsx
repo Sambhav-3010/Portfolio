@@ -1,6 +1,6 @@
 "use client"
 
-import { Github, Linkedin, Mail, Phone, Twitter, FileText } from "lucide-react"
+import { Github, Linkedin, Mail, Phone, Twitter, FileText, Eye } from "lucide-react"
 import Image from "next/image"
 import { profile } from "@/data/about"
 import { Button } from "@/components/ui/button"
@@ -109,6 +109,17 @@ export function CompactHeader() {
                             <Phone className="h-5 w-5" />
                             <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-card text-card-foreground text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-border">
                                 Call
+                            </span>
+                        </a>
+                        <a
+                            href={profile.resumeViewUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-primary transition-all hover:scale-110 relative group"
+                        >
+                            <Eye className="h-5 w-5" />
+                            <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-card text-card-foreground text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-border">
+                                View Resume
                             </span>
                         </a>
                         <a

@@ -1,15 +1,40 @@
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
-import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiJavascript, SiNodedotjs, SiMongodb, SiFirebase, SiGit, SiGithub, SiExpress, SiPrisma, SiDocker, SiPostgresql, SiGraphql, SiVercel, SiBootstrap, SiRender, SiRailway, SiSupabase, SiRedis, SiApachekafka } from "react-icons/si"
-import { FaJava } from "react-icons/fa"
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiJavascript, SiNodedotjs, SiMongodb, SiFirebase, SiGit, SiGithub, SiExpress, SiPrisma, SiDocker, SiPostgresql, SiGraphql, SiVercel, SiBootstrap, SiRender, SiRailway, SiSupabase, SiRedis, SiApachekafka, SiAmazonwebservices, SiSolidity, SiEthereum, SiBitcoin, SiMocha, SiHtml5, SiCss3 } from "react-icons/si"
+import { FaJava, FaHardHat } from "react-icons/fa"
+import { TbBrandVscode } from "react-icons/tb"
 
 const techCategories = [
     {
         title: "Languages",
         items: [
+            { icon: <SiHtml5 className="w-8 h-8" />, name: "HTML5", color: "text-orange-600" },
+            { icon: <SiCss3 className="w-8 h-8" />, name: "CSS3", color: "text-blue-500" },
             { icon: <SiJavascript className="w-8 h-8" />, name: "JavaScript", color: "text-yellow-500" },
             { icon: <SiTypescript className="w-8 h-8" />, name: "TypeScript", color: "text-blue-500" },
             { icon: <FaJava className="w-8 h-8" />, name: "Java", color: "text-red-500" },
+            { icon: <SiSolidity className="w-8 h-8" />, name: "Solidity", color: "text-gray-600" },
+        ]
+    },
+    {
+        title: "Blockchain & Web3",
+        items: [
+            { icon: <SiEthereum className="w-8 h-8" />, name: "Ethereum", color: "text-indigo-500" },
+            { icon: <SiBitcoin className="w-8 h-8" />, name: "Bitcoin", color: "text-orange-500" },
+            { icon: <FaHardHat className="w-8 h-8" />, name: "Hardhat", color: "text-yellow-400" },
+            { icon: <div className="text-2xl font-bold font-mono">Chai</div>, name: "Chai", color: "text-red-400" },
+            { icon: <SiMocha className="w-8 h-8" />, name: "Mocha", color: "text-amber-700" },
+            { icon: <div className="text-xl font-bold">ethers.js</div>, name: "Ethers.js", color: "text-blue-600" },
+        ]
+    },
+    {
+        title: "Cloud & Services",
+        items: [
+            { icon: <SiAmazonwebservices className="w-8 h-8" />, name: "AWS", color: "text-orange-500" },
+            { icon: <SiVercel className="w-8 h-8" />, name: "Vercel", color: "text-foreground" },
+            { icon: <SiRender className="w-8 h-8" />, name: "Render", color: "text-foreground" },
+            { icon: <SiRailway className="w-8 h-8" />, name: "Railway", color: "text-foreground" },
+            { icon: <SiFirebase className="w-8 h-8" />, name: "Firebase", color: "text-amber-500" },
         ]
     },
     {
@@ -18,7 +43,8 @@ const techCategories = [
             { icon: <SiMongodb className="w-8 h-8" />, name: "MongoDB", color: "text-green-600" },
             { icon: <SiPostgresql className="w-8 h-8" />, name: "PostgreSQL", color: "text-blue-500" },
             { icon: <SiPrisma className="w-8 h-8" />, name: "Prisma", color: "text-foreground" },
-            { icon: <SiSupabase className="w-8 h-8" />, name: "Supabase", color: "text-foreground" },
+            { icon: <SiSupabase className="w-8 h-8" />, name: "Supabase", color: "text-green-400" },
+            { icon: <SiRedis className="w-8 h-8" />, name: "Redis", color: "text-red-500" },
         ]
     },
     {
@@ -27,11 +53,10 @@ const techCategories = [
             { icon: <SiReact className="w-8 h-8" />, name: "React", color: "text-cyan-400" },
             { icon: <SiNextdotjs className="w-8 h-8" />, name: "Next.js", color: "text-foreground" },
             { icon: <SiTailwindcss className="w-8 h-8" />, name: "Tailwind CSS", color: "text-cyan-500" },
-            { icon: <SiBootstrap className="w-8 h-8" />, name: "Bootstrap", color: "text-cyan-500" },
+            { icon: <SiBootstrap className="w-8 h-8" />, name: "Bootstrap", color: "text-purple-600" },
             { icon: <SiNodedotjs className="w-8 h-8" />, name: "Node.js", color: "text-green-500" },
             { icon: <SiExpress className="w-8 h-8" />, name: "Express", color: "text-foreground" },
             { icon: <SiGraphql className="w-8 h-8" />, name: "GraphQL", color: "text-pink-500" },
-            { icon: <SiRedis className="w-8 h-8" />, name: "Redis", color: "text-red-500" },
             { icon: <SiApachekafka className="w-8 h-8" />, name: "Apache Kafka", color: "text-red-500" },
         ]
     },
@@ -41,9 +66,7 @@ const techCategories = [
             { icon: <SiGit className="w-8 h-8" />, name: "Git", color: "text-orange-500" },
             { icon: <SiGithub className="w-8 h-8" />, name: "GitHub", color: "text-foreground" },
             { icon: <SiDocker className="w-8 h-8" />, name: "Docker", color: "text-blue-500" },
-            { icon: <SiVercel className="w-8 h-8" />, name: "Vercel", color: "text-foreground" },
-            { icon: <SiRender className="w-8 h-8" />, name: "Render", color: "text-foreground" },
-            { icon: <SiRailway className="w-8 h-8" />, name: "Railway", color: "text-foreground" },
+            { icon: <TbBrandVscode className="w-8 h-8" />, name: "VS Code", color: "text-blue-500" },
         ]
     },
 ]

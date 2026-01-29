@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { ArrowRight, Cpu } from "lucide-react"
-import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiJavascript, SiNodedotjs, SiMongodb, SiFirebase, SiGit, SiGithub, SiExpress, SiPrisma } from "react-icons/si"
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiJavascript, SiNodedotjs, SiMongodb, SiFirebase, SiGit, SiGithub, SiExpress, SiPrisma, SiAmazonwebservices, SiEthereum } from "react-icons/si"
 
 const techIcons = [
     { icon: <SiJavascript className="w-6 h-6" />, color: "text-yellow-500", name: "JavaScript" },
@@ -15,6 +15,8 @@ const techIcons = [
     { icon: <SiTailwindcss className="w-6 h-6" />, color: "text-cyan-500", name: "Tailwind" },
     { icon: <SiFirebase className="w-6 h-6" />, color: "text-amber-500", name: "Firebase" },
     { icon: <SiPrisma className="w-6 h-6" />, color: "text-foreground", name: "Prisma" },
+    { icon: <SiAmazonwebservices className="w-6 h-6" />, color: "text-orange-400", name: "AWS" },
+    { icon: <SiEthereum className="w-6 h-6" />, color: "text-indigo-400", name: "Blockchain" },
     { icon: <SiGit className="w-6 h-6" />, color: "text-orange-500", name: "Git" },
     { icon: <SiGithub className="w-6 h-6" />, color: "text-foreground", name: "GitHub" },
 ]

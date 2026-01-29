@@ -34,9 +34,9 @@ export default function AboutPage() {
                                 <h1 className="text-xl md:text-2xl font-bold text-foreground mb-1">{profile.name}</h1>
                                 <p className="text-primary font-semibold text-sm md:text-base mb-4">{profile.role}</p>
 
-                                <div className="flex items-center gap-2 px-3 py-1.5 bg-green-500/10 border border-green-500/30 rounded-full mb-6">
-                                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                                    <span className="text-green-500 text-sm font-medium">{profile.availability}</span>
+                                <div className="flex items-center gap-2 px-3 py-1.5 bg-red-500/10 border border-red-500/30 rounded-full mb-6">
+                                    <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+                                    <span className="text-red-500 text-sm font-medium">{profile.availability}</span>
                                 </div>
 
                                 <div className="flex items-center gap-2 text-muted-foreground text-sm mb-6">

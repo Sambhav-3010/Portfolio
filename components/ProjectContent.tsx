@@ -133,13 +133,10 @@ export function ProjectContent({ project }: { project: Project }) {
                       </div>
                       <div className="flex-1 min-w-0">
                         <h3
-                          className={`
-                                            text-lg md:text-xl font-bold mb-2
-                                            ${project.status === "issues"
-                              ? "text-red-400"
-                              : "text-amber-400"
-                            }
-                                        `}
+                          className={`text-lg md:text-xl font-bold mb-2 ${project.status === "issues"
+                            ? "text-red-400"
+                            : "text-amber-400"
+                            }`}
                         >
                           {project.status === "issues" ? (
                             <span>Deployment Issues</span>
@@ -154,13 +151,10 @@ export function ProjectContent({ project }: { project: Project }) {
                             "This project is currently experiencing some issues."}
                         </p>
                         <p
-                          className={`
-                                            text-xs md:text-sm mt-2 opacity-70
-                                            ${project.status === "issues"
-                              ? "text-red-300"
-                              : "text-amber-300"
-                            }
-                                        `}
+                          className={`text-xs md:text-sm mt-2 opacity-70 ${project.status === "issues"
+                            ? "text-red-300"
+                            : "text-amber-300"
+                            }`}
                         >
                           Currently being resolved. Please check back later.
                         </p>
@@ -317,27 +311,42 @@ export function ProjectContent({ project }: { project: Project }) {
             <h2 className="text-xl md:text-2xl font-bold text-foreground">
               The Story
             </h2>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed md:leading-loose max-w-none">
-              {project.longDescription.story}
-            </p>
+            <ul className="space-y-3 text-muted-foreground text-base md:text-lg leading-relaxed md:leading-loose">
+              {project.longDescription.story.map((point, index) => (
+                <li key={index} className="flex gap-3">
+                  <span className="text-primary shrink-0">•</span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
           </section>
 
           <section className="space-y-3 md:space-y-4">
             <h2 className="text-xl md:text-2xl font-bold text-foreground">
               How It Works
             </h2>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed md:leading-loose max-w-none">
-              {project.longDescription.howItWorks}
-            </p>
+            <ul className="space-y-3 text-muted-foreground text-base md:text-lg leading-relaxed md:leading-loose">
+              {project.longDescription.howItWorks.map((point, index) => (
+                <li key={index} className="flex gap-3">
+                  <span className="text-primary shrink-0">•</span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
           </section>
 
           <section className="space-y-3 md:space-y-4">
             <h2 className="text-xl md:text-2xl font-bold text-foreground">
               The Vision
             </h2>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed md:leading-loose max-w-none">
-              {project.longDescription.vision}
-            </p>
+            <ul className="space-y-3 text-muted-foreground text-base md:text-lg leading-relaxed md:leading-loose">
+              {project.longDescription.vision.map((point, index) => (
+                <li key={index} className="flex gap-3">
+                  <span className="text-primary shrink-0">•</span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
           </section>
         </div>
 
@@ -345,9 +354,14 @@ export function ProjectContent({ project }: { project: Project }) {
           <h2 className="text-xl md:text-2xl font-bold text-foreground">
             Conclusion
           </h2>
-          <p className="text-muted-foreground text-base md:text-lg leading-relaxed md:leading-loose max-w-none">
-            {project.conclusion}
-          </p>
+          <ul className="space-y-3 text-muted-foreground text-base md:text-lg leading-relaxed md:leading-loose">
+            {project.conclusion.map((point, index) => (
+              <li key={index} className="flex gap-3">
+                <span className="text-primary shrink-0">•</span>
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
         </section>
 
         <div className="space-y-8">
@@ -382,7 +396,7 @@ export function ProjectContent({ project }: { project: Project }) {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

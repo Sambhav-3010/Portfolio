@@ -1,8 +1,9 @@
 "use client"
 
 import { useRouter } from "next/navigation"
-import { ArrowRight, Briefcase, Download } from "lucide-react"
+import { ArrowRight, Briefcase, Download, Eye } from "lucide-react"
 import { experiences } from "@/data/experience"
+import { profile } from "@/data/about"
 import Image from "next/image"
 
 export function ExperienceCard() {
@@ -49,15 +50,27 @@ export function ExperienceCard() {
                 ))}
             </div>
 
-            <a
-                href="/assets/resume.pdf"
-                download="resume.pdf"
-                onClick={(e) => e.stopPropagation()}
-                className="btn-neumorphic-outline flex items-center justify-center gap-2 mt-4 py-2.5 px-5 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary text-base font-medium transition-colors border border-primary/20"
-            >
-                <Download className="w-4 h-4" />
-                Download CV
-            </a>
+            <div className="flex gap-2 mt-4">
+                <a
+                    href={profile.resumeViewUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="btn-neumorphic-outline flex-1 flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary text-base font-medium transition-colors border border-primary/20"
+                >
+                    <Eye className="w-4 h-4" />
+                    View Resume
+                </a>
+                <a
+                    href="/assets/resume.pdf"
+                    download="resume.pdf"
+                    onClick={(e) => e.stopPropagation()}
+                    className="btn-neumorphic flex-1 flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl text-base font-medium"
+                >
+                    <Download className="w-4 h-4" />
+                    Download Resume
+                </a>
+            </div>
         </div>
     )
 }

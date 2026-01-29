@@ -1,8 +1,8 @@
 export const profile = {
     name: "Sambhav Mani Tripathi",
     role: "Full Stack Developer",
-    location: "India",
-    bio: `Coding enthusiast building web applications. Working with Java, JavaScript, MERN, and Next.js. Always learning and exploring new tools.`,
+    location: "Mumbai, India",
+    bio: `Coding enthusiast building web applications. Working with Java, JavaScript, MERN, Next.js, and currently learning Blockchain development on Ethereum. Always learning and exploring new tools.`,
     bioPoints: [
         "CS student exploring full-stack development.",
         "Learning by building."
@@ -19,6 +19,7 @@ export const profile = {
         instagram: "",
     },
     resumeUrl: "/assets/resume.pdf",
+    resumeViewUrl: "https://drive.google.com/file/d/1yXq9GEZygoNsDrafBqR1urNKOCjQowUF/view?usp=sharing",
     avatarUrl: "/sambhav_portfolio.jpg",
     education: {
         college: "KJ Somaiya College of Engineering",
