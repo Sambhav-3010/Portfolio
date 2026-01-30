@@ -27,16 +27,15 @@ export const projects: Project[] = [
       "A comprehensive travel itinerary web application featuring both manual and AI-powered trip planning capabilities. The platform integrates SerpAPI to fetch real-time flight information, hotel bookings, local attractions, and curated activities for highly personalized travel recommendations tailored to each user's preferences and budget.",
     longDescription: {
       story: [
-        "Born from the frustration every traveler knows — flight details scattered across booking sites, hotel confirmations buried in emails, attraction tickets saved in browser tabs.",
+        "Born from the frustration every traveler knows flight details scattered across booking sites, hotel confirmations buried in emails, attraction tickets saved in browser tabs.",
         "The cognitive load of tracking everything often overshadows the excitement of the trip itself.",
         "Experienced this chaos firsthand while planning a multi-city tour, sparking the idea for a unified platform.",
         "GhumoFiro's vision: unify the entire travel planning experience into one cohesive, intelligent platform that understands how travelers think and plan.",
       ],
       howItWorks: [
-        "AI Mode: Describe your trip in natural language — the Gemini-powered AI generates a complete structured JSON itinerary with optimized routes, hotels, and day-by-day schedules.",
-        "AI-generated plans are hydrated with real-time SerpAPI data for accurate flight prices, hotel availability, and attraction timings.",
-        "Manual Mode: Beautiful drag-and-drop interface to curate every journey detail hands-on.",
-        "ML recommendation engine uses collaborative filtering to suggest hidden gems, optimal routes, and experiences from thousands of traveler patterns.",
+        "AI Mode: Describe your trip in natural language the Gemini powered AI generates a complete structured JSON itinerary with optimized routes, hotels, and day by day schedules.",
+        "AI generated plans are hydrated with real time SerpAPI data for accurate flight prices, hotel availability, and attraction timings.",
+        "ML recommendation engine uses collaborative filtering to suggest experiences and travels from thousands of travelers.",
       ],
       vision: [
         "Evolve into an intelligent travel companion that actively adapts to trips in real-time.",
@@ -66,8 +65,6 @@ export const projects: Project[] = [
       "/assets/projects/GhumoFiro/12.png",
       "/assets/projects/GhumoFiro/13.png",
       "/assets/projects/GhumoFiro/14.png",
-      "/assets/projects/GhumoFiro/15.png",
-      "/assets/projects/GhumoFiro/16.png",
     ],
     videoId: "",
     tags: [
