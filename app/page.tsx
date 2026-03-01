@@ -2,6 +2,7 @@ import { CompactHeader } from "@/components/CompactHeader";
 import { BentoSections } from "@/components/BentoSections";
 import { Footer } from "@/components/Footer";
 import { Contributions } from "@/components/Contributions";
+import { LeetCodeContributions } from "@/components/LeetCodeContributions";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <CompactHeader />
         <BentoSections />
         <Contributions />
+        <LeetCodeContributions />
         <Footer />
       </main>
     </div>
