@@ -53,7 +53,7 @@ export function CompactHeader() {
                         </Button>
                     </div>
 
-                    <div className="flex gap-5 pt-4 border-t border-border justify-center md:justify-start">
+                    <div className="flex gap-5 justify-center md:justify-start">
                         {profile.socials.github && (
                             <a
                                 href={profile.socials.github}
@@ -137,7 +137,7 @@ export function CompactHeader() {
 
                 <div className="shrink-0 order-1 md:order-2">
                     <div className="relative group">
-                        <div className="absolute -inset-2 bg-linear-to-r from-primary to-primary/50 rounded-full blur-lg opacity-40 group-hover:opacity-60 transition duration-500"></div>
+                        <div className="absolute -inset-2 bg-linear-to-r from-primary to-primary/50 rounded-full blur-lg opacity-20 group-hover:opacity-40 transition duration-500"></div>
                         <Image
                             src={profile.avatarUrl}
                             alt={profile.name}

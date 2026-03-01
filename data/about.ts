@@ -1,6 +1,6 @@
 export const profile = {
     name: "Sambhav Mani Tripathi",
-    role: "Full Stack Developer",
+    role: "Software Engineer (SWE)",
     location: "Mumbai, India",
     bio: `Coding enthusiast building web applications. Working with Java, JavaScript, MERN, Next.js, and currently learning Blockchain development on Ethereum. Always learning and exploring new tools.`,
     bioPoints: [

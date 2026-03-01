@@ -32,21 +32,10 @@ export default function AnimatedBackground() {
   return (
     <>
       <div className="fixed inset-0 -z-10 overflow-hidden bg-background">
-
-        <div
-          className="absolute top-[10%] left-[10%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none"
-        ></div>
-        <div
-          className="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"
-        ></div>
-        <div
-          className="absolute top-[40%] left-[30%] w-[400px] h-[400px] bg-primary/5 rounded-full blur-[80px] pointer-events-none"
-        ></div>
-
         {particleCrowd.map((p, i) => (
           <div
             key={`particle-${i}`}
-            className="absolute w-2 h-2 bg-primary/40 rounded-full shadow-[0_0_10px_hsl(var(--primary)/0.4)] animate-ball-float"
+            className="absolute w-2 h-2 bg-primary/30 rounded-full shadow-[0_0_10px_hsl(var(--primary)/0.4)] animate-ball-float"
             style={{
               left: p.left,
               top: p.top,
@@ -58,35 +47,11 @@ export default function AnimatedBackground() {
         <svg className="absolute inset-0 h-full w-full opacity-25" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" className="stroke-primary/20" strokeWidth="1" />
+              <path d="M 40 0 L 0 0 0 40" fill="none" className="stroke-primary/10" strokeWidth="1" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
-
-        {hPos.map((top, i) => (
-          <div
-            key={`h-${i}`}
-            onAnimationIteration={() => handleHIteration(i)}
-            className="absolute left-0 w-full h-px bg-linear-to-r from-transparent via-primary/35 to-transparent animate-move-right"
-            style={{
-              top: `${top}%`,
-              animationDuration: i === 0 ? '8s' : '12s'
-            }}
-          ></div>
-        ))}
-
-        {vPos.map((left, i) => (
-          <div
-            key={`v-${i}`}
-            onAnimationIteration={() => handleVIteration(i)}
-            className="absolute top-0 h-full w-px bg-linear-to-b from-transparent via-primary/30 to-transparent animate-move-down"
-            style={{
-              left: `${left}%`,
-              animationDuration: i === 0 ? '10s' : '15s'
-            }}
-          ></div>
-        ))}
       </div>
 
       <style jsx global>{`
@@ -95,26 +60,9 @@ export default function AnimatedBackground() {
           50% { transform: translateY(-40px); }
         }
 
-        @keyframes move-right {
-          0% { transform: translateX(-100%); opacity: 0; }
-          10% { opacity: 1; }
-          90% { opacity: 1; }
-          100% { transform: translateX(100%); opacity: 0; }
-        }
-
-        @keyframes move-down {
-          0% { transform: translateY(-100%); opacity: 0; }
-          10% { opacity: 1; }
-          90% { opacity: 1; }
-          100% { transform: translateY(100%); opacity: 0; }
-        }
-
         .animate-ball-float {
           animation: ball-float 4s ease-in-out infinite;
         }
-
-        .animate-move-right { animation: move-right linear infinite; }
-        .animate-move-down { animation: move-down linear infinite; }
       `}</style>
     </>
   );

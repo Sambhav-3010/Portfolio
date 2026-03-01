@@ -1,6 +1,6 @@
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
-import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiJavascript, SiNodedotjs, SiMongodb, SiFirebase, SiGit, SiGithub, SiExpress, SiPrisma, SiDocker, SiPostgresql, SiGraphql, SiVercel, SiBootstrap, SiRender, SiRailway, SiSupabase, SiRedis, SiApachekafka, SiAmazonwebservices, SiSolidity, SiEthereum, SiBitcoin, SiMocha, SiHtml5, SiCss3 } from "react-icons/si"
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiJavascript, SiNodedotjs, SiMongodb, SiFirebase, SiGit, SiGithub, SiExpress, SiPrisma, SiDocker, SiPostgresql, SiGraphql, SiVercel, SiBootstrap, SiRender, SiRailway, SiSupabase, SiRedis, SiApachekafka, SiAmazonwebservices, SiSolidity, SiEthereum, SiBitcoin, SiMocha, SiHtml5, SiCss3, SiNginx, SiKubernetes } from "react-icons/si"
 import { FaJava, FaHardHat } from "react-icons/fa"
 import { TbBrandVscode } from "react-icons/tb"
 
@@ -13,18 +13,16 @@ const techCategories = [
             { icon: <SiJavascript className="w-8 h-8" />, name: "JavaScript", color: "text-yellow-500" },
             { icon: <SiTypescript className="w-8 h-8" />, name: "TypeScript", color: "text-blue-500" },
             { icon: <FaJava className="w-8 h-8" />, name: "Java", color: "text-red-500" },
-            { icon: <SiSolidity className="w-8 h-8" />, name: "Solidity", color: "text-gray-600" },
         ]
     },
     {
         title: "Blockchain & Web3",
         items: [
             { icon: <SiEthereum className="w-8 h-8" />, name: "Ethereum", color: "text-indigo-500" },
-            { icon: <SiBitcoin className="w-8 h-8" />, name: "Bitcoin", color: "text-orange-500" },
             { icon: <FaHardHat className="w-8 h-8" />, name: "Hardhat", color: "text-yellow-400" },
             { icon: <div className="text-2xl font-bold font-mono">Chai</div>, name: "Chai", color: "text-red-400" },
             { icon: <SiMocha className="w-8 h-8" />, name: "Mocha", color: "text-amber-700" },
-            { icon: <div className="text-xl font-bold">ethers.js</div>, name: "Ethers.js", color: "text-blue-600" },
+            { icon: <SiSolidity className="w-8 h-8" />, name: "Solidity", color: "text-gray-600" },
         ]
     },
     {
@@ -67,6 +65,8 @@ const techCategories = [
             { icon: <SiGithub className="w-8 h-8" />, name: "GitHub", color: "text-foreground" },
             { icon: <SiDocker className="w-8 h-8" />, name: "Docker", color: "text-blue-500" },
             { icon: <TbBrandVscode className="w-8 h-8" />, name: "VS Code", color: "text-blue-500" },
+            { icon: <SiNginx className="w-8 h-8" />, name: "Nginx", color: "text-green-600" },
+            { icon: <SiKubernetes className="w-8 h-8" />, name: "Kubernetes", color: "text-blue-500" },
         ]
     },
 ]
