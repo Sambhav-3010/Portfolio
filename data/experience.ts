@@ -9,9 +9,9 @@ export const experiences = [
                 title: "SDE Intern",
                 description: [
                     "Developing applications for online platforms like Slack and Trello using multiple frameworks.",
-                    "Developed full-stack Shopify applications using Shopify Remix in React with the Polaris component library for embedded admin interfaces.",
+                    "Built apps and key products for Explified across Shopify, Slack, Trello, n8n and web platforms",
                 ],
-                skills: ["Shopify", "Slack", "Trello", "Shopify Remix", "Polaris", "Atlassian Marketplace"],
+                skills: ["Shopify", "Slack", "Trello", "n8n", "Atlassian Marketplace"],
             },
         ],
         image: "/assets/company/explified.png",
@@ -22,23 +22,14 @@ export const experiences = [
         type: "experience",
         roles: [
             {
-                period: "September 2025 - December 2025",
-                title: "Freelance Web Developer",
-                description: [
-                    "Handled regular maintenance, bug fixes, and performance improvements.",
-                    "Implemented feature enhancements for the live e-commerce platform.",
-                ],
-                skills: ["MERN Stack", "Hostinger", "Performance Optimization"],
-            },
-            {
-                period: "June 2025 - August 2025",
+                period: "May 2025 - July 2025",
                 title: "Full-stack Developer Intern",
                 description: [
                     "Built a complete e-commerce website with an admin dashboard.",
                     "Deployed both the website and dashboard on Hostinger.",
                 ],
                 skills: ["MERN Stack", "E-commerce", "Deployment", "Git & GitHub"],
-            },
+            }
         ],
         image: "/assets/company/naareecollections.png",
     },
