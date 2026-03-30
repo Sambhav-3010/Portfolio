@@ -91,8 +91,8 @@ function ContributionGraph({ contributions }: { contributions: ContributionHelpe
 
   return (
     <div className="w-full">
-      <div className="w-full overflow-x-auto md:overflow-visible py-2">
-        <div className="inline-block min-w-full">
+      <div className="w-full overflow-x-hidden py-2">
+        <div className="w-full">
           <div className="flex mb-3">
             <div className="w-10 shrink-0" />
             <div className="flex gap-1 flex-1 justify-between">
