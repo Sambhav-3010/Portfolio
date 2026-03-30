@@ -9,7 +9,7 @@ import Image from "next/image"
 export function ExperienceCard() {
   const router = useRouter()
   const displayExperiences = experiences
-    .filter((exp) => exp.type === "experience" && exp.company !== "ZecBay")
+    .filter((exp) => exp.type === "experience")
     .slice(0, 3)
 
   return (
@@ -28,7 +28,7 @@ export function ExperienceCard() {
       </div>
 
       <div className="relative flex-1">
-        <div className="absolute left-[18px] top-1 bottom-1 border-l border-dashed border-primary/40" />
+        <div className="absolute left-[18px] top-1 bottom-1 border-s border-dashed border-primary/40 max-h-[200px]" />
         <div className="space-y-5">
           {displayExperiences.map((exp) => (
             <div key={`${exp.company}-${exp.roles[0].period}`} className="relative pl-11">
@@ -46,7 +46,7 @@ export function ExperienceCard() {
         </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-3 mt-auto pt-6 border-t border-border">
+      <div className="flex flex-col sm:flex-row gap-3 mt-auto pt-6">
         <a
           href={profile.resumeViewUrl}
           target="_blank"

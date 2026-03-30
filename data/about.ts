@@ -4,13 +4,10 @@ export const profile = {
     location: "Mumbai, India",
     bio: `Coding enthusiast building web applications. Working with Java, JavaScript, MERN, Next.js, and currently learning Blockchain development on Ethereum. Always learning and exploring new tools.`,
     bioPoints: [
-        "Building full-stack web applications using the MERN stack, Next.js, and TypeScript with a focus on clean, scalable architecture.",
-        "Developing products for platforms like Shopify, Slack, Trello, and n8n — shipping real apps used by real users.",
+        "Building full stack web applications using the MERN stack, Next.js, and TypeScript with a focus on clean, scalable architecture",
+        "Learning devops and cloud computing to deploy and manage applications on platforms like AWS, Azure, and GCP",
         "Exploring Blockchain development on Ethereum with Solidity, Hardhat, and smart contract testing.",
-        "Building e-commerce platforms, expense trackers, travel planners, and disaster management tools end-to-end.",
-        "Leading engineering teams — Co-Lead at Somaiya ML Research Association, mentoring juniors in web development and Git workflows.",
-        "Integrating APIs (SerpAPI, Gemini AI, Socket.io) and working with databases like MongoDB, PostgreSQL, Prisma, and Firebase.",
-        "Deploying and managing apps with Docker, AWS, Vercel, and CI/CD pipelines for production-ready delivery."
+        "Co-Lead at Somaiya ML Research Association, mentoring juniors in web development and Git workflows."
     ],
     tagline: "Learning, building, improving.",
     availability: "Looking for new opportunities",

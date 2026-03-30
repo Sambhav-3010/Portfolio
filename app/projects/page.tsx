@@ -17,7 +17,7 @@ export default function ProjectsPage() {
           <ArrowLeft className="w-4 h-4" /> Back
         </Link>
 
-        <section className="cream-card p-5 sm:p-8 mb-6 sm:mb-8">
+        <section className="p-5 sm:p-8 mb-6 sm:mb-8">
           <p className="text-sm uppercase tracking-[0.2em] text-primary font-semibold mb-3">Portfolio Archive</p>
           <h1 className="section-title text-[clamp(2.1rem,4vw,3.3rem)]! inline-flex items-center gap-3">
             <Code2 className="w-7 h-7 sm:w-9 sm:h-9 text-primary" />

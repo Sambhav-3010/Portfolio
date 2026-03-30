@@ -20,17 +20,17 @@ export function AboutCard() {
 
         <h3 className="text-3xl sm:text-4xl font-extrabold leading-tight mb-4">What do I help?</h3>
         <p className="text-muted-foreground leading-relaxed mb-7">
-          I help with finding practical solutions and building digital products that solve real user and business problems.
+          I help with finding practical solutions and building digital products that solve real user and business problems, focusing on scalability, performance, and meaningful user experiences.
         </p>
 
         <div className="mt-auto p-4 rounded-2xl bg-accent/60 border border-primary/20">
-          <p className="inline-flex items-center gap-2 font-semibold">
+          <p className="items-center gap-2 font-semibold">
             <GraduationCap className="w-4 h-4 text-primary" />
-            {profile.education.college}
           </p>
+          <p className="items-center gap-2 font-semibold">{profile.education.college}</p>
           <p className="text-sm text-muted-foreground mt-1">{profile.education.degree}</p>
         </div>
       </article>
-    </Link>
+    </Link >
   )
 }
