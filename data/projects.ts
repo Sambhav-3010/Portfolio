@@ -4,6 +4,7 @@ import { quickWebAi } from "./projects/quickweb-ai";
 import { taskify } from "./projects/taskify";
 import { disasterManagementPlatform } from "./projects/disaster-management-platform";
 import { ghumoFiro } from "./projects/ghumofiro";
+import { paydrip } from "./projects/paydrip";
 
 export type ProjectStatus = "stable" | "warning" | "issues" | "update";
 
@@ -27,6 +28,7 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  paydrip,
   ghumoFiro,
   propChain,
   settleMate,
