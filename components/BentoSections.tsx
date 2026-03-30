@@ -9,7 +9,6 @@ import { ContactCard } from "./bento/ContactCard"
 export function BentoSections() {
   return (
     <section id="bento" className="w-full max-w-6xl mx-auto px-4 sm:px-6 pb-10 sm:pb-16">
-      {/* Row 1: About + Experience — same height on desktop, stacked on mobile */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 sm:gap-6" style={{ gridAutoRows: "1fr" }}>
         <div className="md:col-span-1 lg:col-span-4">
           <AboutCard />
@@ -19,7 +18,6 @@ export function BentoSections() {
         </div>
       </div>
 
-      {/* Row 2: Projects + Contact/TechStack */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 mt-5 sm:mt-6">
         <div className="lg:col-span-8">
           <ProjectsCarouselCard />

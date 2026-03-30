@@ -1,6 +1,8 @@
 import type React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const metadata: Metadata = {
   title: "Portfolio | Sambhav Mani Tripathi",
@@ -30,9 +32,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased" suppressHydrationWarning>
-        <div className="site-shell">{children}</div>
+    <html lang="en" suppressHydrationWarning>
+      <body className="antialiased">
+        <ThemeProvider>
+          <div className="site-shell">
+            {children}
+            <ThemeToggle />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

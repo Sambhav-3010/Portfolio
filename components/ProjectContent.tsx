@@ -178,10 +178,10 @@ function TextBlock({ title, content }: { title: string; content: string[] }) {
 function StatusPanel({ status, message }: { status: ProjectStatus; message?: string }) {
   if (status === "stable") {
     return (
-      <div className="rounded-2xl border border-emerald-300 bg-emerald-50 p-4 sm:p-5 mt-4">
+      <div className="rounded-2xl border border-emerald-300 bg-emerald-50 dark:border-emerald-500/40 dark:bg-emerald-950/40 p-4 sm:p-5 mt-4">
         <div className="flex items-center gap-3">
           <ProjectStatusBadge status={status} />
-          <p className="text-sm text-emerald-800 inline-flex items-center gap-1.5">
+          <p className="text-sm text-emerald-800 dark:text-emerald-200 inline-flex items-center gap-1.5">
             <RocketIcon className="w-4 h-4" />
             Project is stable, deployed and working.
           </p>
@@ -206,8 +206,8 @@ function StatusPanel({ status, message }: { status: ProjectStatus; message?: str
 
   const issuePalette =
     status === "issues"
-      ? "border-red-300 bg-red-50 text-red-700"
-      : "border-amber-300 bg-amber-50 text-amber-700"
+      ? "border-red-300 bg-red-50 text-red-700 dark:border-red-500/40 dark:bg-red-950/40 dark:text-red-200"
+      : "border-amber-300 bg-amber-50 text-amber-700 dark:border-amber-500/40 dark:bg-amber-950/35 dark:text-amber-200"
 
   return (
     <div className={`rounded-2xl border p-4 sm:p-5 mt-4 ${issuePalette}`}>

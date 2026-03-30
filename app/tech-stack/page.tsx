@@ -126,7 +126,7 @@ export default function TechStackPage() {
                 {category.items.map((item) => (
                   <div
                     key={`${category.title}-${item.name}`}
-                    className="rounded-xl border border-border bg-accent/35 p-3 flex flex-col items-center gap-2 hover:-translate-y-0.5 transition-transform"
+                    className="rounded-xl border border-border bg-accent/35 dark:bg-accent/70 p-3 flex flex-col items-center gap-2 hover:-translate-y-0.5 transition-transform"
                   >
                     <div>{item.icon}</div>
                     <span className="text-xs text-center text-muted-foreground font-semibold">{item.name}</span>

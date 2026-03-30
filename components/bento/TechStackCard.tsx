@@ -50,7 +50,7 @@ export function TechStackCard() {
           {techIcons.map((tech) => (
             <div
               key={tech.name}
-              className="aspect-square rounded-xl border border-border bg-accent/35 flex items-center justify-center hover:-translate-y-0.5 transition-transform"
+              className="aspect-square rounded-xl border border-border bg-accent/35 dark:bg-accent/70 flex items-center justify-center hover:-translate-y-0.5 transition-transform"
               title={tech.name}
             >
               {tech.icon}
