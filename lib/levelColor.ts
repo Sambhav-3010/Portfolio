@@ -1,5 +1,4 @@
 export function getLevelColor(level: number) {
-    const opacities = [0.05, 0.3, 0.5, 0.7, 1]
-    if (level === 0) return 'rgb(0,0,0,0.25)'
-    return `color-mix(in srgb, var(--primary) ${opacities[level] * 100}%, transparent)`
+  const opacities = [0.12, 0.32, 0.52, 0.72, 0.95]
+  return `color-mix(in srgb, var(--primary) ${opacities[Math.min(level, 4)] * 100}%, #f7f3eb)`
 }

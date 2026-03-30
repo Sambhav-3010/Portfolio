@@ -1,122 +1,94 @@
 "use client"
 
-import Link from "next/link"
-import { Code2, ArrowRight } from "lucide-react"
+import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
+import { AnimatePresence, motion } from "framer-motion"
+import { ArrowRight, Code2 } from "lucide-react"
 import Image from "next/image"
 import { projects } from "@/data/projects"
-import { useState, useEffect } from "react"
-import { AnimatePresence, motion } from "framer-motion"
-import { useRouter } from "next/navigation"
 import { ProjectStatusBadge } from "@/components/ProjectStatusBadge"
 
 export function ProjectsCarouselCard() {
-    const [currentIndex, setCurrentIndex] = useState(0)
-    const router = useRouter()
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const router = useRouter()
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % projects.length)
-        }, 5000)
-        return () => clearInterval(interval)
-    }, [])
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % projects.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [])
 
-    const currentProject = projects[currentIndex]
+  const project = projects[currentIndex]
 
-    const handleCardClick = () => {
-        router.push("/projects")
-    }
+  return (
+    <article
+      onClick={() => router.push("/projects")}
+      className="cream-card h-full min-h-[360px] p-6 sm:p-8 cursor-pointer group"
+    >
+      <div className="flex items-center justify-between mb-6">
+        <p className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-primary font-semibold">
+          <Code2 className="w-4 h-4" />
+          My Latest Works
+        </p>
+        <span className="inline-flex items-center gap-1 text-sm font-semibold text-secondary underline underline-offset-4">
+          Explore more <ArrowRight className="w-4 h-4" />
+        </span>
+      </div>
 
-    return (
-        <div
-            onClick={handleCardClick}
-            className="h-full min-h-[380px] md:min-h-[300px] p-6 rounded-2xl bg-card/60 backdrop-blur-sm border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 flex flex-col cursor-pointer group"
-        >
-            <div className="flex items-center justify-between mb-5">
-                <div className="flex items-center gap-2">
-                    <Code2 className="w-5 h-5 text-primary" />
-                    <span className="text-base font-semibold text-muted-foreground">Projects</span>
-                </div>
-                <span className="flex items-center gap-1 text-sm text-primary group-hover:text-primary/80 transition-colors font-medium">
-                    View All <ArrowRight className="w-4 h-4" />
-                </span>
-            </div>
+      <div className="relative h-[280px] sm:h-[320px] rounded-[1.2rem] overflow-hidden border border-border">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.45 }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={project.images[0]}
+              alt={project.title}
+              fill
+              className="object-cover object-top"
+            />
+          </motion.div>
+        </AnimatePresence>
 
-            <div className="relative flex-1 rounded-xl overflow-hidden bg-card border border-border/50">
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={currentIndex}
-                        initial={{ opacity: 0, scale: 1.05 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="absolute inset-0"
-                    >
-                        <Image
-                            src={currentProject.images[0]}
-                            alt={currentProject.title}
-                            fill
-                            className="object-cover object-top"
-                        />
-                    </motion.div>
-                </AnimatePresence>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#143246]/90 via-[#143246]/28 to-transparent" />
 
-                <div className="absolute inset-0 bg-linear-to-t from-card via-card/80 to-transparent z-10" />
-
-                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 z-20">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={currentIndex}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            transition={{ duration: 0.4, ease: "easeOut" }}
-                        >
-                            <h3 className="text-lg md:text-xl font-bold text-foreground mb-1 md:mb-2">
-                                {currentProject.title}
-                                {(currentProject.status === 'warning' || currentProject.status === 'issues' || currentProject.status === 'stable' || currentProject.status === 'update') && (
-                                    <span className="ml-2 inline-flex align-middle">
-                                        <ProjectStatusBadge
-                                            status={currentProject.status}
-                                            statusMessage={currentProject.statusMessage}
-                                            size="sm"
-                                            showLabel={false}
-                                        />
-                                    </span>
-                                )}
-                            </h3>
-                            <p className="text-xs md:text-sm text-muted-foreground line-clamp-1 md:line-clamp-2 mb-2 md:mb-3">
-                                {currentProject.description}
-                            </p>
-                            <div className="flex flex-wrap gap-1 md:gap-1.5">
-                                {currentProject.tags.slice(0, 4).map((tag) => (
-                                    <span
-                                        key={tag}
-                                        className="px-1.5 md:px-2 py-0.5 text-[10px] md:text-xs font-medium rounded bg-primary/10 text-primary border border-primary/20"
-                                    >
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        </motion.div>
-                    </AnimatePresence>
-                </div>
-            </div>
-
-            <div className="flex justify-center gap-2 mt-4">
-                {projects.map((_, index) => (
-                    <button
-                        key={index}
-                        onClick={(e) => {
-                            e.stopPropagation()
-                            setCurrentIndex(index)
-                        }}
-                        className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex
-                            ? 'bg-primary w-6'
-                            : 'bg-muted-foreground/30 hover:bg-muted-foreground/50 w-2'
-                            }`}
-                    />
-                ))}
-            </div>
+        <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
+          <div className="flex items-center gap-2 mb-2">
+            <h3 className="text-2xl font-extrabold">{project.title}</h3>
+            {project.status && <ProjectStatusBadge status={project.status} size="sm" showLabel={false} />}
+          </div>
+          <p className="text-sm text-white/85 line-clamp-2 max-w-xl">{project.description}</p>
+          <div className="flex flex-wrap gap-1.5 mt-3">
+            {project.tags.slice(0, 4).map((tag) => (
+              <span
+                key={`${project.slug}-${tag}`}
+                className="px-2 py-1 rounded-full text-[11px] font-semibold bg-white/16 border border-white/30"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
-    )
+      </div>
+
+      <div className="flex justify-center gap-2 mt-5">
+        {projects.map((item, index) => (
+          <button
+            key={item.slug}
+            onClick={(event) => {
+              event.stopPropagation()
+              setCurrentIndex(index)
+            }}
+            className={`h-2.5 rounded-full transition-all ${index === currentIndex ? "w-8 bg-primary" : "w-2.5 bg-primary/30"}`}
+            aria-label={`Show ${item.title}`}
+          />
+        ))}
+      </div>
+    </article>
+  )
 }

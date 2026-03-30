@@ -1,10 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import AnimatedBackground from "@/components/AnimatedBackground";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Portfolio | Sambhav Mani Tripathi",
@@ -34,11 +30,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.className} antialiased`}>
-        <AnimatedBackground />
-        <div className="fixed inset-0 bg-white/5 pointer-events-none z-1" />
-        {children}
+    <html lang="en">
+      <body className="antialiased">
+        <div className="site-shell">{children}</div>
       </body>
     </html>
   );

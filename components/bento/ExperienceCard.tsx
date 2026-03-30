@@ -1,76 +1,70 @@
 "use client"
 
 import { useRouter } from "next/navigation"
-import { ArrowRight, Briefcase, Download, Eye } from "lucide-react"
+import { ArrowRight, Briefcase, Calendar, Download, Eye } from "lucide-react"
 import { experiences } from "@/data/experience"
 import { profile } from "@/data/about"
 import Image from "next/image"
 
 export function ExperienceCard() {
-    const router = useRouter()
-    const displayExperiences = experiences.slice(0, 2)
+  const router = useRouter()
+  const displayExperiences = experiences.slice(0, 3)
 
-    const handleCardClick = () => {
-        router.push("/experience")
-    }
+  return (
+    <article
+      onClick={() => router.push("/experience")}
+      className="cream-card h-full min-h-[320px] p-6 sm:p-8 cursor-pointer group"
+    >
+      <div className="flex items-center justify-between mb-7">
+        <p className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-primary font-semibold">
+          <Briefcase className="w-4 h-4" />
+          My Work Experience
+        </p>
+        <span className="inline-flex items-center gap-1 text-sm font-semibold text-foreground/70 group-hover:text-primary">
+          View all <ArrowRight className="w-4 h-4" />
+        </span>
+      </div>
 
-    return (
-        <div
-            onClick={handleCardClick}
-            className="h-full min-h-[280px] p-6 rounded-2xl bg-card/60 backdrop-blur-sm border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 flex flex-col cursor-pointer group"
-        >
-            <div className="flex items-center justify-between gap-2 mb-5">
-                <span className="text-base font-semibold text-muted-foreground flex items-center gap-2">
-                    <Briefcase className="w-5 h-5 text-primary" />
-                    Experience & Leadership
-                </span>
-                <span className="flex items-center gap-1 text-sm text-primary group-hover:text-primary/80 transition-colors font-medium">
-                    View All <ArrowRight className="w-4 h-4" />
-                </span>
+      <div className="relative">
+        <div className="absolute left-[18px] top-1 bottom-1 border-l border-dashed border-primary/40" />
+        <div className="space-y-5">
+          {displayExperiences.map((exp) => (
+            <div key={`${exp.company}-${exp.roles[0].period}`} className="relative pl-11">
+              <span className="absolute left-0 top-1.5 w-9 h-9 rounded-full bg-accent border border-primary/35 flex items-center justify-center overflow-hidden">
+                <Image src={exp.image} alt={exp.company} width={30} height={30} className="object-cover w-full h-full" />
+              </span>
+              <h4 className="text-xl font-bold leading-tight">{exp.company}</h4>
+              <p className="text-sm text-muted-foreground mt-1">{exp.roles[0].title}</p>
+              <p className="inline-flex items-center gap-1.5 text-xs text-primary font-semibold mt-1.5">
+                <Calendar className="w-3 h-3" />
+                {exp.roles[0].period}
+              </p>
             </div>
-
-            <div className="space-y-4 flex-1">
-                {displayExperiences.map((exp, index) => (
-                    <div key={index} className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 overflow-hidden">
-                            <Image className="w-full h-full object-cover" src={exp.image} alt={exp.company} width={40} height={40} />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-0.5 md:gap-2">
-                                <h4 className="text-sm md:text-base font-semibold text-foreground">
-                                    {exp.company}
-                                </h4>
-                                <span className="text-xs md:text-sm text-muted-foreground whitespace-nowrap">
-                                    {exp.roles[0].period}
-                                </span>
-                            </div>
-                            <p className="text-xs md:text-sm text-muted-foreground mt-0.5">{exp.roles[0].title}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            <div className="flex gap-2 mt-4">
-                <a
-                    href={profile.resumeViewUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="btn-neumorphic-outline flex-1 flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary text-base font-medium transition-colors border border-primary/20"
-                >
-                    <Eye className="w-4 h-4" />
-                    View Resume
-                </a>
-                <a
-                    href="/assets/resume.pdf"
-                    download="resume.pdf"
-                    onClick={(e) => e.stopPropagation()}
-                    className="btn-neumorphic flex-1 flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl text-base font-medium"
-                >
-                    <Download className="w-4 h-4" />
-                    Download Resume
-                </a>
-            </div>
+          ))}
         </div>
-    )
+      </div>
+
+      <div className="flex flex-col sm:flex-row gap-3 mt-7 pt-6 border-t border-border">
+        <a
+          href={profile.resumeViewUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(event) => event.stopPropagation()}
+          className="button-outline inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold"
+        >
+          <Eye className="w-4 h-4" />
+          View Resume
+        </a>
+        <a
+          href="/assets/resume.pdf"
+          download="resume.pdf"
+          onClick={(event) => event.stopPropagation()}
+          className="button-solid inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm"
+        >
+          <Download className="w-4 h-4" />
+          Download Resume
+        </a>
+      </div>
+    </article>
+  )
 }

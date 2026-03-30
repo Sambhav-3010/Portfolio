@@ -1,167 +1,118 @@
 "use client"
 
-import { Github, Linkedin, Mail, Phone, Twitter, FileText, Eye } from "lucide-react"
+import { Github, Linkedin, Mail, Phone, Eye, FileText } from "lucide-react"
 import Image from "next/image"
-import { profile } from "@/data/about"
-import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { profile } from "@/data/about"
+
+const navItems = [
+  { href: "/about", label: "Services" },
+  { href: "/projects", label: "Works" },
+  { href: "/tech-stack", label: "Notes" },
+  { href: "/experience", label: "Experience" },
+]
 
 export function CompactHeader() {
-    return (
-        <section className="w-full max-w-6xl mx-auto px-6 pt-10 pb-10">
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
-                <div className="flex-1 space-y-6 text-center md:text-left order-2 md:order-1">
-                    <div className="space-y-2">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                            {profile.name}
-                        </h1>
-                        <p className="text-lg md:text-xl text-primary font-semibold">
-                            {profile.role}
-                        </p>
-                    </div>
-                    <div className="flex items-center justify-center md:justify-start gap-2 rounded-full w-fit mx-auto md:mx-0">
-                        <div className="flex items-center justify-center md:justify-start gap-2 px-3 py-1.5 bg-purple-500/10 border border-purple-500/30 rounded-full w-fit mx-auto md:mx-0">
-                            <span className="w-1 h-1 md:w-2 md:h-2  bg-purple-500 rounded-full animate-pulse"></span>
-                            <span className="text-purple-500 text-sm font-medium">{profile.interest}</span>
-                        </div>
-                        <div className="flex items-center justify-center md:justify-start gap-2 px-3 py-1.5 bg-red-500/10 border border-red-500/30 rounded-full w-fit mx-auto md:mx-0">
-                            <span className="w-1 h-1 md:w-2 md:h-2 bg-red-500 rounded-full animate-pulse"></span>
-                            <span className="text-red-500 text-sm font-medium">{profile.availability}</span>
-                        </div>
-                    </div>
+  return (
+    <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 pt-6 sm:pt-10 pb-14 sm:pb-20">
+      <header className="cream-card px-4 sm:px-8 py-4 sm:py-5 mb-8 sm:mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-8">
+          <div className="script-mark text-4xl text-foreground/90 leading-none">Sambhav</div>
+          <nav className="flex flex-wrap items-center gap-2 sm:gap-3 lg:gap-4 lg:mx-auto">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="pill-nav px-4 py-2 text-xs sm:text-sm tracking-wide uppercase font-semibold text-foreground/80 hover:text-primary"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          <a
+            href={`tel:${profile.phone}`}
+            className="ml-0 lg:ml-auto inline-flex items-center justify-center gap-2 text-sm font-semibold text-foreground"
+          >
+            <span>{profile.phone}</span>
+            <span className="w-9 h-9 rounded-full bg-accent text-primary flex items-center justify-center">
+              <Phone className="w-4 h-4" />
+            </span>
+          </a>
+        </div>
+      </header>
 
-                    <p className="text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
-                        {profile.bio}
-                    </p>
+      <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-7 sm:gap-10">
+        <div className="lg:col-span-5 space-y-8">
+          <div className="space-y-4">
+            <p className="text-sm uppercase tracking-[0.22em] text-primary font-semibold">Portfolio</p>
+            <h1 className="section-title">Hey There, I&apos;m Sambhav</h1>
+            <p className="max-w-md text-muted-foreground text-base sm:text-lg leading-relaxed">
+              {profile.bio}
+            </p>
+          </div>
 
-                    <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                        <Button
-                            variant="default"
-                            size="lg"
-                            asChild
-                            className="btn-neumorphic bg-primary hover:bg-primary/90 text-primary-foreground font-semibold transition-all"
-                        >
-                            <Link href="/projects">View Work</Link>
-                        </Button>
-                        <Button
-                            variant="outline"
-                            size="lg"
-                            asChild
-                            className="btn-neumorphic-outline bg-transparent border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-primary/50 transition-all"
-                        >
-                            <a href={`mailto:${profile.email}`}>Get in Touch</a>
-                        </Button>
-                    </div>
-
-                    <div className="flex gap-5 justify-center md:justify-start">
-                        {profile.socials.github && (
-                            <a
-                                href={profile.socials.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-muted-foreground hover:text-primary transition-all hover:scale-110 relative group"
-                            >
-                                <Github className="h-5 w-5" />
-                                <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-card text-card-foreground text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-border">
-                                    GitHub
-                                </span>
-                            </a>
-                        )}
-                        {profile.socials.linkedin && (
-                            <a
-                                href={profile.socials.linkedin}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-muted-foreground hover:text-primary transition-all hover:scale-110 relative group"
-                            >
-                                <Linkedin className="h-5 w-5" />
-                                <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-card text-card-foreground text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-border">
-                                    LinkedIn
-                                </span>
-                            </a>
-                        )}
-                        {profile.socials.twitter && (
-                            <a
-                                href={profile.socials.twitter}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-muted-foreground hover:text-primary transition-all hover:scale-110 relative group"
-                            >
-                                <Twitter className="h-5 w-5" />
-                                <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-card text-card-foreground text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-border">
-                                    Twitter
-                                </span>
-                            </a>
-                        )}
-                        <a
-                            href={`mailto:${profile.email}`}
-                            className="text-muted-foreground hover:text-primary transition-all hover:scale-110 relative group"
-                        >
-                            <Mail className="h-5 w-5" />
-                            <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-card text-card-foreground text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-border">
-                                Email
-                            </span>
-                        </a>
-                        <a
-                            href={`tel:${profile.phone}`}
-                            className="text-muted-foreground hover:text-primary transition-all hover:scale-110 relative group"
-                        >
-                            <Phone className="h-5 w-5" />
-                            <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-card text-card-foreground text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-border">
-                                Call
-                            </span>
-                        </a>
-                        <a
-                            href={profile.resumeViewUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-muted-foreground hover:text-primary transition-all hover:scale-110 relative group"
-                        >
-                            <Eye className="h-5 w-5" />
-                            <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-card text-card-foreground text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-border">
-                                View Resume
-                            </span>
-                        </a>
-                        <a
-                            href={profile.resumeUrl}
-                            download="resume.pdf"
-                            className="text-muted-foreground hover:text-primary transition-all hover:scale-110 relative group"
-                        >
-                            <FileText className="h-5 w-5" />
-                            <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-card text-card-foreground text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-border">
-                                Download Resume
-                            </span>
-                        </a>
-                        <a
-                            href="https://leetcode.com/u/user5119TK/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-muted-foreground hover:text-primary transition-all hover:scale-110 relative group"
-                        >
-                            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
-                                <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z" />
-                            </svg>
-                            <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-card text-card-foreground text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-border">
-                                LeetCode
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <div className="shrink-0 order-1 md:order-2">
-                    <div className="relative group">
-                        <div className="absolute -inset-2 bg-linear-to-r from-primary to-primary/50 rounded-full blur-lg opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                        <Image
-                            src={profile.avatarUrl}
-                            alt={profile.name}
-                            width={280}
-                            height={280}
-                            priority
-                            className="relative rounded-full w-52 h-52 md:w-64 md:h-64 lg:w-72 lg:h-72 object-cover border-4 border-primary/30 shadow-2xl"
-                        />
-                    </div>
-                </div>
+          <div className="space-y-4">
+            <a
+              href={`mailto:${profile.email}`}
+              className="inline-block text-secondary font-bold text-lg underline underline-offset-4"
+            >
+              {profile.email}
+            </a>
+            <div className="flex items-end gap-2">
+              <span className="text-5xl font-extrabold text-foreground">10</span>
+              <span className="uppercase text-xs tracking-widest text-muted-foreground pb-2">
+                years experience
+              </span>
             </div>
-        </section>
-    )
+          </div>
+        </div>
+
+        <div className="lg:col-span-4">
+          <div className="relative mx-auto w-[250px] h-[330px] sm:w-[320px] sm:h-[430px]">
+            <div className="absolute inset-x-0 top-8 sm:top-10 mx-auto w-[240px] h-[200px] sm:w-[320px] sm:h-[260px] bg-primary/90 [clip-path:polygon(0_43%,14%_18%,30%_34%,43%_8%,56%_29%,72%_6%,84%_32%,100%_16%,88%_53%,100%_81%,82%_70%,71%_100%,53%_78%,40%_100%,25%_78%,10%_100%,0_74%,7%_54%)]" />
+            <Image
+              src={profile.avatarUrl}
+              alt={profile.name}
+              fill
+              priority
+              className="object-cover object-top rounded-[2rem] border-[10px] border-[#f6f2ea] shadow-2xl"
+            />
+          </div>
+        </div>
+
+        <div className="lg:col-span-3 space-y-6">
+          <p className="text-lg leading-relaxed max-w-xs">
+            I design beautifully simple things, and I love what I do.
+          </p>
+
+          <div className="cream-card p-5 max-w-xs">
+            <p className="text-xs uppercase tracking-[0.2em] text-primary font-semibold mb-2">Status</p>
+            <p className="font-bold text-lg">{profile.availability}</p>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {profile.socials.github && (
+              <a href={profile.socials.github} target="_blank" rel="noopener noreferrer" className="button-outline p-2.5">
+                <Github className="w-4 h-4" />
+              </a>
+            )}
+            {profile.socials.linkedin && (
+              <a href={profile.socials.linkedin} target="_blank" rel="noopener noreferrer" className="button-outline p-2.5">
+                <Linkedin className="w-4 h-4" />
+              </a>
+            )}
+            <a href={`mailto:${profile.email}`} className="button-outline p-2.5">
+              <Mail className="w-4 h-4" />
+            </a>
+            <a href={profile.resumeViewUrl} target="_blank" rel="noopener noreferrer" className="button-outline p-2.5">
+              <Eye className="w-4 h-4" />
+            </a>
+            <a href={profile.resumeUrl} download="resume.pdf" className="button-outline p-2.5">
+              <FileText className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
 }

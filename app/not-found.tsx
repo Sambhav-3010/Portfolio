@@ -4,38 +4,24 @@ import Link from "next/link"
 import { ArrowLeft, Home } from "lucide-react"
 
 export default function NotFound() {
-    return (
-        <div className="min-h-screen flex items-center justify-center px-6">
-            <div className="text-center max-w-md">
-                <div className="mb-8">
-                    <h1 className="text-8xl font-bold text-primary mb-4">404</h1>
-                    <div className="w-24 h-1 bg-primary/50 mx-auto rounded-full" />
-                </div>
+  return (
+    <main className="min-h-screen px-4 sm:px-6 grid place-items-center py-10">
+      <div className="cream-card p-8 sm:p-12 text-center max-w-xl">
+        <p className="text-sm uppercase tracking-[0.2em] text-primary font-semibold mb-3">404</p>
+        <h1 className="section-title !text-[clamp(2.2rem,5vw,4rem)] mb-4">Page Not Found</h1>
+        <p className="text-muted-foreground text-lg mb-8">The page you are looking for does not exist or might have moved.</p>
 
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                    Page Not Found
-                </h2>
-                <p className="text-muted-foreground text-lg mb-8">
-                    Oops! The page you're looking for doesn't exist or has been moved.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                    <Link
-                        href="/"
-                        className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all hover:scale-105"
-                    >
-                        <Home className="w-4 h-4" />
-                        Go Home
-                    </Link>
-                    <button
-                        onClick={() => history.back()}
-                        className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-card border border-border hover:border-primary/50 text-foreground font-medium transition-all"
-                    >
-                        <ArrowLeft className="w-4 h-4" />
-                        Go Back
-                    </button>
-                </div>
-            </div>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <Link href="/" className="button-solid inline-flex items-center justify-center gap-2 px-6 py-3 text-sm">
+            <Home className="w-4 h-4" />
+            Go Home
+          </Link>
+          <button onClick={() => history.back()} className="button-outline inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold">
+            <ArrowLeft className="w-4 h-4" />
+            Go Back
+          </button>
         </div>
-    )
+      </div>
+    </main>
+  )
 }
