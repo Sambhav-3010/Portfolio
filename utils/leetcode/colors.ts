@@ -1,10 +1,10 @@
 /**
- * Returns a green-themed background color based on submission count.
+ * Returns Tailwind classes for LeetCode-style activity levels.
  */
-export function getLeetCodeLevelColor(count: number): string {
-  if (count === 0) return "#ebe4d7"
-  if (count <= 2) return "color-mix(in srgb, var(--primary) 30%, #f7f3eb)"
-  if (count <= 5) return "color-mix(in srgb, var(--primary) 50%, #f7f3eb)"
-  if (count <= 9) return "color-mix(in srgb, var(--primary) 70%, #f7f3eb)"
-  return "color-mix(in srgb, var(--primary) 92%, #f7f3eb)"
+export function getLeetCodeLevelClass(count: number): string {
+  if (count === 0) return "bg-[#ebe4d7]"
+  if (count <= 2) return "bg-primary/30"
+  if (count <= 5) return "bg-primary/50"
+  if (count <= 9) return "bg-primary/70"
+  return "bg-primary/90"
 }

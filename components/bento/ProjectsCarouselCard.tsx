@@ -24,7 +24,7 @@ export function ProjectsCarouselCard() {
   return (
     <article
       onClick={() => router.push("/projects")}
-      className="cream-card h-full min-h-[360px] p-6 sm:p-8 cursor-pointer group"
+      className="cream-card h-full p-6 sm:p-8 cursor-pointer group flex flex-col"
     >
       <div className="flex items-center justify-between mb-6">
         <p className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-primary font-semibold">
@@ -36,7 +36,7 @@ export function ProjectsCarouselCard() {
         </span>
       </div>
 
-      <div className="relative h-[280px] sm:h-[320px] rounded-[1.2rem] overflow-hidden border border-border">
+      <div className="relative w-full aspect-video rounded-[1.2rem] overflow-hidden border border-border flex-1 min-h-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -55,7 +55,7 @@ export function ProjectsCarouselCard() {
           </motion.div>
         </AnimatePresence>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#143246]/90 via-[#143246]/28 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-foreground/90 via-foreground/28 to-transparent" />
 
         <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
           <div className="flex items-center gap-2 mb-2">
@@ -76,7 +76,7 @@ export function ProjectsCarouselCard() {
         </div>
       </div>
 
-      <div className="flex justify-center gap-2 mt-5">
+      <div className="flex justify-center gap-2 mt-auto pt-5">
         {projects.map((item, index) => (
           <button
             key={item.slug}

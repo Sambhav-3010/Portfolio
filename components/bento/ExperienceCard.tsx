@@ -1,19 +1,21 @@
 "use client"
 
 import { useRouter } from "next/navigation"
-import { ArrowRight, Briefcase, Calendar, Download, Eye } from "lucide-react"
+import { ArrowRight, Briefcase, Calendar, Eye } from "lucide-react"
 import { experiences } from "@/data/experience"
 import { profile } from "@/data/about"
 import Image from "next/image"
 
 export function ExperienceCard() {
   const router = useRouter()
-  const displayExperiences = experiences.slice(0, 3)
+  const displayExperiences = experiences
+    .filter((exp) => exp.type === "experience" && exp.company !== "ZecBay")
+    .slice(0, 3)
 
   return (
     <article
       onClick={() => router.push("/experience")}
-      className="cream-card h-full min-h-[320px] p-6 sm:p-8 cursor-pointer group"
+      className="cream-card h-full min-h-[320px] p-6 sm:p-8 cursor-pointer group flex flex-col"
     >
       <div className="flex items-center justify-between mb-7">
         <p className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-primary font-semibold">
@@ -25,7 +27,7 @@ export function ExperienceCard() {
         </span>
       </div>
 
-      <div className="relative">
+      <div className="relative flex-1">
         <div className="absolute left-[18px] top-1 bottom-1 border-l border-dashed border-primary/40" />
         <div className="space-y-5">
           {displayExperiences.map((exp) => (
@@ -44,25 +46,16 @@ export function ExperienceCard() {
         </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-3 mt-7 pt-6 border-t border-border">
+      <div className="flex flex-col sm:flex-row gap-3 mt-auto pt-6 border-t border-border">
         <a
           href={profile.resumeViewUrl}
           target="_blank"
           rel="noopener noreferrer"
           onClick={(event) => event.stopPropagation()}
-          className="button-outline inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold"
+          className="button-solid inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm"
         >
           <Eye className="w-4 h-4" />
           View Resume
-        </a>
-        <a
-          href="/assets/resume.pdf"
-          download="resume.pdf"
-          onClick={(event) => event.stopPropagation()}
-          className="button-solid inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm"
-        >
-          <Download className="w-4 h-4" />
-          Download Resume
         </a>
       </div>
     </article>

@@ -5,30 +5,28 @@ import { profile } from "@/data/about"
 
 export function ContactCard() {
   return (
-    <article className="cream-card p-6">
-      <div className="flex items-center gap-2 mb-4">
-        <MessageCircle className="w-4 h-4 text-primary" />
-        <p className="text-sm uppercase tracking-[0.18em] text-primary font-semibold">Start by saying hi</p>
+    <article className="cream-card h-full p-6">
+      <div className="flex items-center gap-2 mb-3">
+        <MessageCircle className="h-3.5 w-3.5 text-primary" />
+        <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">Start by saying hi</p>
       </div>
 
-      <h3 className="text-3xl font-extrabold leading-tight mb-2">Let&apos;s make something amazing together.</h3>
-      <p className="text-muted-foreground leading-relaxed mb-5">
-        Open to ideas, collaborations, and meaningful products.
-      </p>
+      <h3 className="text-[2rem] font-extrabold leading-tight mb-2">Let&apos;s build something great.</h3>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">Open to collaborations and product ideas.</p>
 
       <div className="flex flex-col gap-3">
         <a
           href={`mailto:${profile.email}`}
-          className="button-solid inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm"
+          className="button-solid inline-flex items-center justify-center gap-1.5 px-4 py-2 text-sm"
         >
-          <Mail className="w-4 h-4" />
+          <Mail className="h-3.5 w-3.5" />
           Email Me
         </a>
         <a
           href={`tel:${profile.phone}`}
-          className="button-outline inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold"
+          className="button-outline inline-flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-semibold"
         >
-          <Phone className="w-4 h-4" />
+          <Phone className="h-3.5 w-3.5" />
           Call Me
         </a>
       </div>

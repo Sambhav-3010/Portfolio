@@ -4,8 +4,13 @@ export const profile = {
     location: "Mumbai, India",
     bio: `Coding enthusiast building web applications. Working with Java, JavaScript, MERN, Next.js, and currently learning Blockchain development on Ethereum. Always learning and exploring new tools.`,
     bioPoints: [
-        "CS student exploring full-stack development.",
-        "Learning by building."
+        "Building full-stack web applications using the MERN stack, Next.js, and TypeScript with a focus on clean, scalable architecture.",
+        "Developing products for platforms like Shopify, Slack, Trello, and n8n — shipping real apps used by real users.",
+        "Exploring Blockchain development on Ethereum with Solidity, Hardhat, and smart contract testing.",
+        "Building e-commerce platforms, expense trackers, travel planners, and disaster management tools end-to-end.",
+        "Leading engineering teams — Co-Lead at Somaiya ML Research Association, mentoring juniors in web development and Git workflows.",
+        "Integrating APIs (SerpAPI, Gemini AI, Socket.io) and working with databases like MongoDB, PostgreSQL, Prisma, and Firebase.",
+        "Deploying and managing apps with Docker, AWS, Vercel, and CI/CD pipelines for production-ready delivery."
     ],
     tagline: "Learning, building, improving.",
     availability: "Looking for new opportunities",
@@ -15,12 +20,12 @@ export const profile = {
     socials: {
         github: "https://github.com/Sambhav-3010",
         linkedin: "https://www.linkedin.com/in/sambhav-mani-tripathi",
-        twitter: "",
-        instagram: "",
+        twitter: "https://x.com/Sambhav_3010",
+        instagram: "https://www.instagram.com/hey.sambhav30",
     },
-    resumeUrl: "/assets/resume.pdf",
-    resumeViewUrl: "https://drive.google.com/file/d/1yXq9GEZygoNsDrafBqR1urNKOCjQowUF/view?usp=sharing",
-    avatarUrl: "/sambhav_portfolio.jpg",
+    resumeViewUrl: "https://drive.google.com/file/d/1XYryZwEe-x4e_-4hd6oKY6wLs9zKWAJV/view",
+    avatarUrl: "/sambhav_portfolio.png",
+    avatar: "/sambhav_portfolio.jpg",
     education: {
         college: "KJ Somaiya College of Engineering",
         degree: "B.Tech, Computer Engineering",

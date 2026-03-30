@@ -5,7 +5,7 @@ import { LeetCodeHeatmapGraph } from "@/components/leetcode/LeetCodeHeatmapGraph
 import type { HeatMapDetail, LeetCodeStats } from "@/utils/leetcode"
 import { fetchHeatMap, fetchStats } from "@/utils/leetcode"
 
-const LEETCODE_USERNAME = "user5119TK"
+const LEETCODE_USERNAME = "sambhav_3010"
 
 export function LeetCodeContributions() {
   const [heatmap, setHeatmap] = useState<HeatMapDetail[] | null>(null)
@@ -27,7 +27,7 @@ export function LeetCodeContributions() {
   const totalSubmissions = heatmap?.reduce((sum, day) => sum + day.submissionCount, 0) ?? 0
 
   return (
-    <section className="hidden md:block w-full max-w-6xl mx-auto px-4 sm:px-6 pt-2 pb-8 sm:pb-14">
+    <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 pt-2 pb-8 sm:pb-14">
       <div className="cream-card p-6 sm:p-8">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
           <div>

@@ -27,7 +27,7 @@ export function Contributions() {
   }, [])
 
   return (
-    <section className="hidden md:block w-full max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-6">
+    <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-6">
       <div className="cream-card p-6 sm:p-8">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
           <div>

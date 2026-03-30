@@ -9,20 +9,26 @@ import { ContactCard } from "./bento/ContactCard"
 export function BentoSections() {
   return (
     <section id="bento" className="w-full max-w-6xl mx-auto px-4 sm:px-6 pb-10 sm:pb-16">
-      <div className="relative">
-        <div className="absolute left-1/2 top-0 bottom-0 hidden lg:block w-2 bg-secondary/90 rounded-full -translate-x-1/2" />
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
-          <div className="lg:col-span-4">
-            <AboutCard />
-          </div>
-          <div className="lg:col-span-8">
-            <ExperienceCard />
-          </div>
-          <div className="lg:col-span-8">
-            <ProjectsCarouselCard />
-          </div>
-          <div className="lg:col-span-4 space-y-5 sm:space-y-6">
+      {/* Row 1: About + Experience — same height on desktop, stacked on mobile */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 sm:gap-6" style={{ gridAutoRows: "1fr" }}>
+        <div className="md:col-span-1 lg:col-span-4">
+          <AboutCard />
+        </div>
+        <div className="md:col-span-1 lg:col-span-8">
+          <ExperienceCard />
+        </div>
+      </div>
+
+      {/* Row 2: Projects + Contact/TechStack */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 mt-5 sm:mt-6">
+        <div className="lg:col-span-8">
+          <ProjectsCarouselCard />
+        </div>
+        <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5 sm:gap-6">
+          <div className="h-full">
             <ContactCard />
+          </div>
+          <div className="h-full">
             <TechStackCard />
           </div>
         </div>

@@ -1,7 +1,8 @@
-import { ArrowLeft, Download, Briefcase, Users, Calendar, MapPin } from "lucide-react"
+import { ArrowLeft, Eye, Briefcase, Users, Calendar, MapPin } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { experiences } from "@/data/experience"
+import { profile } from "@/data/about"
 
 export default function ExperiencePage() {
   const workExperiences = experiences.filter((exp) => exp.type === "experience")
@@ -63,11 +64,11 @@ export default function ExperiencePage() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-primary font-semibold mb-3">Career Path</p>
-            <h1 className="section-title !text-[clamp(2.2rem,4vw,3.4rem)]">Experience & Leadership</h1>
+            <h1 className="section-title text-[clamp(1.8rem,4vw,3.4rem)]!">Experience & Leadership</h1>
           </div>
-          <a href="/assets/resume.pdf" download="resume.pdf" className="button-solid inline-flex items-center gap-2 px-6 py-3 text-sm">
-            <Download className="w-4 h-4" />
-            Download Resume
+          <a href={profile.resumeViewUrl} target="_blank" rel="noopener noreferrer" className="button-solid inline-flex items-center gap-2 px-6 py-3 text-sm">
+            <Eye className="w-4 h-4" />
+            View Resume
           </a>
         </div>
 

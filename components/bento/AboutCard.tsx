@@ -7,7 +7,7 @@ import { profile } from "@/data/about"
 export function AboutCard() {
   return (
     <Link href="/about" className="group block h-full">
-      <article className="cream-card h-full min-h-[320px] p-6 sm:p-8 flex flex-col">
+      <article className="cream-card h-full min-h-80 p-6 sm:p-8 flex flex-col">
         <div className="flex items-center justify-between mb-6">
           <p className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-primary font-semibold">
             <User className="w-4 h-4" />
@@ -23,18 +23,7 @@ export function AboutCard() {
           I help with finding practical solutions and building digital products that solve real user and business problems.
         </p>
 
-        <div className="mt-auto grid grid-cols-2 gap-4 pt-4 border-t border-border">
-          <div>
-            <p className="text-3xl font-extrabold">285+</p>
-            <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">Projects Crafted</p>
-          </div>
-          <div>
-            <p className="text-3xl font-extrabold">190+</p>
-            <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">Happy Clients</p>
-          </div>
-        </div>
-
-        <div className="mt-5 p-4 rounded-2xl bg-accent/60 border border-primary/20">
+        <div className="mt-auto p-4 rounded-2xl bg-accent/60 border border-primary/20">
           <p className="inline-flex items-center gap-2 font-semibold">
             <GraduationCap className="w-4 h-4 text-primary" />
             {profile.education.college}

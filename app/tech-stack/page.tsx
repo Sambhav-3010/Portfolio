@@ -115,7 +115,7 @@ export default function TechStackPage() {
 
         <div className="mb-10">
           <p className="text-sm uppercase tracking-[0.2em] text-primary font-semibold mb-3">Toolkit</p>
-          <h1 className="section-title !text-[clamp(2.2rem,4vw,3.4rem)]">Tech Stack</h1>
+          <h1 className="section-title text-[clamp(1.8rem,4vw,3.4rem)]!">Tech Stack</h1>
           <p className="text-muted-foreground text-lg mt-3">Technologies and tools I use to bring ideas to life</p>
         </div>
 
@@ -123,7 +123,7 @@ export default function TechStackPage() {
           {techCategories.map((category) => (
             <article key={category.title} className="cream-card p-6 sm:p-7">
               <h2 className="text-2xl font-extrabold mb-5">{category.title}</h2>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {category.items.map((item) => (
                   <div
                     key={`${category.title}-${item.name}`}

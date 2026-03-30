@@ -44,7 +44,7 @@ export function ProjectContent({ project }: { project: Project }) {
 
         <section className="cream-card p-6 sm:p-8">
           <p className="text-sm uppercase tracking-[0.2em] text-primary font-semibold mb-3">Project Detail</p>
-          <h1 className="section-title !text-[clamp(2.1rem,4.8vw,4.2rem)] mb-4">{project.title}</h1>
+          <h1 className="section-title text-[clamp(1.8rem,4.8vw,4.2rem)]! mb-4">{project.title}</h1>
 
           {project.status && (
             <StatusPanel status={project.status} message={project.statusMessage} />
@@ -60,7 +60,7 @@ export function ProjectContent({ project }: { project: Project }) {
         </section>
 
         <section className="cream-card p-3 sm:p-4">
-          <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-border bg-[#122f3e]">
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-border bg-foreground">
             <Carousel
               setApi={setApi}
               className="w-full h-full"
@@ -86,8 +86,8 @@ export function ProjectContent({ project }: { project: Project }) {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-4" />
-              <CarouselNext className="right-4" />
+              <CarouselPrevious className="left-2 sm:left-4" />
+              <CarouselNext className="right-2 sm:right-4" />
               <div className="absolute bottom-4 right-4 z-20 rounded-full bg-background/95 px-3 py-1 text-xs font-semibold border border-border">
                 {current} / {count}
               </div>
