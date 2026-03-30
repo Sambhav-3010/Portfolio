@@ -1,6 +1,6 @@
 "use client"
 
-import { MessageCircle, Mail, Phone } from "lucide-react"
+import { MessageCircle, Mail } from "lucide-react"
 import { profile } from "@/data/about"
 
 export function ContactCard() {
@@ -22,13 +22,7 @@ export function ContactCard() {
           <Mail className="h-3.5 w-3.5" />
           Email Me
         </a>
-        <a
-          href={`tel:${profile.phone}`}
-          className="button-outline inline-flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-semibold"
-        >
-          <Phone className="h-3.5 w-3.5" />
-          Call Me
-        </a>
+
       </div>
     </article>
   )

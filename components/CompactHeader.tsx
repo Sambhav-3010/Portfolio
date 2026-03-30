@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Github, Linkedin, Mail, Phone, Eye, Menu, X, Twitter, Instagram } from "lucide-react"
+import { Github, Linkedin, Mail, Eye, Menu, X, Twitter, Instagram } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { profile } from "@/data/about"
@@ -44,12 +44,7 @@ export function CompactHeader() {
             ))}
           </nav>
 
-          <a href={`tel:${profile.phone}`} className="hidden lg:inline-flex ml-auto items-center justify-center gap-2 text-sm font-semibold text-foreground">
-            <span>{profile.phone}</span>
-            <span className="w-9 h-9 rounded-full bg-accent text-primary flex items-center justify-center">
-              <Phone className="w-4 h-4" />
-            </span>
-          </a>
+
         </div>
 
         {/* Mobile nav dropdown */}
@@ -65,10 +60,7 @@ export function CompactHeader() {
                 {item.label}
               </Link>
             ))}
-            <a href={`tel:${profile.phone}`} className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-foreground mt-2">
-              <Phone className="w-4 h-4 text-primary" />
-              <span>{profile.phone}</span>
-            </a>
+
           </nav>
         )}
       </header>

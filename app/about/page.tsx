@@ -1,4 +1,4 @@
-import { ArrowLeft, Github, Linkedin, Twitter, Instagram, Mail, MapPin, Phone, GraduationCap, Sparkles } from "lucide-react"
+import { ArrowLeft, Github, Linkedin, Twitter, Instagram, Mail, MapPin, GraduationCap, Sparkles } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { profile } from "@/data/about"
@@ -27,7 +27,7 @@ export default function AboutPage() {
 
               <div className="flex flex-wrap gap-2 pt-1">
                 <a href={`mailto:${profile.email}`} className="button-solid inline-flex items-center gap-2 px-4 py-2 text-sm"><Mail className="w-4 h-4" />Email</a>
-                <a href={`tel:${profile.phone}`} className="button-outline inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold"><Phone className="w-4 h-4" />Call</a>
+
                 {profile.socials.github && <a href={profile.socials.github} target="_blank" rel="noopener noreferrer" className="button-outline inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold"><Github className="w-4 h-4" />GitHub</a>}
                 {profile.socials.linkedin && <a href={profile.socials.linkedin} target="_blank" rel="noopener noreferrer" className="button-outline inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold"><Linkedin className="w-4 h-4" />LinkedIn</a>}
                 {profile.socials.twitter && <a href={profile.socials.twitter} target="_blank" rel="noopener noreferrer" className="button-outline inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold"><Twitter className="w-4 h-4" />Twitter</a>}

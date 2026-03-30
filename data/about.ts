@@ -16,7 +16,6 @@ export const profile = {
     availability: "Looking for new opportunities",
     interest: "Crafting web products with modern tech",
     email: "sambhavmani.tripathi@gmail.com",
-    phone: "+917007231054",
     socials: {
         github: "https://github.com/Sambhav-3010",
         linkedin: "https://www.linkedin.com/in/sambhav-mani-tripathi",
