@@ -5,7 +5,7 @@ export const experiences = [
         type: "experience",
         roles: [
             {
-                period: "October 2025 - Present",
+                period: "October 2025 - May 2026",
                 title: "SDE Intern",
                 description: [
                     "Developing applications for online platforms like Slack and Trello using multiple frameworks.",
