@@ -1,17 +1,17 @@
 export const profile = {
     name: "Sambhav Mani Tripathi",
-    role: "Software Engineer (SWE)",
+    role: "Full Stack Developer",
     location: "Mumbai, India",
-    bio: `Coding enthusiast building web applications. Working with Java, JavaScript, MERN, Next.js, and currently learning Blockchain development on Ethereum. Always learning and exploring new tools.`,
+    bio: `Full Stack Developer and Computer Engineering student at K.J. Somaiya School of Engineering. Specializes in building scalable web applications using the MERN stack and Next.js, with hands-on experience in Web3 technologies including Ethereum and Solidity-based smart contract development`,
     bioPoints: [
-        "Building full stack web applications using the MERN stack, Next.js, and TypeScript with a focus on clean, scalable architecture",
-        "Learning devops and cloud computing to deploy and manage applications on platforms like AWS, Azure, and GCP",
-        "Exploring Blockchain development on Ethereum with Solidity, Hardhat, and smart contract testing.",
-        "Co-Lead at Somaiya ML Research Association, mentoring juniors in web development and Git workflows."
+        "Building production-grade full stack applications using the MERN stack and Next.js, with a focus on scalable architecture and clean code",
+        "Actively exploring Web3 and blockchain development on Ethereum using Solidity, Hardhat, and smart contract testing frameworks",
+        "Experienced in deploying and managing applications on cloud platforms and VPS environments including Hostinger, Vercel, and Render and AWS",
+        "Co-Lead at Somaiya Machine Learning Research Association, spearheading council events, workshops, and the official council website"
     ],
-    tagline: "Learning, building, improving.",
-    availability: "Looking for new opportunities",
-    interest: "Crafting web products with modern tech",
+    tagline: "Building things that matter in the web and Web3 space",
+    availability: "Open to new opportunities",
+    interest: "Crafting scalable web and Web3 products",
     email: "sambhavmani.tripathi@gmail.com",
     socials: {
         github: "https://github.com/Sambhav-3010",
