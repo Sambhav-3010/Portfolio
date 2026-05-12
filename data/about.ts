@@ -19,7 +19,7 @@ export const profile = {
         twitter: "https://x.com/Sambhav_3010",
         instagram: "https://www.instagram.com/hey.sambhav30",
     },
-    resumeViewUrl: "https://drive.google.com/file/d/1XYryZwEe-x4e_-4hd6oKY6wLs9zKWAJV/view",
+    resumeViewUrl: "https://drive.google.com/file/d/1KCqPnYp4R4IeagPND41TehEntqcM11hh/view?usp=drive_link",
     avatarUrl: "/sambhav_portfolio.png",
     avatar: "/sambhav_portfolio.jpg",
     education: {
