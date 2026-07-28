@@ -11,7 +11,9 @@ export default function ExperiencePage() {
   const renderExperienceCard = (exp: (typeof experiences)[0]) => (
     <article key={`${exp.company}-${exp.type}`} className="cream-card p-6 sm:p-8">
       <div className="flex items-start gap-4 mb-6">
-        <Image src={exp.image} alt={exp.company} width={52} height={52} className="w-12 h-12 rounded-xl border border-border object-cover" />
+        <div className="relative size-12 shrink-0 overflow-hidden rounded-xl border border-border bg-background">
+          <Image src={exp.image} alt={exp.company} fill sizes="48px" className="object-contain p-1" />
+        </div>
         <div>
           <h3 className="text-2xl sm:text-3xl font-extrabold">{exp.company}</h3>
           <p className="inline-flex items-center gap-1.5 mt-1 text-sm text-muted-foreground">

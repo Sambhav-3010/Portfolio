@@ -1,5 +1,22 @@
 export const experiences = [
     {
+        company: "Rakuten Symphony",
+        location: "On-Site, Banglore, India",
+        type: "experience",
+        roles: [
+            {
+                period: "May 2026 - July 2026",
+                title: "Intern Technical",
+                description: [
+                    "Automated SLA calculation across APIs, microservices, and critical jobs for multiple products by building a unified APM observability dashboard, eliminating the manual effort L1 and L2 engineers previously spent computing availability individually per service",
+                    "Consolidated availability tracking across all product services into a single dashboard with 30-day SLA history, enabling engineers to assess service health instantly instead of aggregating data manually across systems",
+                ],
+                skills: ["Java", "SpringBoot", "Maven", "Symlab", "Apache Spark", "Prometheus", "Kubernetes", "Docker", "APM Observability"],
+            },
+        ],
+        image: "/assets/company/rakuten.png",
+    },
+    {
         company: "Explified",
         location: "Remote",
         type: "experience",
