@@ -28,12 +28,12 @@ export function ExperienceCard() {
       </div>
 
       <div className="relative flex-1">
-        <div className="absolute left-[18px] top-1 bottom-1 border-s border-dashed border-primary/40 max-h-[200px]" />
+        <div className="absolute left-[18px] top-6 bottom-1 border-s border-dashed border-primary/40 max-h-[200px]" />
         <div className="space-y-5">
           {displayExperiences.map((exp) => (
             <div key={`${exp.company}-${exp.roles[0].period}`} className="relative pl-11">
-              <span className="absolute left-0 top-1.5 w-9 h-9 rounded-full bg-accent border border-primary/35 flex items-center justify-center overflow-hidden">
-                <Image src={exp.image} alt={exp.company} width={30} height={30} className="object-cover w-full h-full" />
+              <span className="absolute left-0 top-1.5 flex size-9 items-center justify-center overflow-hidden rounded-full border border-primary/35 bg-accent">
+                <Image src={exp.image} alt={exp.company} fill sizes="36px" className="object-contain p-1" />
               </span>
               <h4 className="text-xl font-bold leading-tight">{exp.company}</h4>
               <p className="text-sm text-muted-foreground mt-1">{exp.roles[0].title}</p>
